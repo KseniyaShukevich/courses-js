@@ -30,6 +30,7 @@ $button-dark-gray: #292929;
 
 %container {
     width: 1200px;
+    height: 100%;
     margin: 0 auto;
 }
 
@@ -42,28 +43,31 @@ $button-dark-gray: #292929;
     height: 100vh;
     background-image: url(../../assets/images/start-screen-background.jpg);
     background-size: cover;
+    .container-screen {
+        @extend %container;
+    }
 }
 
 .section-about {
-    height: 588px;
+    height: 63.57vh;
 }
 
 .section-pets {
-    height: 862px;
+    height: 93.19vh;
     background-color: $pets-card-background;
 }
 
 .section-help {
-    height: 611px;
+    height: 66.4vh;
 }
 
 .section-donation {
-    height: 462px;
+    height: 50.3vh;
     background-color: $base-light-gray;
 }
 
 .footer {
-    height: 354px;
+    height: 38.4vh;
     background-image: url(../../assets/images/footer-background.jpg);
     background-size: cover;
 }
