@@ -12,31 +12,47 @@ $donation-description: #B2B2B2;
 $text-middle-gray: #545454;
 $button-dark-gray: #292929;
 
-@mixin fontMain($fontSize: 14px, $lSpacing: 0px, $lHeight: auto) {
+@mixin fontMain($fontSize: 1.2rem, $lSpacing: 0px, $lHeight: auto, $tColor: $text-middle-gray) {
     font-family: Arial;
     font-weight: regular;
     font-size: $fontSize;
     letter-spacing: $lSpacing;
     line-height: $lHeight;
+    color: $tColor;
 }
 
-@mixin fontDecor ($fontSize: 14px, $lSpacing: 0px, $lHeight: auto) {
+@mixin fontDecor ($fontSize: 1.2rem, $lSpacing: 0px, $lHeight: auto, $tColor: $text-middle-gray) {
     font-family: Georgia;
     font-weight: regular;
     font-size: $fontSize;
     letter-spacing: $lSpacing;
     line-height: $lHeight;
+    color: $tColor;
+}
+
+@mixin flex ($jContent: space-between, $tDirection: row) {
+    display: flex;
+    justify-content: $jContent;
+    flex-direction: $tDirection;
+}
+
+@mixin button ($bWidth: 10.5vw, $bHeight: 5.6vh) {
+    width: $bWidth;
+    height: $bHeight;
+    background-color: $base-pink;
+    border: none;
+    border-radius: 26px;
+    &:hover {
+        background-color: $base-pink-hover;
+        cursor: pointer;
+    }
+    @include fontDecor($fontSize: 1rem, $tColor: $base-dark-gray);
 }
 
 %container {
-    width: 1200px;
+    width: 62vw;
     height: 100%;
     margin: 0 auto;
-}
-
-%flex {
-    display: flex;
-    justify-content: space-between;
 }
 
 .section-screen {
@@ -45,29 +61,111 @@ $button-dark-gray: #292929;
     background-size: cover;
     .container-screen {
         @extend %container;
+        @include flex ($tDirection: column);
+    }
+}
+
+.header {
+    height: 8vh;
+    margin-top: 5.5vh;
+    @include flex();
+    .logo-screen {
+        width: 15.83vw;
+        height: 100%;
+        .title-screen {
+            @include fontDecor ($fontSize: 1.5rem, $lHeight: 0.6rem, $tColor: $base-pink);
+        }
+        .subtitle-screen {
+            @include fontMain($fontSize: 0.79rem, $tColor: $base-white);
+        }
+    }
+    .nav-screen {
+        width: 23.8vw;
+        @include flex();
+        align-items: center;
+        .container-link-screen {
+            height: 1rem;
+            .link-screen{
+                @include fontMain($fontSize: 0.77em, $tColor: $base-gray);
+                text-decoration: none;
+                &:hover {
+                    color: $base-white;
+                    cursor: pointer;
+                }
+            }
+            .link-hover {
+                width: 100%;
+                margin-top: 0.1rem;
+                border-radius: 20%;
+                border: 1px solid $base-pink;
+            }
+        }
+        }
+}
+
+.container-screen-content {
+    height: 78.7vh;
+    @include flex ();
+    align-items: center;
+    .content-screen {
+        width: 24vw;
+        height: 43vh;
+        .heading-content-screen {
+            width: 19vw;
+            margin-bottom: 1.4rem;
+            @include fontDecor ($fontSize: 2.2rem, $tColor: $base-white, $lHeight: 2.8rem);
+        }
+        .text-content-screen {
+            @include fontMain($fontSize: 0.73rem, $tColor: $base-gray, $lHeight: 1.2rem);
+        }
+        .button-screen {
+           @include button();
+           margin-top: 1.2rem;
+        }
+    }
+    .image-screen {
+        width: 36vw;
+        height: 79vh;
+        background-image: url(../../assets/images/start-screen-puppy.png);
+        background-size: cover;
     }
 }
 
 .section-about {
     height: 63.57vh;
+    .container-about {
+        @extend %container;
+    }
 }
 
 .section-pets {
     height: 93.19vh;
     background-color: $pets-card-background;
+    .container-pets {
+        @extend %container;
+    }
 }
 
 .section-help {
     height: 66.4vh;
+    .container-help {
+        @extend %container;
+    }
 }
 
 .section-donation {
     height: 50.3vh;
     background-color: $base-light-gray;
+    .container-donation {
+        @extend %container;
+    }
 }
 
 .footer {
     height: 38.4vh;
     background-image: url(../../assets/images/footer-background.jpg);
     background-size: cover;
+    .container-footer {
+        @extend %container;
+    }
 }
