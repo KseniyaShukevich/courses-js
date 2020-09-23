@@ -1,0 +1,69 @@
+$base-pink: #F1CDB3;
+$base-white: white;
+$base-gray: #CDCDCD;
+$pets-card-background: #FAFAFA;
+$about-subheading: #4C4C4C;
+$base-light-gray: #F6F6F6;
+$pets-arrow: #444444;
+$base-dark-gray: #292929;
+$base-pink-hover: #FDDCC4;
+$donation-credit-card-number: #292929;
+$donation-description: #B2B2B2;
+$text-middle-gray: #545454;
+$button-dark-gray: #292929;
+
+@mixin fontMain($fontSize: 14px, $lSpacing: 0px, $lHeight: auto) {
+    font-family: Arial;
+    font-weight: regular;
+    font-size: $fontSize;
+    letter-spacing: $lSpacing;
+    line-height: $lHeight;
+}
+
+@mixin fontDecor ($fontSize: 14px, $lSpacing: 0px, $lHeight: auto) {
+    font-family: Georgia;
+    font-weight: regular;
+    font-size: $fontSize;
+    letter-spacing: $lSpacing;
+    line-height: $lHeight;
+}
+
+%container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+%flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.section-screen {
+    height: 100vh;
+    background-image: url(../../assets/images/start-screen-background.jpg);
+    background-size: cover;
+}
+
+.section-about {
+    height: 588px;
+}
+
+.section-pets {
+    height: 862px;
+    background-color: $pets-card-background;
+}
+
+.section-help {
+    height: 611px;
+}
+
+.section-donation {
+    height: 462px;
+    background-color: $base-light-gray;
+}
+
+.footer {
+    height: 354px;
+    background-image: url(../../assets/images/footer-background.jpg);
+    background-size: cover;
+}

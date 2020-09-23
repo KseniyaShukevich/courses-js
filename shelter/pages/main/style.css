@@ -1,0 +1,31 @@
+.section-screen {
+  height: 100vh;
+  background-image: url(../../assets/images/start-screen-background.jpg);
+  background-size: cover;
+}
+
+.section-about {
+  height: 588px;
+}
+
+.section-pets {
+  height: 862px;
+  background-color: #FAFAFA;
+}
+
+.section-help {
+  height: 611px;
+}
+
+.section-donation {
+  height: 462px;
+  background-color: #F6F6F6;
+}
+
+.footer {
+  height: 354px;
+  background-image: url(../../assets/images/footer-background.jpg);
+  background-size: cover;
+}
+
+/*# sourceMappingURL=style.css.map */
