@@ -14,7 +14,7 @@ $button-dark-gray: #292929;
 
 @mixin fontMain($fontSize: 1.2rem, $lSpacing: 0px, $lHeight: auto, $tColor: $text-middle-gray) {
     font-family: Arial;
-    font-weight: regular;
+    font-weight: lighter;
     font-size: $fontSize;
     letter-spacing: $lSpacing;
     line-height: $lHeight;
@@ -23,7 +23,7 @@ $button-dark-gray: #292929;
 
 @mixin fontDecor ($fontSize: 1.2rem, $lSpacing: 0px, $lHeight: auto, $tColor: $text-middle-gray) {
     font-family: Georgia;
-    font-weight: regular;
+    font-weight: lighter;
     font-size: $fontSize;
     letter-spacing: $lSpacing;
     line-height: $lHeight;
@@ -46,7 +46,7 @@ $button-dark-gray: #292929;
         background-color: $base-pink-hover;
         cursor: pointer;
     }
-    @include fontDecor($fontSize: 1rem, $tColor: $base-dark-gray);
+    @include fontDecor($fontSize: 2.1vh, $tColor: $base-dark-gray);
 }
 
 %container {
@@ -73,10 +73,10 @@ $button-dark-gray: #292929;
         width: 15.83vw;
         height: 100%;
         .title-screen {
-            @include fontDecor ($fontSize: 1.5rem, $lHeight: 0.6rem, $tColor: $base-pink);
+            @include fontDecor ($fontSize: 3.5vh, $lHeight: 0.6rem, $tColor: $base-pink, $lSpacing: 0.1vw);
         }
         .subtitle-screen {
-            @include fontMain($fontSize: 0.79rem, $tColor: $base-white);
+            @include fontMain($fontSize: 1.5vh, $tColor: $base-white, $lSpacing: 0.06vw);
         }
     }
     .nav-screen {
@@ -84,9 +84,9 @@ $button-dark-gray: #292929;
         @include flex();
         align-items: center;
         .container-link-screen {
-            height: 1rem;
+            height: 2.2vh;
             .link-screen{
-                @include fontMain($fontSize: 0.77em, $tColor: $base-gray);
+                @include fontMain($fontSize: 1.7vh, $tColor: $base-gray);
                 text-decoration: none;
                 &:hover {
                     color: $base-white;
@@ -95,7 +95,7 @@ $button-dark-gray: #292929;
             }
             .link-hover {
                 width: 100%;
-                margin-top: 0.1rem;
+                margin-top: 0.2vh;
                 border-radius: 20%;
                 border: 1px solid $base-pink;
             }
@@ -112,15 +112,15 @@ $button-dark-gray: #292929;
         height: 43vh;
         .heading-content-screen {
             width: 19vw;
-            margin-bottom: 1.4rem;
-            @include fontDecor ($fontSize: 2.2rem, $tColor: $base-white, $lHeight: 2.8rem);
+            margin-bottom: 3.2vh;
+            @include fontDecor ($fontSize: 4.8vh, $tColor: $base-white, $lHeight: 6.1vh);
         }
         .text-content-screen {
-            @include fontMain($fontSize: 0.73rem, $tColor: $base-gray, $lHeight: 1.2rem);
+            @include fontMain($fontSize: 1.63vh, $tColor: $base-gray, $lHeight: 1.2rem);
         }
         .button-screen {
            @include button();
-           margin-top: 1.2rem;
+           margin-top: 2.5vh;
         }
     }
     .image-screen {
