@@ -36,7 +36,7 @@ $button-dark-gray: #292929;
     flex-direction: $tDirection;
 }
 
-@mixin button ($bWidth: 10.5vw, $bHeight: 5.6vh) {
+@mixin button ($bWidth: 10.4vw, $bHeight: 5.6vh) {
     width: $bWidth;
     height: $bHeight;
     background-color: $base-pink;
@@ -46,7 +46,34 @@ $button-dark-gray: #292929;
         background-color: $base-pink-hover;
         cursor: pointer;
     }
-    @include fontDecor($fontSize: 2.1vh, $tColor: $base-dark-gray);
+    @include fontDecor($fontSize: 2vh, $tColor: $base-dark-gray, $lSpacing: 0.02vw);
+}
+
+@mixin buttonBorder ($bWidth: 9.4vw, $bHeight: 5.6vh) {
+    width: $bWidth;
+    height: $bHeight;
+    border: 2px solid $base-pink;
+    border-radius: 26px;
+    &:hover {
+        background-color: $base-pink-hover;
+        border-color: $base-pink-hover;
+        cursor: pointer;
+    }
+    @include fontDecor($fontSize: 2vh, $tColor: $base-dark-gray, $lSpacing: 0.02vw);
+}
+
+@mixin arrow() {
+    height: 5vh;
+    width: 2.4vw;
+    border-radius: 100%;
+    border: 2px solid $base-pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        background-color: $base-pink;
+        cursor: pointer;
+    }
 }
 
 %container {
@@ -124,7 +151,7 @@ $button-dark-gray: #292929;
         }
     }
     .image-screen {
-        width: 36vw;
+        width: 76vh;
         height: 79vh;
         background-image: url(../../assets/images/start-screen-puppy.png);
         background-size: cover;
@@ -144,7 +171,7 @@ $button-dark-gray: #292929;
             align-items: center;
             .image {
                 height: 44.4vh;
-                width: 15.2vw;
+                width: 32.2vh;
             }
             .content-about {
                 height: 50vh;
@@ -167,9 +194,77 @@ $button-dark-gray: #292929;
 
 .section-pets {
     height: 93.19vh;
-    background-color: $pets-card-background;
+    background-color: $base-light-gray;
     .container-pets {
         @extend %container;
+            display: flex;
+            align-items: center;
+        .container-content-pets {
+            height: 76vh;
+            width: 100%;
+            @include flex($tDirection: column);
+            align-items: center;
+            .heading-pets {
+                display: block;
+                width: 22vw;
+                height: 10vh;
+                margin-top: 0;
+                text-align: center;
+                @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh);
+            }
+            .container-cards-pets {
+                width: 100%;
+                height: 46vh;
+                @include flex();
+                align-items: center;
+                .slider-pets-arrow {
+                    @include arrow();
+                }
+                .container-pets {
+                    @include flex();
+                    width: 51vw;
+                    .card-pet {
+                        height: 46vh;
+                        width: 14vw;
+                        background-color: $pets-card-background;
+                        @include flex($tDirection: column);
+                        align-items: center;
+                        border-radius: 10px;
+                        &:hover {
+                            cursor: pointer;
+                            box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+                        }
+                        .image-pet-Katrine {
+                            margin-top: 3vh;
+                            height: 26vh;
+                            width: 14vh;
+                        }
+                        .image-pet-Jennifer {
+                            margin-top: 3vh;
+                            height: 26vh;
+                            width: 19vh;
+                        }
+                        .image-pet-Woody {
+                            margin-top: 3vh;
+                            height: 26vh;
+                            width: 22vh;
+                        }
+                        .pet-name {
+                            @include fontDecor($tColor: $text-middle-gray, $fontSize: 2.2vh, $lSpacing: 0.05vw);
+                        }
+                        .button-pet {
+                            @include buttonBorder();
+                            background-color: inherit;
+                            margin-bottom: 2.3vh;
+                        }
+                    }
+                }
+            }
+            .button-pets {
+                @include button($bWidth: 13vw);
+                margin-top: 3.2vh;
+            }
+        }
     }
 }
 
