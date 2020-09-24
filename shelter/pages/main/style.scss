@@ -134,7 +134,34 @@ $button-dark-gray: #292929;
 .section-about {
     height: 63.57vh;
     .container-about {
+        @include flex();
+        justify-content: center;
         @extend %container;
+        .container-content-about {
+            @include flex();
+            height: auto;
+            width: 43.5vw;
+            align-items: center;
+            .image {
+                height: 44.4vh;
+                width: 15.2vw;
+            }
+            .content-about {
+                height: 50vh;
+                width: 22vw;
+                padding-top: 4.5vh;
+                .heading-about {
+                    display: block;
+                    width: 20vw;
+                    @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh);
+                    padding-bottom: 0.5vh;
+                }
+                .text-content-about {
+                    @include fontMain($fontSize: 1.61vh, $tColor: $about-subheading, $lHeight: 2.7vh);
+                    padding-bottom: 0.3vh;
+                }
+            }
+        }
     }
 }
 
