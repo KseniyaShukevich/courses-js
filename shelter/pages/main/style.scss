@@ -94,7 +94,7 @@ $button-dark-gray: #292929;
 
 .header {
     height: 8vh;
-    margin-top: 5.5vh;
+    margin-top: 5.6vh;
     @include flex();
     .logo-screen {
         width: 15.83vw;
@@ -122,7 +122,7 @@ $button-dark-gray: #292929;
             }
             .link-hover {
                 width: 100%;
-                margin-top: 0.2vh;
+                margin-top: 0.4vh;
                 border-radius: 20%;
                 border: 1px solid $base-pink;
             }
@@ -136,22 +136,22 @@ $button-dark-gray: #292929;
     align-items: center;
     .content-screen {
         width: 24vw;
-        height: 43vh;
+        height: 45vh;
         .heading-content-screen {
             width: 19vw;
-            margin-bottom: 3.2vh;
+            margin-bottom: 4.6vh;
             @include fontDecor ($fontSize: 4.8vh, $tColor: $base-white, $lHeight: 6.1vh);
         }
         .text-content-screen {
-            @include fontMain($fontSize: 1.63vh, $tColor: $base-gray, $lHeight: 2.8vh);
+            @include fontMain($fontSize: 1.67vh, $tColor: $base-gray, $lHeight: 2.8vh);
         }
         .button-screen {
            @include button();
-           margin-top: 2.5vh;
+           margin-top: 2.4vh;
         }
     }
     .image-screen {
-        width: 76vh;
+        width: 78vh;
         height: 79vh;
         background-image: url(../../assets/images/start-screen-puppy.png);
         background-size: cover;
@@ -159,7 +159,7 @@ $button-dark-gray: #292929;
 }
 
 .section-about {
-    height: 63.57vh;
+    height: 64.6vh;
     .container-about {
         @include flex();
         justify-content: center;
@@ -170,22 +170,21 @@ $button-dark-gray: #292929;
             width: 43.5vw;
             align-items: center;
             .image {
-                height: 44.4vh;
+                height: 45vh;
                 width: 32.2vh;
             }
             .content-about {
                 height: 50vh;
                 width: 22vw;
-                padding-top: 4.5vh;
                 .heading-about {
                     display: block;
                     width: 20vw;
                     @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh);
-                    padding-bottom: 0.5vh;
+                    margin-bottom: 2.5vh;
                 }
                 .text-content-about {
-                    @include fontMain($fontSize: 1.61vh, $tColor: $about-subheading, $lHeight: 2.7vh);
-                    padding-bottom: 0.3vh;
+                    @include fontMain($fontSize: 1.61vh, $tColor: $about-subheading, $lHeight: 2.7vh, $lSpacing: 0.01vw);
+                    margin-bottom: 2.5vh;
                 }
             }
         }
@@ -193,14 +192,14 @@ $button-dark-gray: #292929;
 }
 
 .section-pets {
-    height: 93.19vh;
+    height: 97vh;
     background-color: $base-light-gray;
     .container-pets {
         @extend %container;
             display: flex;
             align-items: center;
         .container-content-pets {
-            height: 76vh;
+            height: 74.5vh;
             width: 100%;
             @include flex($tDirection: column);
             align-items: center;
@@ -208,13 +207,14 @@ $button-dark-gray: #292929;
                 display: block;
                 width: 22vw;
                 height: 10vh;
-                margin-top: 0;
+                margin-top: -2.5vh;
+                margin-bottom: 2.5vh;
                 text-align: center;
                 @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh);
             }
             .container-cards-pets {
                 width: 100%;
-                height: 46vh;
+                height: auto;
                 @include flex();
                 align-items: center;
                 .slider-pets-arrow {
@@ -224,7 +224,7 @@ $button-dark-gray: #292929;
                     @include flex();
                     width: 51vw;
                     .card-pet {
-                        height: 46vh;
+                        height: 48vh;
                         width: 14vw;
                         background-color: $pets-card-background;
                         @include flex($tDirection: column);
@@ -236,17 +236,17 @@ $button-dark-gray: #292929;
                         }
                         .image-pet-Katrine {
                             margin-top: 3vh;
-                            height: 26vh;
-                            width: 14vh;
+                            height: 27vh;
+                            width: 15vh;
                         }
                         .image-pet-Jennifer {
                             margin-top: 3vh;
-                            height: 26vh;
+                            height: 27vh;
                             width: 19vh;
                         }
                         .image-pet-Woody {
                             margin-top: 3vh;
-                            height: 26vh;
+                            height: 27vh;
                             width: 22vh;
                         }
                         .pet-name {
@@ -255,14 +255,15 @@ $button-dark-gray: #292929;
                         .button-pet {
                             @include buttonBorder();
                             background-color: inherit;
-                            margin-bottom: 2.3vh;
+                            margin-bottom: 3.2vh;
                         }
                     }
                 }
             }
             .button-pets {
                 @include button($bWidth: 13vw);
-                margin-top: 3.2vh;
+                margin-top: 3vh;
+
             }
         }
     }
@@ -281,7 +282,7 @@ $button-dark-gray: #292929;
             text-align: center;
             .heading-help {
                 @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh);
-                margin-bottom: -2vh;
+                margin-bottom: -1.8vh;
             }
             .grid {
                 display: grid;
@@ -305,7 +306,7 @@ $button-dark-gray: #292929;
                     margin-top: 4.5vh;
                     grid-column: span 4;
                     .svg-help {
-                        width: 6.5vh;
+                        width: 6.3vh;
                     }
 
                 }
@@ -315,12 +316,12 @@ $button-dark-gray: #292929;
 }
 
 .text-help {
-    margin-top: 2.6vh;
+    margin-top: 3.4vh;
     @include fontDecor($fontSize: 2.2vh, $tColor: $text-middle-gray);
 }
 
 .section-donation {
-    height: 50.3vh;
+    height: 52vh;
     background-color: $base-light-gray;
     .container-donation {
         @extend %container;
@@ -328,7 +329,7 @@ $button-dark-gray: #292929;
 }
 
 .footer {
-    height: 38.4vh;
+    height: 39vh;
     background-image: url(../../assets/images/footer-background.jpg);
     background-size: cover;
     .container-footer {
