@@ -321,15 +321,63 @@ $button-dark-gray: #292929;
 }
 
 .section-donation {
-    height: 52vh;
+    height: 52.2vh;
     background-color: $base-light-gray;
     .container-donation {
         @extend %container;
+        @include flex();
+        justify-content: center;
+        align-items: center;
+        .container-content-donation {
+            width: 48vw;
+            height: 33vh;
+            @include flex();
+            align-content: center;
+            .image-donation {
+                height: 30vh;
+                width: 57vh;
+            }
+            .content-donation {
+                width: 20.5vw;
+                .heading-donation {
+                    @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh);
+                    margin-top: 0;
+                    margin-bottom: -5vh;
+                }
+                .text-name-bank {
+                    @include fontDecor($fontSize: 1.7vh, $lSpacing: 0.05vw);
+                    margin-bottom: 2vh;
+                }
+                .link-bank {
+                    @include flex();
+                    text-decoration: none;
+                    padding: 0 0.8vw;
+                    align-items: center;
+                    height: 5vh;
+                    width: 80%;
+                    border-radius: 10px;
+                    background-color: $base-pink;
+                    margin-bottom: 2.3vh;
+                    @include fontDecor($fontSize: 2.3vh, $lSpacing: 0.05vw);
+                    &:hover {
+                        background-color: $base-pink-hover;
+                    }
+                    .icon-credit-card {
+                        width: 1.6vw;
+                    }
+                }
+                .text-donation {
+                    @include fontMain($fontSize: 1.4vh, $tColor: $donation-description,  $lHeight: 2vh);
+                    padding-right: 1.5vw;
+
+                }
+            }
+        }
     }
 }
 
 .footer {
-    height: 39vh;
+    height: 40vh;
     background-image: url(../../assets/images/footer-background.jpg);
     background-size: cover;
     .container-footer {
