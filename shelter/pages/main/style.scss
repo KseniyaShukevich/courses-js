@@ -192,7 +192,7 @@ $button-dark-gray: #292929;
 }
 
 .section-pets {
-    height: 97vh;
+    height: 98vh;
     background-color: $base-light-gray;
     .container-pets {
         @extend %container;
@@ -321,7 +321,7 @@ $button-dark-gray: #292929;
 }
 
 .section-donation {
-    height: 52.2vh;
+    height: 52vh;
     background-color: $base-light-gray;
     .container-donation {
         @extend %container;
@@ -329,20 +329,22 @@ $button-dark-gray: #292929;
         justify-content: center;
         align-items: center;
         .container-content-donation {
-            width: 48vw;
+            width: 48.5vw;
             height: 33vh;
             @include flex();
             align-content: center;
             .image-donation {
-                height: 30vh;
-                width: 57vh;
+                height: 28vh;
+                width: 55vh;
+                margin: auto 0;
+                margin-left: 0.7vw;
             }
             .content-donation {
                 width: 20.5vw;
                 .heading-donation {
                     @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh);
                     margin-top: 0;
-                    margin-bottom: -5vh;
+                    margin-bottom: -4.6vh;
                 }
                 .text-name-bank {
                     @include fontDecor($fontSize: 1.7vh, $lSpacing: 0.05vw);
@@ -353,23 +355,26 @@ $button-dark-gray: #292929;
                     text-decoration: none;
                     padding: 0 0.8vw;
                     align-items: center;
-                    height: 5vh;
-                    width: 80%;
+                    height: 4.8vh;
+                    width: 16.5vw;
                     border-radius: 10px;
                     background-color: $base-pink;
                     margin-bottom: 2.3vh;
-                    @include fontDecor($fontSize: 2.3vh, $lSpacing: 0.05vw);
+                    @include fontDecor($fontSize: 2.2vh, $lSpacing: 0.05vw);
                     &:hover {
                         background-color: $base-pink-hover;
                     }
                     .icon-credit-card {
                         width: 1.6vw;
                     }
+                    .text-number-card {
+                        margin-right: auto;
+                        margin-left: 0.8vw;
+                    }
                 }
                 .text-donation {
                     @include fontMain($fontSize: 1.4vh, $tColor: $donation-description,  $lHeight: 2vh);
                     padding-right: 1.5vw;
-
                 }
             }
         }
@@ -382,5 +387,53 @@ $button-dark-gray: #292929;
     background-size: cover;
     .container-footer {
         @extend %container;
+        @include flex();
+        align-items: center;
+        .contacts-footer {
+            height: 26vh;
+            width: 22vw;
+            @include flex($tDirection: column);
+            .contacts {
+                @include flex();
+                align-items: center;
+                text-decoration: none;
+                .icon-footer-contacts {
+                    width: 2.1vw;
+                }
+            }
+        }
+
+        .location-footer {
+            height: 26vh;
+            width: 22vw;
+            @include flex($tDirection: column);
+            .location {
+                @include flex();
+                align-items: center;
+                text-decoration: none;
+                .icon-footer-location {
+                    width: 1.2vw;
+                }
+            }
+        }
+        .text-footer {
+            @include fontDecor($fontSize: 2.3vh, $tColor: $base-pink, $lSpacing: 0.04vw);
+            margin-right: auto;
+            margin-left: 1vw;
+        }
+        .image-footer {
+            height: 35vh;
+            width: 33vh;
+            margin-top: auto;
+            margin-left: auto;
+        }
     }
+}
+
+.heading-footer {
+    display: block;
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 15vw;
+    @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh, $tColor: $base-white);
 }

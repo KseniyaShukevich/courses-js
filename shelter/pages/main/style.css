@@ -173,7 +173,7 @@
 }
 
 .section-pets {
-  height: 97vh;
+  height: 98vh;
   background-color: #F6F6F6;
 }
 .section-pets .container-pets {
@@ -366,7 +366,7 @@
 }
 
 .section-donation {
-  height: 52.2vh;
+  height: 52vh;
   background-color: #F6F6F6;
 }
 .section-donation .container-donation {
@@ -377,7 +377,7 @@
   align-items: center;
 }
 .section-donation .container-donation .container-content-donation {
-  width: 48vw;
+  width: 48.5vw;
   height: 33vh;
   display: flex;
   justify-content: space-between;
@@ -385,8 +385,10 @@
   align-content: center;
 }
 .section-donation .container-donation .container-content-donation .image-donation {
-  height: 30vh;
-  width: 57vh;
+  height: 28vh;
+  width: 55vh;
+  margin: auto 0;
+  margin-left: 0.7vw;
 }
 .section-donation .container-donation .container-content-donation .content-donation {
   width: 20.5vw;
@@ -399,7 +401,7 @@
   line-height: 5.2vh;
   color: #545454;
   margin-top: 0;
-  margin-bottom: -5vh;
+  margin-bottom: -4.6vh;
 }
 .section-donation .container-donation .container-content-donation .content-donation .text-name-bank {
   font-family: Georgia;
@@ -417,14 +419,14 @@
   text-decoration: none;
   padding: 0 0.8vw;
   align-items: center;
-  height: 5vh;
-  width: 80%;
+  height: 4.8vh;
+  width: 16.5vw;
   border-radius: 10px;
   background-color: #F1CDB3;
   margin-bottom: 2.3vh;
   font-family: Georgia;
   font-weight: lighter;
-  font-size: 2.3vh;
+  font-size: 2.2vh;
   letter-spacing: 0.05vw;
   line-height: auto;
   color: #545454;
@@ -434,6 +436,10 @@
 }
 .section-donation .container-donation .container-content-donation .content-donation .link-bank .icon-credit-card {
   width: 1.6vw;
+}
+.section-donation .container-donation .container-content-donation .content-donation .link-bank .text-number-card {
+  margin-right: auto;
+  margin-left: 0.8vw;
 }
 .section-donation .container-donation .container-content-donation .content-donation .text-donation {
   font-family: Arial;
@@ -449,6 +455,75 @@
   height: 40vh;
   background-image: url(../../assets/images/footer-background.jpg);
   background-size: cover;
+}
+.footer .container-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+.footer .container-footer .contacts-footer {
+  height: 26vh;
+  width: 22vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.footer .container-footer .contacts-footer .contacts {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+}
+.footer .container-footer .contacts-footer .contacts .icon-footer-contacts {
+  width: 2.1vw;
+}
+.footer .container-footer .location-footer {
+  height: 26vh;
+  width: 22vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.footer .container-footer .location-footer .location {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+}
+.footer .container-footer .location-footer .location .icon-footer-location {
+  width: 1.2vw;
+}
+.footer .container-footer .text-footer {
+  font-family: Georgia;
+  font-weight: lighter;
+  font-size: 2.3vh;
+  letter-spacing: 0.04vw;
+  line-height: auto;
+  color: #F1CDB3;
+  margin-right: auto;
+  margin-left: 1vw;
+}
+.footer .container-footer .image-footer {
+  height: 35vh;
+  width: 33vh;
+  margin-top: auto;
+  margin-left: auto;
+}
+
+.heading-footer {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 15vw;
+  font-family: Georgia;
+  font-weight: lighter;
+  font-size: 3.8vh;
+  letter-spacing: 0.1vw;
+  line-height: 5.2vh;
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
