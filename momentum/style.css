@@ -14,6 +14,8 @@ body {
   height: 100vh;
   background-size: cover;
   color: #000000;
+  transition: background-image 1s ease-in-out;
+  transition-delay: 250ms;
 }
 
 .date {
@@ -37,4 +39,29 @@ h2 {
   .time {
     font-size: 6rem;
   }
+}
+
+.btn {
+  margin-top: 2rem;
+  width: 220px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid;
+  border-radius: 15px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.editable {
+  min-width: 2rem;
+  min-height: 1rem;
+}
+
+.editable:focus {
+  outline: none;
 }
