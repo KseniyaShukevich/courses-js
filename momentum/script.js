@@ -1,4 +1,4 @@
-let backgroundCounter = 0;
+let backgroundCounter = Math.floor(Math.random() * 21);
 
 const btnQuote = document.querySelector('.btnQuote');
 const quotes = document.querySelector('.quotes');
