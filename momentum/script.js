@@ -1,5 +1,8 @@
 let backgroundCounter = Math.floor(Math.random() * 21);
 
+const city = document.querySelector('.city');
+const weather = document.querySelector('.weather');
+const weatherIcon = document.querySelector('.weather-icon');
 const btnQuote = document.querySelector('.btnQuote');
 const quotes = document.querySelector('.quotes');
 const btnImage = document.querySelector('.btnImage');
@@ -84,7 +87,7 @@ function setBgGreet() {
   let nextDate = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth(),
-    currentDate.getDay(),
+    currentDate.getDate(),
     currentDate.getHours() + 1
   );
   let intervalDate = nextDate - currentDate;
@@ -172,6 +175,25 @@ async function getQuote() {
   quotes.textContent = quote.quoteText + ' ' + quote.quoteAuthor;
 }
 
+async function getWeather() {
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=ru&appid=0dce59e930c83fce2edcad7a94b09256&units=metric`;
+  const result = await fetch(url);
+  const data = await result.json();
+
+  weatherIcon.className = 'weather-icon owf';
+  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+  weather.textContent = `${data.main.temp}°C, влажность: ${data.main.humidity}%, скорость ветра: ${data.wind.speed} м/c`;
+}
+
+function setCity(event) {
+  if (event.code === 'Enter') {
+    getWeather();
+    city.blur();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', getWeather);
+city.addEventListener('keypress', setCity);
 document.addEventListener('DOMContentLoaded', getQuote);
 btnQuote.addEventListener('click', getQuote)
 btnImage.addEventListener('click', getImage);
@@ -184,3 +206,4 @@ showDateAndTime();
 setBgGreet();
 getName();
 getFocus();
+getWeather();
