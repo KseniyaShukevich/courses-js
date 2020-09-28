@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Merriweather', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100vh;
+  background-size: cover;
+  color: #000000;
+  transition: background-image 1s ease-in-out;
+  transition-delay: 250ms;
+}
+
+.date {
+  font-size: 3rem;
+}
+
+.time {
+  font-size: 8rem;
+}
+
+h1 {
+  margin-bottom: 3rem;
+}
+
+h2 {
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+  .time {
+    font-size: 6rem;
+  }
+}
+
+.btn {
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  width: 150px;
+  height: 35px;
+  font-weight: 700;
+  background-color: transparent;
+  border: 2px solid;
+  border-radius: 15px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: inherit;
+}
+
+.btn:hover {
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.editable {
+  min-width: 2rem;
+  min-height: 1rem;
+}
+
+.editable:focus {
+  outline: none;
+}
+
+.quotes {
+  font-size: 1rem;
+}
+
+.weather-icon {
+  font-size: 2rem;
+}
+
+.text {
+  font-weight: 400;
+}
