@@ -65,3 +65,7 @@ h2 {
 .editable:focus {
   outline: none;
 }
+
+.quotes {
+  font-size: 1.3rem;
+}

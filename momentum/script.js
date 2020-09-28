@@ -1,6 +1,8 @@
 let backgroundCounter = 0;
 
-const btn = document.querySelector('.btn');
+const btnQuote = document.querySelector('.btnQuote');
+const quotes = document.querySelector('.quotes');
+const btnImage = document.querySelector('.btnImage');
 const time = document.querySelector('.time');
 const dateClass = document.querySelector('.date');
 const greeting = document.querySelector('.greeting');
@@ -162,7 +164,17 @@ function setFocus(e) {
   }
 }
 
-btn.addEventListener('click', getImage);
+async function getQuote() {
+  const url = `https://cors-anywhere.herokuapp.com/https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=ru`;
+
+  const result = await fetch(url);
+  const quote = await result.json();
+  quotes.textContent = quote.quoteText + ' ' + quote.quoteAuthor;
+}
+
+document.addEventListener('DOMContentLoaded', getQuote);
+btnQuote.addEventListener('click', getQuote)
+btnImage.addEventListener('click', getImage);
 name.addEventListener('keypress', setName);
 name.addEventListener('blur', setName);
 focus.addEventListener('keypress', setFocus);
