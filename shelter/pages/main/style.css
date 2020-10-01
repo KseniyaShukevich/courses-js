@@ -32,7 +32,7 @@
   font-size: 3.5vh;
   letter-spacing: 0.1vw;
   line-height: 0.6rem;
-  color: #F1CDB3;
+  color: #f1cdb3;
 }
 .header .logo-screen .subtitle-screen {
   font-family: Arial;
@@ -58,7 +58,7 @@
   font-size: 1.7vh;
   letter-spacing: 0px;
   line-height: auto;
-  color: #CDCDCD;
+  color: #cdcdcd;
   text-decoration: none;
 }
 .header .nav-screen .container-link-screen .link-screen:hover {
@@ -69,7 +69,7 @@
   width: 100%;
   margin-top: 0.4vh;
   border-radius: 20%;
-  border: 1px solid #F1CDB3;
+  border: 1px solid #f1cdb3;
 }
 
 .container-screen-content {
@@ -99,12 +99,12 @@
   font-size: 1.67vh;
   letter-spacing: 0px;
   line-height: 2.8vh;
-  color: #CDCDCD;
+  color: #cdcdcd;
 }
 .container-screen-content .content-screen .button-screen {
   width: 10.4vw;
   height: 5.6vh;
-  background-color: #F1CDB3;
+  background-color: #f1cdb3;
   border: none;
   border-radius: 26px;
   font-family: Georgia;
@@ -116,7 +116,7 @@
   margin-top: 2.4vh;
 }
 .container-screen-content .content-screen .button-screen:hover {
-  background-color: #FDDCC4;
+  background-color: #fddcc4;
   cursor: pointer;
 }
 .container-screen-content .image-screen {
@@ -168,13 +168,13 @@
   font-size: 1.61vh;
   letter-spacing: 0.01vw;
   line-height: 2.7vh;
-  color: #4C4C4C;
+  color: #4c4c4c;
   margin-bottom: 2.5vh;
 }
 
 .section-pets {
   height: 98vh;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 .section-pets .container-pets {
   display: flex;
@@ -214,13 +214,13 @@
   height: 5vh;
   width: 2.4vw;
   border-radius: 100%;
-  border: 2px solid #F1CDB3;
+  border: 2px solid #f1cdb3;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 .section-pets .container-pets .container-content-pets .container-cards-pets .slider-pets-arrow:hover {
-  background-color: #F1CDB3;
+  background-color: #f1cdb3;
   cursor: pointer;
 }
 .section-pets .container-pets .container-content-pets .container-cards-pets .container-pets {
@@ -232,7 +232,7 @@
 .section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .card-pet {
   height: 48vh;
   width: 14vw;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -269,7 +269,7 @@
 .section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .card-pet .button-pet {
   width: 9.4vw;
   height: 5.6vh;
-  border: 2px solid #F1CDB3;
+  border: 2px solid #f1cdb3;
   border-radius: 26px;
   font-family: Georgia;
   font-weight: lighter;
@@ -281,14 +281,14 @@
   margin-bottom: 3.2vh;
 }
 .section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .card-pet .button-pet:hover {
-  background-color: #FDDCC4;
-  border-color: #FDDCC4;
+  background-color: #fddcc4;
+  border-color: #fddcc4;
   cursor: pointer;
 }
 .section-pets .container-pets .container-content-pets .button-pets {
   width: 13vw;
   height: 5.6vh;
-  background-color: #F1CDB3;
+  background-color: #f1cdb3;
   border: none;
   border-radius: 26px;
   font-family: Georgia;
@@ -300,7 +300,7 @@
   margin-top: 3vh;
 }
 .section-pets .container-pets .container-content-pets .button-pets:hover {
-  background-color: #FDDCC4;
+  background-color: #fddcc4;
   cursor: pointer;
 }
 
@@ -367,7 +367,7 @@
 
 .section-donation {
   height: 52vh;
-  background-color: #F6F6F6;
+  background-color: #f6f6f6;
 }
 .section-donation .container-donation {
   display: flex;
@@ -420,9 +420,9 @@
   padding: 0 0.8vw;
   align-items: center;
   height: 4.8vh;
-  width: 16.5vw;
+  width: 17vw;
   border-radius: 10px;
-  background-color: #F1CDB3;
+  background-color: #f1cdb3;
   margin-bottom: 2.3vh;
   font-family: Georgia;
   font-weight: lighter;
@@ -432,7 +432,7 @@
   color: #545454;
 }
 .section-donation .container-donation .container-content-donation .content-donation .link-bank:hover {
-  background-color: #FDDCC4;
+  background-color: #fddcc4;
 }
 .section-donation .container-donation .container-content-donation .content-donation .link-bank .icon-credit-card {
   width: 1.6vw;
@@ -447,7 +447,7 @@
   font-size: 1.4vh;
   letter-spacing: 0px;
   line-height: 2vh;
-  color: #B2B2B2;
+  color: #b2b2b2;
   padding-right: 1.5vw;
 }
 
@@ -502,7 +502,7 @@
   font-size: 2.3vh;
   letter-spacing: 0.04vw;
   line-height: auto;
-  color: #F1CDB3;
+  color: #f1cdb3;
   margin-right: auto;
   margin-left: 1vw;
 }
