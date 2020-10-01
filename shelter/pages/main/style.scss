@@ -1,7 +1,7 @@
 @import '../../styles/style';
 
 .section-screen {
-  height: 100vh;
+  height: 908px;
   background-image: url(../../assets/images/start-screen-background.jpg);
   background-size: cover;
   .container-screen {
@@ -11,36 +11,36 @@
 }
 
 .header {
-  height: 8vh;
-  margin-top: 5.6vh;
+  height: 60px;
+  margin-top: 52px;
   @include flex();
   .logo-screen {
-    width: 15.83vw;
+    width: 184px;
     height: 100%;
     .title-screen {
       @include fontDecor(
-        $fontSize: 3.5vh,
+        $fontSize: 2rem,
         $lHeight: 0.6rem,
         $tColor: $base-pink,
-        $lSpacing: 0.1vw
+        $lSpacing: 0.1rem
       );
     }
     .subtitle-screen {
       @include fontMain(
-        $fontSize: 1.5vh,
+        $fontSize: 0.9rem,
         $tColor: $base-white,
-        $lSpacing: 0.06vw
+        $lSpacing: 0.05rem
       );
     }
   }
   .nav-screen {
-    width: 23.8vw;
+    width: 443px;
     @include flex();
     align-items: center;
     .container-link-screen {
-      height: 2.2vh;
+      height: 10px;
       .link-screen {
-        @include fontMain($fontSize: 1.7vh, $tColor: $base-gray);
+        @include fontMain($fontSize: 0.9rem, $tColor: $base-gray);
         text-decoration: none;
         &:hover {
           color: $base-white;
@@ -49,7 +49,7 @@
       }
       .link-hover {
         width: 100%;
-        margin-top: 0.4vh;
+        margin-top: 5px;
         border-radius: 20%;
         border: 1px solid $base-pink;
       }
@@ -58,43 +58,46 @@
 }
 
 .container-screen-content {
-  height: 78.7vh;
+  height: 720px;
+
   @include flex();
   align-items: center;
   .content-screen {
-    width: 24vw;
-    height: 45vh;
+    padding-bottom: 85px;
+    width: 465px;
+    height: 321px;
     .heading-content-screen {
-      width: 19vw;
-      margin-bottom: 4.6vh;
+      width: 400px;
+      margin-bottom: 43px;
       @include fontDecor(
-        $fontSize: 4.8vh,
+        $fontSize: 2.7rem,
+        $lSpacing: 0.03rem,
         $tColor: $base-white,
-        $lHeight: 6.1vh
+        $lHeight: 3.5rem
       );
     }
     .text-content-screen {
       @include fontMain(
-        $fontSize: 1.67vh,
+        $fontSize: 0.9rem,
         $tColor: $base-gray,
-        $lHeight: 2.8vh
+        $lHeight: 1.6rem
       );
     }
     .button-screen {
       @include button();
-      margin-top: 2.4vh;
+      margin-top: 25px;
     }
   }
   .image-screen {
-    width: 78vh;
-    height: 79vh;
+    width: 698px;
+    height: 720px;
     background-image: url(../../assets/images/start-screen-puppy.png);
     background-size: cover;
   }
 }
 
 .section-about {
-  height: 64.6vh;
+  height: 588px;
   .container-about {
     @include flex();
     justify-content: center;
@@ -102,33 +105,35 @@
     .container-content-about {
       @include flex();
       height: auto;
-      width: 43.5vw;
+      width: 852px;
       align-items: center;
+      padding-bottom: 17px;
       .image {
-        height: 45vh;
-        width: 32.2vh;
+        height: 408px;
+        width: 300px;
       }
       .content-about {
-        height: 50vh;
-        width: 22vw;
+        height: 380px;
+        width: 433px;
         .heading-about {
+          margin-top: 0;
           display: block;
-          width: 20vw;
+          width: 300px;
           @include fontDecor(
-            $fontSize: 3.8vh,
-            $lSpacing: 0.1vw,
-            $lHeight: 5.2vh
+            $fontSize: 2.2rem,
+            $lSpacing: 0.1rem,
+            $lHeight: 2.7rem
           );
-          margin-bottom: 2.5vh;
+          margin-bottom: 27px;
         }
         .text-content-about {
           @include fontMain(
-            $fontSize: 1.61vh,
+            $fontSize: 0.9rem,
             $tColor: $about-subheading,
-            $lHeight: 2.7vh,
-            $lSpacing: 0.01vw
+            $lHeight: 1.5rem,
+            $lSpacing: 0.02rem
           );
-          margin-bottom: 2.5vh;
+          margin-bottom: 26px;
         }
       }
     }
@@ -136,25 +141,23 @@
 }
 
 .section-pets {
-  height: 98vh;
+  height: 877px;
   background-color: $base-light-gray;
   .container-pets {
     @extend %container;
     display: flex;
     align-items: center;
     .container-content-pets {
-      height: 74.5vh;
+      height: 672px;
       width: 100%;
       @include flex($tDirection: column);
       align-items: center;
       .heading-pets {
         display: block;
-        width: 22vw;
-        height: 10vh;
-        margin-top: -2.5vh;
-        margin-bottom: 2.5vh;
+        height: 80px;
+        margin-top: -25px;
         text-align: center;
-        @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh);
+        @include fontDecor($fontSize: 2.5rem, $lSpacing: 0.01rem, $lHeight: 2.9rem);
       }
       .container-cards-pets {
         width: 100%;
@@ -166,10 +169,10 @@
         }
         .container-pets {
           @include flex();
-          width: 51vw;
+          width: 990px;
           .card-pet {
-            height: 48vh;
-            width: 14vw;
+            height: 435px;
+            width: 270px;
             background-color: $pets-card-background;
             @include flex($tDirection: column);
             align-items: center;
@@ -178,58 +181,43 @@
               cursor: pointer;
               box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
             }
-            .image-pet-Katrine {
-              margin-top: 3vh;
-              height: 27vh;
-              width: 15vh;
-            }
-            .image-pet-Jennifer {
-              margin-top: 3vh;
-              height: 27vh;
-              width: 19vh;
-            }
-            .image-pet-Woody {
-              margin-top: 3vh;
-              height: 27vh;
-              width: 22vh;
-            }
             .pet-name {
               @include fontDecor(
                 $tColor: $text-middle-gray,
-                $fontSize: 2.2vh,
-                $lSpacing: 0.05vw
+                $fontSize: 1.3rem,
+                $lSpacing: 0.01rem
               );
             }
             .button-pet {
               @include buttonBorder();
               background-color: inherit;
-              margin-bottom: 3.2vh;
+              margin-bottom: 31px;
             }
           }
         }
       }
       .button-pets {
-        @include button($bWidth: 13vw);
-        margin-top: 3vh;
+        @include button($bWidth: 261px);
+        margin-top: 28px;
       }
     }
   }
 }
 
 .section-help {
-  height: 66.4vh;
+  height: 611px;
   .container-help {
     @extend %container;
     @include flex();
     align-items: center;
     justify-content: center;
     .container-content-help {
-      height: 57vh;
-      width: 60vw;
+      height: 522px;
+      width: 100%;
       text-align: center;
       .heading-help {
-        @include fontDecor($fontSize: 3.8vh, $lSpacing: 0.1vw, $lHeight: 5.2vh);
-        margin-bottom: -1.8vh;
+        @include fontDecor($fontSize: 2.2rem, $lSpacing: 0.1rem, $lHeight: 2.8rem);
+        margin-bottom: -8px;
       }
       .grid {
         display: grid;
@@ -239,10 +227,10 @@
         justify-items: center;
         .container-help-1 {
           flex-direction: column;
-          margin-top: 1.6vh;
+          margin-top: 10px;
           grid-column: span 4;
           .svg-help {
-            width: 6.5vh;
+            width: 62px
           }
         }
         .space {
@@ -250,10 +238,10 @@
         }
         .container-help-2 {
           flex-direction: column;
-          margin-top: 4.5vh;
+          margin-top: 37px;
           grid-column: span 4;
           .svg-help {
-            width: 6.3vh;
+            width: 62px;
           }
         }
       }
@@ -262,12 +250,12 @@
 }
 
 .text-help {
-  margin-top: 3.4vh;
-  @include fontDecor($fontSize: 2.2vh, $tColor: $text-middle-gray);
+  margin-top: 27px;
+  @include fontDecor($fontSize: 1.3rem, $tColor: $text-middle-gray);
 }
 
 .section-donation {
-  height: 52vh;
+  height: 464px;
   background-color: $base-light-gray;
   .container-donation {
     @extend %container;
@@ -275,60 +263,58 @@
     justify-content: center;
     align-items: center;
     .container-content-donation {
-      width: 48.5vw;
-      height: 33vh;
+      width: 930px;
+      height: 305px;
       @include flex();
       align-content: center;
       .image-donation {
-        height: 28vh;
-        width: 55vh;
-        margin: auto 0;
-        margin-left: 0.7vw;
+        height: 261px;
+        width: 505px;
+        margin-top: 10px;
+        margin-left: 10px;
       }
       .content-donation {
-        width: 20.5vw;
+        width: 390px;
         .heading-donation {
           @include fontDecor(
-            $fontSize: 3.8vh,
-            $lSpacing: 0.1vw,
-            $lHeight: 5.2vh
+            $fontSize: 2.2rem, $lSpacing: 0.14rem, $lHeight: 2.9rem
           );
           margin-top: 0;
-          margin-bottom: -4.6vh;
+          margin-bottom: -40px;
         }
         .text-name-bank {
-          @include fontDecor($fontSize: 1.7vh, $lSpacing: 0.05vw);
-          margin-bottom: 2vh;
+          @include fontDecor($fontSize: 0.9rem, $lSpacing: 0.08rem);
+          margin-bottom: 18px;
         }
         .link-bank {
           @include flex();
           text-decoration: none;
-          padding: 0 0.8vw;
+          padding: 0 17px;
           align-items: center;
-          height: 4.8vh;
-          width: 17vw;
+          height: 43px;
+          width: 321px;
           border-radius: 10px;
           background-color: $base-pink;
-          margin-bottom: 2.3vh;
-          @include fontDecor($fontSize: 2.2vh, $lSpacing: 0.05vw);
+          margin-bottom: 20px;
+          @include fontDecor($fontSize: 1.3rem, $lSpacing: 0.05rem);
           &:hover {
             background-color: $base-pink-hover;
           }
           .icon-credit-card {
-            width: 1.6vw;
+            width: 31px;
           }
           .text-number-card {
             margin-right: auto;
-            margin-left: 0.8vw;
+            margin-left: 12px;
           }
         }
         .text-donation {
           @include fontMain(
-            $fontSize: 1.4vh,
+            $fontSize: 0.8rem,
             $tColor: $donation-description,
-            $lHeight: 2vh
+            $lHeight: 1.1rem
           );
-          padding-right: 1.5vw;
+          padding-right: 18px;
         }
       }
     }
@@ -336,7 +322,7 @@
 }
 
 .footer {
-  height: 40vh;
+  height: 350px;
   background-image: url(../../assets/images/footer-background.jpg);
   background-size: cover;
   .container-footer {
@@ -344,44 +330,46 @@
     @include flex();
     align-items: center;
     .contacts-footer {
-      height: 26vh;
-      width: 22vw;
+      height: 235px;
+      width: 440px;
+      margin-top: -6px;
       @include flex($tDirection: column);
       .contacts {
         @include flex();
         align-items: center;
         text-decoration: none;
         .icon-footer-contacts {
-          width: 2.1vw;
+          width: 40px;
         }
       }
     }
 
     .location-footer {
-      height: 26vh;
-      width: 22vw;
+      height: 235px;
+      width: 440px;
+      margin-top: -6px;
       @include flex($tDirection: column);
       .location {
         @include flex();
         align-items: center;
         text-decoration: none;
         .icon-footer-location {
-          width: 1.2vw;
+          width: 20px;
         }
       }
     }
     .text-footer {
       @include fontDecor(
-        $fontSize: 2.3vh,
+        $fontSize: 1.3rem,
         $tColor: $base-pink,
-        $lSpacing: 0.04vw
+        $lSpacing: 0.04rem
       );
       margin-right: auto;
-      margin-left: 1vw;
+      margin-left: 20px;
     }
     .image-footer {
-      height: 35vh;
-      width: 33vh;
+      height: 315px;
+      width: 300px;
       margin-top: auto;
       margin-left: auto;
     }
@@ -390,13 +378,13 @@
 
 .heading-footer {
   display: block;
-  margin-top: 0;
+  margin-top: 2px;
   margin-bottom: 0;
-  width: 15vw;
+  width: 290px;
   @include fontDecor(
-    $fontSize: 3.8vh,
-    $lSpacing: 0.1vw,
-    $lHeight: 5.2vh,
+    $fontSize: 2.3rem,
+    $lSpacing: 0.08rem,
+    $lHeight: 2.8rem,
     $tColor: $base-white
   );
 }

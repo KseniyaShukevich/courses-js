@@ -46,7 +46,7 @@ $button-dark-gray: #292929;
   flex-direction: $tDirection;
 }
 
-@mixin button($bWidth: 10.4vw, $bHeight: 5.6vh) {
+@mixin button($bWidth: 207px, $bHeight: 50px) {
   width: $bWidth;
   height: $bHeight;
   background-color: $base-pink;
@@ -57,13 +57,13 @@ $button-dark-gray: #292929;
     cursor: pointer;
   }
   @include fontDecor(
-    $fontSize: 2vh,
+    $fontSize: 1.1rem,
     $tColor: $base-dark-gray,
-    $lSpacing: 0.02vw
+    $lSpacing: 0.04rem
   );
 }
 
-@mixin buttonBorder($bWidth: 9.4vw, $bHeight: 5.6vh) {
+@mixin buttonBorder($bWidth: 187px, $bHeight: 52px) {
   width: $bWidth;
   height: $bHeight;
   border: 2px solid $base-pink;
@@ -74,15 +74,15 @@ $button-dark-gray: #292929;
     cursor: pointer;
   }
   @include fontDecor(
-    $fontSize: 2vh,
+    $fontSize: 1.2rem,
     $tColor: $base-dark-gray,
-    $lSpacing: 0.02vw
+    $lSpacing: 0.01rem
   );
 }
 
 @mixin arrow() {
-  height: 5vh;
-  width: 2.4vw;
+  height: 50px;
+  width: 50px;
   border-radius: 100%;
   border: 2px solid $base-pink;
   display: flex;
@@ -95,7 +95,7 @@ $button-dark-gray: #292929;
 }
 
 %container {
-  width: 62vw;
+  width: 1200px;
   height: 100%;
   margin: 0 auto;
 }
