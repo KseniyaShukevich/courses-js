@@ -1,0 +1,101 @@
+$base-pink: #f1cdb3;
+$base-white: white;
+$base-gray: #cdcdcd;
+$pets-card-background: #fafafa;
+$about-subheading: #4c4c4c;
+$base-light-gray: #f6f6f6;
+$pets-arrow: #444444;
+$base-dark-gray: #292929;
+$base-pink-hover: #fddcc4;
+$donation-credit-card-number: #292929;
+$donation-description: #b2b2b2;
+$text-middle-gray: #545454;
+$button-dark-gray: #292929;
+
+@mixin fontMain(
+  $fontSize: 1.2rem,
+  $lSpacing: 0px,
+  $lHeight: auto,
+  $tColor: $text-middle-gray
+) {
+  font-family: Arial;
+  font-weight: lighter;
+  font-size: $fontSize;
+  letter-spacing: $lSpacing;
+  line-height: $lHeight;
+  color: $tColor;
+}
+
+@mixin fontDecor(
+  $fontSize: 1.2rem,
+  $lSpacing: 0px,
+  $lHeight: auto,
+  $tColor: $text-middle-gray
+) {
+  font-family: Georgia;
+  font-weight: lighter;
+  font-size: $fontSize;
+  letter-spacing: $lSpacing;
+  line-height: $lHeight;
+  color: $tColor;
+}
+
+@mixin flex($jContent: space-between, $tDirection: row) {
+  display: flex;
+  justify-content: $jContent;
+  flex-direction: $tDirection;
+}
+
+@mixin button($bWidth: 10.4vw, $bHeight: 5.6vh) {
+  width: $bWidth;
+  height: $bHeight;
+  background-color: $base-pink;
+  border: none;
+  border-radius: 26px;
+  &:hover {
+    background-color: $base-pink-hover;
+    cursor: pointer;
+  }
+  @include fontDecor(
+    $fontSize: 2vh,
+    $tColor: $base-dark-gray,
+    $lSpacing: 0.02vw
+  );
+}
+
+@mixin buttonBorder($bWidth: 9.4vw, $bHeight: 5.6vh) {
+  width: $bWidth;
+  height: $bHeight;
+  border: 2px solid $base-pink;
+  border-radius: 26px;
+  &:hover {
+    background-color: $base-pink-hover;
+    border-color: $base-pink-hover;
+    cursor: pointer;
+  }
+  @include fontDecor(
+    $fontSize: 2vh,
+    $tColor: $base-dark-gray,
+    $lSpacing: 0.02vw
+  );
+}
+
+@mixin arrow() {
+  height: 5vh;
+  width: 2.4vw;
+  border-radius: 100%;
+  border: 2px solid $base-pink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: $base-pink;
+    cursor: pointer;
+  }
+}
+
+%container {
+  width: 62vw;
+  height: 100%;
+  margin: 0 auto;
+}
