@@ -42,6 +42,7 @@
         text-decoration: none;
         &:hover {
           color: $base-dark-gray;
+          font-weight: 600;
           cursor: pointer;
         }
       }
