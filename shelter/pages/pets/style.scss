@@ -1,1 +1,215 @@
-@import '../../styles/style';
+@import "../../styles/style";
+
+.section-header {
+  height: 120px;
+}
+
+.container-header {
+  @extend %container;
+}
+
+.header {
+  height: 100%;
+  @include flex();
+  align-items: center;
+  .logo-screen {
+    width: 184px;
+    height: 72px;
+    .title-screen {
+      @include fontDecor(
+        $fontSize: 2rem,
+        $lHeight: 0.6rem,
+        $tColor: $text-middle-gray,
+        $lSpacing: 0.1rem
+      );
+    }
+    .subtitle-screen {
+      @include fontMain(
+        $fontSize: 0.9rem,
+        $tColor: $base-dark-gray,
+        $lSpacing: 0.05rem
+      );
+    }
+  }
+  .nav-screen {
+    width: 443px;
+    @include flex();
+    align-items: center;
+    .container-link-screen {
+      height: 20px;
+      .link-screen {
+        @include fontMain($fontSize: 0.9rem, $tColor: $text-middle-gray);
+        text-decoration: none;
+        &:hover {
+          color: $base-dark-gray;
+          cursor: pointer;
+        }
+      }
+      .link-hover {
+        width: 100%;
+        margin-top: 5px;
+        border-radius: 20%;
+        border: 1px solid $base-pink;
+      }
+    }
+  }
+}
+
+.section-pets {
+  height: 1342px;
+  background-color: $color-light-l;
+}
+
+.container-pets {
+  @extend %container;
+  @include flex($tDirection: column);
+  align-items: center;
+}
+
+.heading-pets {
+  @include fontDecor($fontSize: 2.2rem, $lSpacing: 0.13rem, $lHeight: 2.9rem);
+  margin-top: 80px;
+  height: 100px;
+}
+
+.grid-pets {
+  display: grid;
+  width: 100%;
+  height: 920px;
+  margin: 0;
+  grid-template-rows: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-row-gap: 12px;
+  grid-column-gap: 36px;
+}
+
+.card-pet {
+  grid-column: span 1;
+  height: 435px;
+  width: 270px;
+  background-color: $pets-card-background;
+  @include flex($tDirection: column);
+  align-items: center;
+  border-radius: 10px;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+  }
+  .pet-name {
+    @include fontDecor(
+      $tColor: $text-middle-gray,
+      $fontSize: 1.3rem,
+      $lSpacing: 0.01rem
+    );
+  }
+  .button-pet {
+    @include buttonBorder();
+    background-color: inherit;
+    margin-bottom: 31px;
+  }
+}
+
+.container-nav-pets {
+  width: 340px;
+  height: 100px;
+  @include flex();
+  align-items: center;
+  margin-bottom: 76px;
+  .button_paginator_inactive {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 2px solid $base-gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .button_paginator-number {
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    border: 2px solid $base-pink;
+    background-color: $base-pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .nav-number {
+      @include fontDecor(
+        $tColor: $base-dark-gray,
+        $fontSize: 1.3rem,
+        $lSpacing: 0.01rem
+      );
+    }
+  }
+  .button-paginator {
+    @include arrow();
+  }
+}
+
+.footer {
+  height: 350px;
+  background-image: url(../../assets/images/footer-background.jpg);
+  background-size: cover;
+  .container-footer {
+    @extend %container;
+    @include flex();
+    align-items: center;
+    .contacts-footer {
+      height: 235px;
+      width: 440px;
+      margin-top: -6px;
+      @include flex($tDirection: column);
+      .contacts {
+        @include flex();
+        align-items: center;
+        text-decoration: none;
+        .icon-footer-contacts {
+          width: 40px;
+        }
+      }
+    }
+
+    .location-footer {
+      height: 235px;
+      width: 440px;
+      margin-top: -6px;
+      @include flex($tDirection: column);
+      .location {
+        @include flex();
+        align-items: center;
+        text-decoration: none;
+        .icon-footer-location {
+          width: 20px;
+        }
+      }
+    }
+    .text-footer {
+      @include fontDecor(
+        $fontSize: 1.3rem,
+        $tColor: $base-pink,
+        $lSpacing: 0.04rem
+      );
+      margin-right: auto;
+      margin-left: 20px;
+    }
+    .image-footer {
+      height: 315px;
+      width: 300px;
+      margin-top: auto;
+      margin-left: auto;
+    }
+  }
+}
+
+.heading-footer {
+  display: block;
+  margin-top: 2px;
+  margin-bottom: 0;
+  width: 290px;
+  @include fontDecor(
+    $fontSize: 2.3rem,
+    $lSpacing: 0.08rem,
+    $lHeight: 2.8rem,
+    $tColor: $base-white
+  );
+}
