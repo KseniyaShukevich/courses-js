@@ -1,5 +1,6 @@
 .footer .container-footer, .section-donation .container-donation, .section-help .container-help, .section-pets .container-pets, .section-about .container-about, .section-screen .container-screen {
-  width: 1200px;
+  max-width: 1200px;
+  padding: 0 40px;
   height: 100%;
   margin: 0 auto;
 }
@@ -183,6 +184,11 @@
   display: flex;
   align-items: center;
 }
+@media screen and (max-width: 1100px) {
+  .section-pets .container-pets {
+    padding: 0 10px;
+  }
+}
 .section-pets .container-pets .container-content-pets {
   height: 672px;
   width: 100%;
@@ -212,6 +218,7 @@
   align-items: center;
 }
 .section-pets .container-pets .container-content-pets .container-cards-pets .slider-pets-arrow {
+  flex-shrink: 0;
   height: 50px;
   width: 50px;
   border-radius: 100%;
@@ -271,6 +278,11 @@
   border-color: #fddcc4;
   cursor: pointer;
 }
+@media screen and (max-width: 1100px) {
+  .section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .card-none {
+    display: none;
+  }
+}
 .section-pets .container-pets .container-content-pets .button-pets {
   width: 261px;
   height: 50px;
@@ -288,6 +300,11 @@
 .section-pets .container-pets .container-content-pets .button-pets:hover {
   background-color: #fddcc4;
   cursor: pointer;
+}
+@media screen and (max-width: 1100px) {
+  .section-pets .container-pets .container-content-pets .container-cards-pets {
+    width: 708px;
+  }
 }
 
 .section-help {
@@ -442,11 +459,24 @@
   background-image: url(../../assets/images/footer-background.jpg);
   background-size: cover;
 }
+@media screen and (max-width: 1100px) {
+  .footer {
+    height: 624px;
+    padding-top: 15px;
+  }
+}
 .footer .container-footer {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+}
+@media screen and (max-width: 1100px) {
+  .footer .container-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 680px;
+  }
 }
 .footer .container-footer .contacts-footer {
   height: 235px;
@@ -455,6 +485,11 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+}
+@media screen and (max-width: 1100px) {
+  .footer .container-footer .contacts-footer {
+    flex: 50%;
+  }
 }
 .footer .container-footer .contacts-footer .contacts {
   display: flex;
@@ -473,6 +508,11 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+}
+@media screen and (max-width: 1100px) {
+  .footer .container-footer .location-footer {
+    flex: 50%;
+  }
 }
 .footer .container-footer .location-footer .location {
   display: flex;
@@ -499,6 +539,12 @@
   width: 300px;
   margin-top: auto;
   margin-left: auto;
+}
+@media screen and (max-width: 1100px) {
+  .footer .container-footer .image-footer {
+    margin: auto auto 0 auto;
+    padding-right: 45px;
+  }
 }
 
 .heading-footer {

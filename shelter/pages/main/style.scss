@@ -59,7 +59,6 @@
 
 .container-screen-content {
   height: 720px;
-
   @include flex();
   align-items: center;
   .content-screen {
@@ -147,6 +146,9 @@
     @extend %container;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 1100px) {
+      padding: 0 10px;
+    }
     .container-content-pets {
       height: 672px;
       width: 100%;
@@ -194,11 +196,21 @@
               margin-bottom: 31px;
             }
           }
+          @media screen and (max-width: 1100px) {
+            .card-none {
+              display: none;
+            }
+          }
         }
       }
       .button-pets {
         @include button($bWidth: 261px);
         margin-top: 28px;
+      }
+      @media screen and (max-width: 1100px) {
+        .container-cards-pets {
+          width: 708px;
+        }
       }
     }
   }
@@ -325,14 +337,26 @@
   height: 350px;
   background-image: url(../../assets/images/footer-background.jpg);
   background-size: cover;
+  @media screen and (max-width: 1100px) {
+    height: 624px;
+    padding-top: 15px;
+  }
   .container-footer {
     @extend %container;
     @include flex();
     align-items: center;
+    @media screen and (max-width: 1100px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 680px;
+    }
     .contacts-footer {
       height: 235px;
       width: 440px;
       margin-top: -6px;
+      @media screen and (max-width: 1100px) {
+        flex: 50%;
+      }
       @include flex($tDirection: column);
       .contacts {
         @include flex();
@@ -349,6 +373,9 @@
       width: 440px;
       margin-top: -6px;
       @include flex($tDirection: column);
+      @media screen and (max-width: 1100px) {
+        flex: 50%;
+      }
       .location {
         @include flex();
         align-items: center;
@@ -372,6 +399,10 @@
       width: 300px;
       margin-top: auto;
       margin-left: auto;
+      @media screen and (max-width: 1100px) {
+        margin: auto auto 0 auto;
+        padding-right: 45px;
+      }
     }
   }
 }
