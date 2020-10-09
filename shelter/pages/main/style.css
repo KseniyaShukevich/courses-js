@@ -37,6 +37,11 @@
   width: 184px;
   height: 100%;
 }
+@media screen and (max-width: 900px) {
+  .header .logo-screen {
+    margin-left: -8px;
+  }
+}
 .header .logo-screen .title-screen {
   font-family: Georgia;
   font-weight: lighter;
@@ -60,6 +65,14 @@
   flex-direction: row;
   align-items: center;
 }
+@media screen and (max-width: 900px) {
+  .header .nav-screen {
+    width: 400px;
+    width: 438px;
+    margin-right: -8px;
+    margin-top: 3px;
+  }
+}
 .header .nav-screen .container-link-screen {
   height: 10px;
 }
@@ -78,7 +91,7 @@
 }
 .header .nav-screen .container-link-screen .link-hover {
   width: 100%;
-  margin-top: 5px;
+  margin-top: 4px;
   border-radius: 20%;
   border: 1px solid #f1cdb3;
 }
@@ -167,6 +180,11 @@
 .section-about {
   height: 588px;
 }
+@media screen and (max-width: 900px) {
+  .section-about {
+    height: 1048px;
+  }
+}
 .section-about .container-about {
   display: flex;
   justify-content: space-between;
@@ -182,13 +200,28 @@
   align-items: center;
   padding-bottom: 17px;
 }
+@media screen and (max-width: 900px) {
+  .section-about .container-about .container-content-about {
+    flex-direction: column-reverse;
+  }
+}
 .section-about .container-about .container-content-about .image {
   height: 408px;
   width: 300px;
 }
+@media screen and (max-width: 900px) {
+  .section-about .container-about .container-content-about .image {
+    margin-bottom: 80px;
+  }
+}
 .section-about .container-about .container-content-about .content-about {
   height: 380px;
   width: 433px;
+}
+@media screen and (max-width: 900px) {
+  .section-about .container-about .container-content-about .content-about {
+    margin-top: 83px;
+  }
 }
 .section-about .container-about .container-content-about .content-about .heading-about {
   margin-top: 0;
@@ -346,6 +379,11 @@
 .section-help {
   height: 611px;
 }
+@media screen and (max-width: 900px) {
+  .section-help {
+    height: 779px;
+  }
+}
 .section-help .container-help {
   display: flex;
   justify-content: space-between;
@@ -353,10 +391,20 @@
   align-items: center;
   justify-content: center;
 }
+@media screen and (max-width: 900px) {
+  .section-help .container-help {
+    height: 614px;
+  }
+}
 .section-help .container-help .container-content-help {
   height: 522px;
   width: 100%;
   text-align: center;
+}
+@media screen and (max-width: 900px) {
+  .section-help .container-help .container-content-help {
+    width: 690px;
+  }
 }
 .section-help .container-help .container-content-help .heading-help {
   font-family: Georgia;
@@ -374,10 +422,22 @@
   align-items: center;
   justify-items: center;
 }
+@media screen and (max-width: 900px) {
+  .section-help .container-help .container-content-help .grid {
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 .section-help .container-help .container-content-help .grid .container-help-1 {
   flex-direction: column;
   margin-top: 10px;
   grid-column: span 4;
+}
+@media screen and (max-width: 900px) {
+  .section-help .container-help .container-content-help .grid .container-help-1 {
+    grid-column: span 1;
+    margin-top: 4px;
+  }
 }
 .section-help .container-help .container-content-help .grid .container-help-1 .svg-help {
   width: 62px;
@@ -385,13 +445,29 @@
 .section-help .container-help .container-content-help .grid .space {
   grid-column: 2 span;
 }
+@media screen and (max-width: 900px) {
+  .section-help .container-help .container-content-help .grid .space {
+    display: none;
+  }
+}
 .section-help .container-help .container-content-help .grid .container-help-2 {
   flex-direction: column;
   margin-top: 37px;
   grid-column: span 4;
 }
+@media screen and (max-width: 900px) {
+  .section-help .container-help .container-content-help .grid .container-help-2 {
+    grid-column: span 1;
+    margin-top: 42px;
+  }
+}
 .section-help .container-help .container-content-help .grid .container-help-2 .svg-help {
   width: 62px;
+}
+@media screen and (max-width: 900px) {
+  .section-help .container-help .container-content-help .grid .container-help-900 {
+    margin-top: 24px;
+  }
 }
 
 .text-help {

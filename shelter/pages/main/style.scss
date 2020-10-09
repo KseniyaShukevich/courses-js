@@ -23,6 +23,9 @@
   .logo-screen {
     width: 184px;
     height: 100%;
+    @media screen and (max-width: 900px) {
+      margin-left: -8px;
+    }
     .title-screen {
       @include fontDecor(
         $fontSize: 2rem,
@@ -43,6 +46,12 @@
     width: 443px;
     @include flex();
     align-items: center;
+    @media screen and (max-width: 900px) {
+      width: 400px;
+      width: 438px;
+      margin-right: -8px;
+      margin-top: 3px;
+    }
     .container-link-screen {
       height: 10px;
       .link-screen {
@@ -55,7 +64,7 @@
       }
       .link-hover {
         width: 100%;
-        margin-top: 5px;
+        margin-top: 4px;
         border-radius: 20%;
         border: 1px solid $base-pink;
       }
@@ -121,6 +130,9 @@
 
 .section-about {
   height: 588px;
+  @media screen and (max-width: 900px) {
+    height: 1048px;
+  }
   .container-about {
     @include flex();
     justify-content: center;
@@ -131,13 +143,22 @@
       width: 852px;
       align-items: center;
       padding-bottom: 17px;
+      @media screen and (max-width: 900px) {
+        flex-direction: column-reverse;
+      }
       .image {
         height: 408px;
         width: 300px;
+        @media screen and (max-width: 900px) {
+          margin-bottom: 80px;
+        }
       }
       .content-about {
         height: 380px;
         width: 433px;
+        @media screen and (max-width: 900px) {
+          margin-top: 83px;
+        }
         .heading-about {
           margin-top: 0;
           display: block;
@@ -242,15 +263,24 @@
 
 .section-help {
   height: 611px;
+  @media screen and (max-width: 900px) {
+    height: 779px;
+  }
   .container-help {
     @extend %container;
     @include flex();
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 900px) {
+      height: 614px;
+    }
     .container-content-help {
       height: 522px;
       width: 100%;
       text-align: center;
+      @media screen and (max-width: 900px) {
+        width: 690px;
+      }
       .heading-help {
         @include fontDecor($fontSize: 2.2rem, $lSpacing: 0.1rem, $lHeight: 2.8rem);
         margin-bottom: -8px;
@@ -261,23 +291,43 @@
         grid-template-columns: repeat(20, 1fr);
         align-items: center;
         justify-items: center;
+        @media screen and (max-width: 900px) {
+          grid-template-rows: repeat(3, 1fr);
+          grid-template-columns: repeat(3, 1fr);
+        }
         .container-help-1 {
           flex-direction: column;
           margin-top: 10px;
           grid-column: span 4;
+          @media screen and (max-width: 900px) {
+            grid-column: span 1;
+            margin-top: 4px;
+          }
           .svg-help {
             width: 62px
           }
         }
         .space {
           grid-column: 2 span;
+          @media screen and (max-width: 900px) {
+            display: none;
+          }
         }
         .container-help-2 {
           flex-direction: column;
           margin-top: 37px;
           grid-column: span 4;
+          @media screen and (max-width: 900px) {
+            grid-column: span 1;
+            margin-top: 42px;
+          }
           .svg-help {
             width: 62px;
+          }
+        }
+        .container-help-900 {
+          @media screen and (max-width: 900px) {
+            margin-top: 24px;
           }
         }
       }
