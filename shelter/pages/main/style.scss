@@ -392,7 +392,8 @@
       width: 440px;
       margin-top: -6px;
       @media screen and (max-width: 1100px) {
-        flex: 50%;
+        flex: 40%;
+        margin-left: 20px;
       }
       @include flex($tDirection: column);
       .contacts {
@@ -411,7 +412,8 @@
       margin-top: -6px;
       @include flex($tDirection: column);
       @media screen and (max-width: 1100px) {
-        flex: 50%;
+        flex: 40%;
+        margin-left: 20px;
       }
       .location {
         @include flex();
