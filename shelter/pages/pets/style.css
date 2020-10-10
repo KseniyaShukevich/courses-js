@@ -4,6 +4,11 @@
   height: 100%;
   margin: 0 auto;
 }
+@media screen and (max-width: 767px) {
+  .footer .container-footer, .container-pets, .container-header {
+    padding: 0 20px;
+  }
+}
 
 .section-header {
   height: 120px;
