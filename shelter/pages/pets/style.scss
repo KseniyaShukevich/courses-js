@@ -1,5 +1,9 @@
 @import "../../styles/style";
 
+.body-hidden {
+  overflow: hidden;
+}
+
 .section-header {
   height: 120px;
 }
@@ -14,15 +18,72 @@
   }
 }
 
+
+.background-screen-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 823px;
+  overflow: hidden;
+  background-color: rgba(29, 29, 29, 0.6);
+  .nav-screen-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 320px;
+    height: 100%;
+    background-color: $base-dark-gray;
+    margin-right: -320px;
+    transition: margin-right 1s;
+    .container-nav-screen-menu {
+      @include flex($tDirection: column);
+      width: 243px;
+      height: 310px;
+      padding-left: 10px;
+      align-items: center;
+        .container-link-screen-nav {
+          width: fit-content;
+          .link-screen-nav {
+            @include fontMain($fontSize: 1.9rem, $tColor: $base-gray, $lSpacing: 0.044rem);
+            text-decoration: none;
+            &:hover {
+              color: $base-white;
+              cursor: pointer;
+            }
+          }
+          .link-hover-nav {
+            width: 100%;
+            height: 3px;
+            background-color: $base-pink;
+            margin-top: 8px;
+            margin-bottom: -8px;
+            border-radius: 10%;
+          }
+        }
+    }
+  }
+  .slide-out-menu {
+    margin-right: 0;
+  }
+}
+
 .header {
   height: 100%;
   @include flex();
   align-items: center;
   .logo-screen {
+    text-decoration: none;
+    z-index: 10;
     width: 186px;
     height: 72px;
     @media screen and (max-width: 1279px) {
       height: 75px;
+    }
+    @media screen and (max-width: 767px) {
+      position: absolute;
+      right: 128px;
     }
     .title-screen {
       @include fontDecor(
@@ -50,8 +111,15 @@
     @media screen and (max-width: 767px) {
       width: 30px;
       height: 22px;
-      margin-right: 38px;
+      margin-right: 40px;
+      margin-left: auto;
+      z-index: 10;
       background-image: url(../../assets/icons/Burger-pets.svg);
+      transform: rotate(0deg);
+      transition: transform 1s;
+      &:hover {
+        cursor: pointer;
+      }
     }
     .container-link-screen {
       height: 20px;
@@ -64,13 +132,13 @@
       .link-screen {
         @include fontMain($fontSize: 0.9rem, $tColor: $text-middle-gray);
         text-decoration: none;
-        @media screen and (max-width: 1279px) {
-          letter-spacing: 0.02rem;
-        }
         &:hover {
           color: $base-dark-gray;
           font-weight: 600;
           cursor: pointer;
+        }
+        @media screen and (max-width: 1279px) {
+          letter-spacing: 0.02rem;
         }
       }
       .link-hover {
@@ -80,6 +148,9 @@
         border: 1px solid $base-pink;
       }
     }
+  }
+  .nav-screen-rotate {
+    transform: rotate(90deg);
   }
 }
 

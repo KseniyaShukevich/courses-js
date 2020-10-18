@@ -10,6 +10,10 @@
   }
 }
 
+.body-hidden {
+  overflow: hidden;
+}
+
 .section-screen {
   height: 908px;
   background-image: url(../../assets/images/start-screen-background.jpg);
@@ -44,12 +48,20 @@
   }
 }
 .header .logo-screen {
+  text-decoration: none;
+  z-index: 10;
   width: 184px;
-  height: 100%;
+  height: auto;
 }
 @media screen and (max-width: 1279px) {
   .header .logo-screen {
     margin-left: -8px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header .logo-screen {
+    position: absolute;
+    right: 123px;
   }
 }
 .header .logo-screen .title-screen {
@@ -87,9 +99,16 @@
   .header .nav-screen {
     width: 30px;
     height: 22px;
+    margin-left: auto;
     margin-right: 33px;
     margin-top: 28px;
+    z-index: 10;
     background-image: url(../../assets/icons/Burger.svg);
+    transform: rotate(0deg);
+    transition: transform 1s;
+  }
+  .header .nav-screen:hover {
+    cursor: pointer;
   }
 }
 .header .nav-screen .container-link-screen {
@@ -123,6 +142,66 @@
   .header .nav-screen .container-link-screen .link-hover {
     display: none;
   }
+}
+.header .nav-screen-rotate {
+  transform: rotate(90deg);
+}
+
+.background-screen-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 823px;
+  overflow: hidden;
+  background-color: rgba(29, 29, 29, 0.6);
+}
+.background-screen-menu .nav-screen-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  width: 320px;
+  height: 100%;
+  background-color: #292929;
+  margin-right: -320px;
+  transition: margin-right 1s;
+}
+.background-screen-menu .nav-screen-menu .container-nav-screen-menu {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 243px;
+  height: 310px;
+  padding-left: 10px;
+  align-items: center;
+}
+.background-screen-menu .nav-screen-menu .container-nav-screen-menu .container-link-screen-nav {
+  width: fit-content;
+}
+.background-screen-menu .nav-screen-menu .container-nav-screen-menu .container-link-screen-nav .link-screen-nav {
+  font-family: Arial;
+  font-weight: lighter;
+  font-size: 1.9rem;
+  letter-spacing: 0.044rem;
+  line-height: auto;
+  color: #cdcdcd;
+  text-decoration: none;
+}
+.background-screen-menu .nav-screen-menu .container-nav-screen-menu .container-link-screen-nav .link-screen-nav:hover {
+  color: white;
+  cursor: pointer;
+}
+.background-screen-menu .nav-screen-menu .container-nav-screen-menu .container-link-screen-nav .link-hover-nav {
+  width: 100%;
+  height: 3px;
+  background-color: #f1cdb3;
+  margin-top: 8px;
+  margin-bottom: -8px;
+  border-radius: 10%;
+}
+.background-screen-menu .slide-out-menu {
+  margin-right: 0;
 }
 
 .container-screen-content {
