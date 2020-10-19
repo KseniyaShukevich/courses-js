@@ -289,6 +289,10 @@
 .container-screen-content .content-screen .button-screen:hover {
   background-color: #fddcc4;
   cursor: pointer;
+  overflow: hidden;
+}
+.container-screen-content .content-screen .button-screen:focus {
+  outline: none;
 }
 @media screen and (max-width: 1279px) {
   .container-screen-content .content-screen .button-screen {
@@ -612,6 +616,10 @@
 .section-pets .container-pets .container-content-pets .button-pets:hover {
   background-color: #fddcc4;
   cursor: pointer;
+  overflow: hidden;
+}
+.section-pets .container-pets .container-content-pets .button-pets:focus {
+  outline: none;
 }
 @media screen and (max-width: 767px) {
   .section-pets .container-pets .container-content-pets .button-pets {
