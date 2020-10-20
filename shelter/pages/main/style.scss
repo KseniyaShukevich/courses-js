@@ -444,6 +444,134 @@
       }
     }
   }
+  .container-popup {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    top: 1495px;
+    background-color: rgba(29, 29, 29, 0.6);
+    .popup {
+      width: 950px;
+      height: 552px;
+      padding-left: 50px;
+      @media screen and (max-width: 1279px) {
+        width: 680px;
+        height: 402px;
+      }
+      @media screen and (max-width: 767px) {
+        width: 270px;
+        height: 393px;
+      }
+      .button-popup {
+        @include buttonPopup();
+        margin-right: 8px;
+        margin-left: auto;
+        @media screen and (max-width: 767px) {
+          margin-right: 0;
+        }
+      }
+      .container-content-popup {
+        @include flex();
+        align-items: center;
+        background-color:#FAFAFA;
+        border-radius: 10px;
+        width: 900px;
+        height: 500px;
+        margin-right: auto;
+        overflow: hidden;
+        @media screen and (max-width: 1279px) {
+          width: 630px;
+          height: 350px;
+        }
+        @media screen and (max-width: 767px) {
+          width: 240px;
+          height: 341px;
+        }
+        .image-pet-popup {
+          width: 500px;
+          border-radius: 10px;
+          @media screen and (max-width: 1279px) {
+            width: 420px;
+            margin-right: 13px;
+          }
+          @media screen and (max-width: 767px) {
+            display: none;
+          }
+        }
+        .content-popup {
+          height: 395px;
+          width: 370px;
+          @media screen and (max-width: 1279px) {
+            height: 323px;
+            width: 325px;
+          }
+          @media screen and (max-width: 767px) {
+            height: 314px;
+            width: auto;
+          }
+          .pet-name-popup {
+            @include fontDecor($fontSize: 2.2rem, $tColor: black, $lSpacing: 0.12rem);
+            @media screen and (max-width: 767px) {
+              text-align: center;
+            }
+          }
+          .breed-popup {
+            @include fontDecor($fontSize: 1.3rem, $tColor: black, $lSpacing: 0.05rem);
+            margin-top: 12px;
+            @media screen and (max-width: 767px) {
+              text-align: center;
+            }
+          }
+          .description-popup {
+            @include fontDecor($fontSize: 1rem, $tColor: black, $lSpacing: 0.027rem, $lHeight: 1.1rem);
+            margin-top: 40px;
+            padding-right: 18px;
+            @media screen and (max-width: 1279px) {
+              font-size: 0.8rem;
+              letter-spacing: 0.055rem;
+              line-height: 0.9rem;
+              margin-top: 21px;
+              padding-right: 6px;;
+            }
+            @media screen and (max-width: 767px) {
+              text-align: justify;
+              padding: 0 10px;
+            }
+          }
+          .container-list {
+            margin-top: 40px;
+            height: 101px;
+            @include flex($tDirection: column);
+            @media screen and (max-width: 1279px) {
+              margin-top: 20px;
+              height: 86px;
+            }
+            @media screen and (max-width: 767px) {
+              padding-left: 10px;
+              margin-top: 23px;
+            }
+            .point {
+              display: flex;
+              align-items: center;
+              .list-pointer {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: $base-pink;
+                margin-right: 9px;
+              }
+              .information-popup {
+                @include fontDecor($fontSize: 1rem, $tColor: black, $lSpacing: 0.027rem, $lHeight: 1.1rem);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 .section-help {
