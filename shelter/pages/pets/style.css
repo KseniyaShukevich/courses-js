@@ -309,6 +309,9 @@
   background-color: inherit;
   margin-bottom: 31px;
 }
+.card-pet .button-pet:focus {
+  outline: none;
+}
 .card-pet .button-pet:hover {
   background-color: #fddcc4;
   border-color: #fddcc4;
