@@ -87,6 +87,24 @@ $color-light-l: #F6F6F6;
   );
 }
 
+@mixin buttonPopup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid $base-pink;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: $base-pink-hover;
+      border-color: $base-pink-hover;
+    }
+}
+
 @mixin arrow() {
   flex-shrink: 0;
   height: 50px;
