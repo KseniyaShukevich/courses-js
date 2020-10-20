@@ -72,6 +72,9 @@ $color-light-l: #F6F6F6;
   height: $bHeight;
   border: 2px solid $base-pink;
   border-radius: 26px;
+  &:focus {
+    outline: none;
+  }
   &:hover {
     background-color: $base-pink-hover;
     border-color: $base-pink-hover;
