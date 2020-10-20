@@ -638,19 +638,19 @@
 }
 .section-pets .container-popup .popup {
   width: 950px;
-  height: 552px;
+  min-height: 552px;
   padding-left: 50px;
 }
 @media screen and (max-width: 1279px) {
   .section-pets .container-popup .popup {
     width: 680px;
-    height: 402px;
+    min-height: 402px;
   }
 }
 @media screen and (max-width: 767px) {
   .section-pets .container-popup .popup {
     width: 270px;
-    height: 393px;
+    min-height: 393px;
   }
 }
 .section-pets .container-popup .popup .button-popup {
@@ -685,20 +685,20 @@
   background-color: #FAFAFA;
   border-radius: 10px;
   width: 900px;
-  height: 500px;
+  min-height: 500px;
   margin-right: auto;
   overflow: hidden;
 }
 @media screen and (max-width: 1279px) {
   .section-pets .container-popup .popup .container-content-popup {
     width: 630px;
-    height: 350px;
+    min-height: 350px;
   }
 }
 @media screen and (max-width: 767px) {
   .section-pets .container-popup .popup .container-content-popup {
     width: 240px;
-    height: 341px;
+    min-height: 341px;
   }
 }
 .section-pets .container-popup .popup .container-content-popup .image-pet-popup {
@@ -728,8 +728,10 @@
 }
 @media screen and (max-width: 767px) {
   .section-pets .container-popup .popup .container-content-popup .content-popup {
-    height: 314px;
+    height: auto;
+    min-height: 314px;
     width: auto;
+    padding-bottom: 2px;
   }
 }
 .section-pets .container-popup .popup .container-content-popup .content-popup .pet-name-popup {
@@ -786,7 +788,8 @@
 }
 .section-pets .container-popup .popup .container-content-popup .content-popup .container-list {
   margin-top: 40px;
-  height: 101px;
+  min-height: 101px;
+  padding-right: 4px;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
@@ -794,13 +797,14 @@
 @media screen and (max-width: 1279px) {
   .section-pets .container-popup .popup .container-content-popup .content-popup .container-list {
     margin-top: 20px;
-    height: 86px;
+    min-height: 86px;
   }
 }
 @media screen and (max-width: 767px) {
   .section-pets .container-popup .popup .container-content-popup .content-popup .container-list {
     padding-left: 10px;
     margin-top: 23px;
+    padding-right: 0;
   }
 }
 .section-pets .container-popup .popup .container-content-popup .content-popup .container-list .point {
