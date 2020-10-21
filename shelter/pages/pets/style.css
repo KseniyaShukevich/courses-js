@@ -111,6 +111,7 @@
   }
 }
 .header .logo-screen .title-screen {
+  transition: color 1s;
   font-family: Georgia;
   font-weight: lighter;
   font-size: 2rem;
@@ -118,7 +119,11 @@
   line-height: 0.6rem;
   color: #545454;
 }
+.header .logo-screen .animation-logo-title {
+  color: #f1cdb3;
+}
 .header .logo-screen .subtitle-screen {
+  transition: color 1s;
   font-family: Arial;
   font-weight: lighter;
   font-size: 0.9rem;
@@ -131,6 +136,9 @@
     padding-left: 3px;
   }
 }
+.header .logo-screen .animation-logo-subtitle {
+  color: white;
+}
 .header .nav-screen {
   width: 443px;
   display: flex;
@@ -142,15 +150,26 @@
   .header .nav-screen {
     width: 30px;
     height: 22px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     margin-right: 40px;
     margin-left: auto;
     z-index: 10;
-    background-image: url(../../assets/icons/Burger-pets.svg);
     transform: rotate(0deg);
     transition: transform 1s;
   }
   .header .nav-screen:hover {
     cursor: pointer;
+  }
+  .header .nav-screen .burger-menu {
+    width: 30px;
+    height: 2px;
+    background-color: black;
+    transition: background-color 1s;
+  }
+  .header .nav-screen .animation-burger-menu {
+    background-color: #f1cdb3;
   }
 }
 .header .nav-screen .container-link-screen {
