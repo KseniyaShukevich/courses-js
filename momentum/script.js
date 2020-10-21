@@ -3,6 +3,7 @@ let arrImages = [];
 let fullArrImages = [];
 let hourNow = 0;
 let counter = 0;
+const preload = document.getElementById('preload');
 const city = document.querySelector('.city');
 const weather = document.querySelector('.weather');
 const weatherIcon = document.querySelector('.weather-icon');
@@ -159,7 +160,6 @@ function getFullImages() {
 
 function getImage() {
   if (!isGetImage) {
-    console.log(counter);
     isGetImage = true;
     counter++;
     if (counter > 23) {
@@ -224,17 +224,32 @@ async function getQuote() {
 }
 
 async function getWeather() {
-  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=ru&appid=0dce59e930c83fce2edcad7a94b09256&units=metric`;
-  const result = await fetch(url);
-  const data = await result.json();
+  if (localStorage.getItem('city') === null) {
+    city.textContent = 'Минск';
+  } else {
+    city.textContent = localStorage.getItem('city');
+  }
 
-  weatherIcon.className = 'weather-icon owf';
-  weatherIcon.classList.add(`owf-${data.weather[0].id}`);
-  weather.textContent = `${data.main.temp}°C, влажность: ${data.main.humidity}%, скорость ветра: ${data.wind.speed} м/c`;
-}
+  const url = `https://api.openweathermap.org/data/2.5/weather?q=${city.textContent}&lang=ru&appid=0dce59e930c83fce2edcad7a94b09256&units=metric`;
+  try {
+    const result = await fetch(url);
+    const data = await result.json();
+
+    weatherIcon.className = 'weather-icon owf';
+    weatherIcon.classList.add(`owf-${data.weather[0].id}`);
+    weather.textContent = `${data.main.temp}°C, влажность: ${data.main.humidity}%, скорость ветра: ${data.wind.speed} м/c`;
+  } catch(error) {
+    alert('Пожалуйста, введите правильное название города');
+  }
+ }
 
 function setCity(event) {
   if (event.code === 'Enter') {
+    if (event.target.innerText.trim().length === 0) {
+      getWeather();
+      return;
+    }
+    localStorage.setItem('city', event.target.innerText);
     getWeather();
     city.blur();
   }
