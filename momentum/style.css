@@ -5,12 +5,14 @@
 }
 
 body {
+  padding: 10px;
   font-family: 'Merriweather', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  min-height: 700px;
   height: 100vh;
   background-size: cover;
   color: #000000;
@@ -33,12 +35,6 @@ h1 {
 h2 {
   margin-bottom: 0.5rem;
   opacity: 0.8;
-}
-
-@media (max-width: 700px) {
-  .time {
-    font-size: 6rem;
-  }
 }
 
 .btn {
@@ -82,4 +78,43 @@ h2 {
 
 .text {
   font-weight: 400;
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  body {
+    min-height: 600px;
+  }
+  .date {
+    font-size: 2rem;
+  }
+  .time {
+    font-size: 6rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 440px) {
+  body {
+    min-height: 500px;
+  }
+  .date {
+    font-size: 1.5rem;
+  }
+  .time {
+    font-size: 4rem;
+  }
+  .quotes {
+    font-size: 0.8rem;
+  }
+  .text {
+    font-size: 0.9rem;
+  }
 }
