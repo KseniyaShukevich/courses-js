@@ -81,7 +81,7 @@ function showDateAndTime() {
     ];
 
   dateClass.innerHTML = `${days[day]}<span>, </span>${date}<span> </span>${months[month]}`;
-  time.innerHTML = `${hour}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}`;
+  time.innerHTML = `${addZero(hour)}<span>:</span>${addZero(min)}<span>:</span>${addZero(sec)}`;
 
   setTimeout(showDateAndTime, 1000);
 }
