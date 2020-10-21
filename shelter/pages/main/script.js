@@ -80,7 +80,7 @@ function getPopup(index) {
     let coords = document.body.getBoundingClientRect();
     containerPopup.style.top = Math.abs(coords.top) + 'px';
     containerPopup.style.display = 'flex';
-    document.body.classList.add('body-hidden');
+    document.body.style.overflow = 'hidden';
 
     for (let section of sections) {
         section.style.paddingRight = scrollWidth + 'px';
@@ -90,10 +90,10 @@ function getPopup(index) {
 }
 
 function hidePopup(e) {
-    if ( (e.target === buttonPopup || e.target === containerPopup || e.target === popup) && isPopup) {
+    if ( (e.target === buttonPopup || e.target === containerPopup || e.target === popup || e.currentTarget === buttonPopup) && isPopup) {
         isPopup = false;
         containerPopup.style.display = '';
-        document.body.classList.remove('body-hidden');
+        document.body.style.overflow = '';
 
         for (let section of sections) {
             section.style.paddingRight = '';
