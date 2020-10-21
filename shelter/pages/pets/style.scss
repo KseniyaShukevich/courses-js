@@ -86,6 +86,7 @@
       right: 128px;
     }
     .title-screen {
+      transition: color 1s;
       @include fontDecor(
         $fontSize: 2rem,
         $lHeight: 0.6rem,
@@ -93,7 +94,11 @@
         $lSpacing: 0.1rem
       );
     }
+    .animation-logo-title {
+      color: $base-pink;
+    }
     .subtitle-screen {
+      transition: color 1s;
       @include fontMain(
         $fontSize: 0.9rem,
         $tColor: $base-dark-gray,
@@ -103,7 +108,11 @@
         padding-left: 3px;
       }
     }
+    .animation-logo-subtitle {
+      color: $base-white;
+    }
   }
+
   .nav-screen {
     width: 443px;
     @include flex();
