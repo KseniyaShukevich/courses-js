@@ -1,5 +1,8 @@
-let backgroundCounter = Math.floor(Math.random() * 21);
-
+let isGetImage = false;
+let arrImages = [];
+let fullArrImages = [];
+let hourNow = 0;
+let counter = 0;
 const city = document.querySelector('.city');
 const weather = document.querySelector('.weather');
 const weatherIcon = document.querySelector('.weather-icon');
@@ -11,6 +14,11 @@ const dateClass = document.querySelector('.date');
 const greeting = document.querySelector('.greeting');
 const name = document.querySelector('.name');
 const focus = document.querySelector('.focus');
+const base = 'assets/images/';
+const nightImage = 'night/';
+const morningImage = 'morning/';
+const dayImage = 'day/';
+const eveningImage = 'evening/'
 const images =
     [
       '01.jpg',
@@ -81,9 +89,28 @@ function addZero(n) {
   return (parseInt(n, 10) < 10 ? '0' : '') + n;
 }
 
+function getRandomNumber() {
+  return Math.floor(Math.random() * 20);
+}
+
+function getArrImages() {
+  let buff = [];
+  for (let i = 0; i < 6; i++) {
+    let rNumber = getRandomNumber();
+    if (buff.indexOf(rNumber) === -1) {
+      arrImages.push(rNumber);
+      buff.push(rNumber);
+    } else {
+      i--;
+    }
+  }
+}
+
 function setBgGreet() {
   let currentDate = new Date();
   let hour = currentDate.getHours();
+  hourNow = currentDate.getHours();
+  counter = hourNow;
   let nextDate = new Date(
     currentDate.getFullYear(),
     currentDate.getMonth(),
@@ -92,41 +119,57 @@ function setBgGreet() {
   );
   let intervalDate = nextDate - currentDate;
 
-  const base = 'assets/images/';
-  const nightImage = 'night/';
-  const morningImage = 'morning/';
-  const dayImage = 'day/';
-  const eveningImage = 'evening/'
-
-  const index = backgroundCounter % images.length;
-
   if (hour < 6) {
     document.body.style.backgroundImage =
-      `url('${base}${nightImage}${images[index]}')`;
+      `url('${base}${nightImage}${images[arrImages[hour]]}')`;
       greeting.textContent = 'Спокойной ночи, ';
       document.body.style.color = 'white';
   } else if (hour < 12) {
     document.body.style.backgroundImage =
-      `url('${base}${morningImage}${images[index]}')`;
+      `url('${base}${morningImage}${images[arrImages[hour - 6]]}')`;
       greeting.textContent = 'Доброе утро, ';
   } else if (hour < 18) {
     document.body.style.backgroundImage =
-      `url('${base}${dayImage}${images[index]}')`;
+      `url('${base}${dayImage}${images[arrImages[hour - 12]]}')`;
       greeting.textContent = 'Добрый день, ';
   } else {
     document.body.style.backgroundImage =
-      `url('${base}${eveningImage}${images[index]}')`;
+      `url('${base}${eveningImage}${images[arrImages[hour - 18]]}')`;
       greeting.textContent = 'Добрый вечер, ';
       document.body.style.color = 'white';
   }
 
-  backgroundCounter++;
-
   setTimeout(setBgGreet, intervalDate);
 }
 
+function getFullImages() {
+  let day = [
+    nightImage,
+    morningImage,
+    dayImage,
+    eveningImage
+];
+
+  for(let i = 0; i < 4; i++) {
+    for(let j = 0; j < 6; j++) {
+      fullArrImages.push(`${day[i]}${images[arrImages[j]]}`);
+    }
+  }
+}
+
 function getImage() {
-  setBgGreet();
+  if (!isGetImage) {
+    console.log(counter);
+    isGetImage = true;
+    counter++;
+    if (counter > 23) {
+      counter = 0;
+    }
+    document.body.style.backgroundImage =
+      `url('${base}${fullArrImages[counter]}')`;
+
+    setTimeout(() => {isGetImage = false;}, 1000);
+  }
 }
 
 function getName() {
@@ -207,8 +250,11 @@ name.addEventListener('blur', setName);
 focus.addEventListener('keypress', setFocus);
 focus.addEventListener('blur', setFocus);
 
+getArrImages();
+
 showDateAndTime();
 setBgGreet();
 getName();
 getFocus();
 getWeather();
+getFullImages();
