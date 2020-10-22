@@ -34,12 +34,8 @@ function getArrPets() {
             i--;
         }
 
-        if (window.innerWidth > 1279 && arrBuf.length % 8 === 0) {
-            arrBuf = [];
-        } else if (window.innerWidth > 767 && window.innerWidth < 1280 && arrBuf.length % 6 === 0) {
-            arrBuf = [];
-        } else if (window.innerWidth < 768 && arrBuf.length % 3 === 0) {
-            arrBuf = [];
+        if (arrBuf.length % 8 === 0) {
+            arrBuf = arrBuf.slice(4, 9);
         }
     }
 }
