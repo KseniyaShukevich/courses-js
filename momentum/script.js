@@ -185,6 +185,7 @@ function setName(e) {
     if (e.which == 13 || e.keyCode == 13) {
       if (e.target.innerText.trim().length === 0) {
         getName();
+        name.blur();
         return;
       } else {
         localStorage.setItem('name', e.target.innerText);
