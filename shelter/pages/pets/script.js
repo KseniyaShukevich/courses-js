@@ -115,20 +115,28 @@ function getPopup(index) {
 }
 
 function leftPage() {
-    if (!isActiveRight) {
-        isActiveRight = true;
-        fillRightPaginationActive();
-    }
-
-    if (isActiveLeft) {
+    if (pagePagination === 2) {
+        isActiveLeft = false;
         pagePagination--;
         paginatorNumber.textContent = pagePagination;
-        fillCardsPets(getCountPag());
-    }
-
-    if (window.innerWidth > 1279 && pagePagination === 1) {
-        isActiveLeft = false;
         fillLeftPaginationInactive();
+        fillCardsPets(getCountPag());
+    } else {
+        if (!isActiveRight) {
+            isActiveRight = true;
+            fillRightPaginationActive();
+        }
+
+        if (isActiveLeft) {
+            pagePagination--;
+            paginatorNumber.textContent = pagePagination;
+            fillCardsPets(getCountPag());
+        }
+
+        if (window.innerWidth > 1279 && pagePagination === 1) {
+            isActiveLeft = false;
+            fillLeftPaginationInactive();
+        }
     }
 }
 
@@ -202,9 +210,11 @@ function getCountPag() {
 }
 
 function resizeChange() {
-        pets.length = 0;
-        arrBuf.length = 0;
-        arrPets.length = 0;
+        if (!isActiveRight) {
+            getLastPage();
+        } else {
+            getFirstPage();
+        }
         getPets(getCountPag());
 }
 
@@ -215,10 +225,12 @@ function getFirstPage() {
     }
 
     isActiveLeft = false;
+    isActiveRight = true;
     pagePagination = 1;
     paginatorNumber.textContent = pagePagination;
     fillCardsPets();
     fillLeftPaginationInactive();
+    fillRightPaginationActive();
 }
 
 function getEndPage() {
