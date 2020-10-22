@@ -231,6 +231,15 @@ async function getQuote() {
 }
 
 async function getWeather() {
+  let currentDate = new Date();
+  let nextDate = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    currentDate.getDate(),
+    currentDate.getHours() + 1
+  );
+  let intervalDate = nextDate - currentDate;
+
   if (localStorage.getItem('city') === null) {
     city.textContent = 'Минск';
   } else {
@@ -248,6 +257,7 @@ async function getWeather() {
   } catch(error) {
     alert('Пожалуйста, введите правильное название города');
   }
+  setTimeout(getWeather, intervalDate);
  }
 
 function setCity(event) {
