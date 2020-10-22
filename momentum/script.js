@@ -208,8 +208,14 @@ function getFocus() {
 function setFocus(e) {
   if (e.type === 'keypress') {
     if (e.which == 13 || e.keyCode == 13) {
-      localStorage.setItem('focus', e.target.innerText);
-      focus.blur();
+      if (e.target.innerText.trim().length === 0) {
+        getFocus();
+        focus.blur();
+        return;
+      } else {
+        localStorage.setItem('focus', e.target.innerText);
+        focus.blur();
+      }
     }
   } else {
     localStorage.setItem('focus', e.target.innerText);
