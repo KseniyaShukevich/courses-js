@@ -40,12 +40,12 @@ function getArrPets() {
     }
 }
 
-async function getPets(c = 0) {
+async function getPets() {
     const url = `../../styles/pets.json`;
     const result = await fetch(url);
     pets = await result.json();
     getArrPets();
-    fillCardsPets(c);
+    fillCardsPets();
 }
 
 function randomPet() {
@@ -215,7 +215,6 @@ function resizeChange() {
         } else {
             getFirstPage();
         }
-        getPets(getCountPag());
 }
 
 function getFirstPage() {
