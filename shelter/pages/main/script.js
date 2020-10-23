@@ -10,7 +10,7 @@ let buttonPopup = document.querySelector('.button-popup');
 let popup = document.querySelector('.popup');
 let sections = document.querySelectorAll('.section');
 let isPopup = false;
-let scrollWidth = window.innerWidth - document.documentElement.clientWidth;
+let noScrollWidth = document.body.clientWidth;
 let pets = [];
 let indexPet = 0;
 
@@ -83,7 +83,7 @@ function getPopup(index) {
     document.body.style.overflow = 'hidden';
 
     for (let section of sections) {
-        section.style.paddingRight = scrollWidth + 'px';
+        section.style.paddingRight = document.body.clientWidth - noScrollWidth + 'px';
     }
 
     fillPopup(index);
