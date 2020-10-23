@@ -262,6 +262,7 @@ function setCity(event) {
   if (event.code === 'Enter') {
     if (event.target.innerText.trim().length === 0) {
       getWeather();
+      city.blur();
       return;
     }
     localStorage.setItem('city', event.target.innerText);
@@ -270,15 +271,23 @@ function setCity(event) {
   }
 }
 
+function clear(elem) {
+  elem.textContent = '';
+}
+
 document.addEventListener('DOMContentLoaded', getWeather);
 city.addEventListener('keypress', setCity);
+city.addEventListener('blur', getWeather);
+city.addEventListener('focus', () => clear(city));
 document.addEventListener('DOMContentLoaded', getQuote);
 btnQuote.addEventListener('click', getQuote)
 btnImage.addEventListener('click', getImage);
 name.addEventListener('keypress', setName);
-name.addEventListener('blur', setName);
+name.addEventListener('focus', () => clear(name));
+name.addEventListener('blur', getName);
 focus.addEventListener('keypress', setFocus);
-focus.addEventListener('blur', setFocus);
+focus.addEventListener('focus', () => clear(focus));
+focus.addEventListener('blur', getFocus);
 
 getArrImages();
 
