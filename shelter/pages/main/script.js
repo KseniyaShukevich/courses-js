@@ -62,6 +62,9 @@ function fillCardsPets() {
             count++;
         }
     }
+    if(count >= arrPets.length) {
+        count = 0;
+    }
 }
 
 function getInformationResult(point) {
@@ -138,8 +141,8 @@ for (let i = 0; i < btnLearnMore.length; i++) {
 
 btnMakeFriend.addEventListener('click', pagePets);
 knowRest.addEventListener('click', pagePets);
-arrowLeft.addEventListener('click', getPets);
-arrowRight.addEventListener('click', getPets);
+arrowLeft.addEventListener('click', fillCardsPets);
+arrowRight.addEventListener('click', fillCardsPets);
 buttonPopup.addEventListener('click', hidePopup);
 containerPopup.addEventListener('click', hidePopup);
 popup.addEventListener('click', hidePopup);
