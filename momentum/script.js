@@ -124,7 +124,6 @@ function setBgGreet() {
     document.body.style.backgroundImage =
       `url('${base}${nightImage}${images[arrImages[hour]]}')`;
       greeting.textContent = 'Спокойной ночи, ';
-      document.body.style.color = 'white';
   } else if (hour < 12) {
     document.body.style.backgroundImage =
       `url('${base}${morningImage}${images[arrImages[hour - 6]]}')`;
@@ -137,7 +136,6 @@ function setBgGreet() {
     document.body.style.backgroundImage =
       `url('${base}${eveningImage}${images[arrImages[hour - 18]]}')`;
       greeting.textContent = 'Добрый вечер, ';
-      document.body.style.color = 'white';
   }
 
   setTimeout(setBgGreet, intervalDate);
@@ -255,7 +253,7 @@ async function getWeather() {
     weatherIcon.classList.add(`owf-${data.weather[0].id}`);
     weather.textContent = `${data.main.temp}°C, влажность: ${data.main.humidity}%, скорость ветра: ${data.wind.speed} м/c`;
   } catch(error) {
-    alert('Пожалуйста, введите правильное название города');
+    alert('Ошибка при загрузке прогноза погоды. Возможно, вы неправильно ввели название города');
   }
   setTimeout(getWeather, intervalDate);
  }
