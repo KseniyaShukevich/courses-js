@@ -12,6 +12,8 @@ let sections = document.querySelectorAll('.section');
 let isPopup = false;
 let noScrollWidth = document.body.clientWidth;
 let pets = [];
+let arrPets = [];
+let count = 0;
 let indexPet = 0;
 
 function pagePets() {
@@ -24,7 +26,26 @@ async function getPets() {
     const result = await fetch(url);
     pets = await result.json();
 
+    getArrPets();
     fillCardsPets();
+}
+
+function getArrPets() {
+    let arrBuf = [];
+
+    for (let i = 0; i < 48; i++) {
+        randomPet();
+        if (arrBuf.indexOf(indexPet) === -1) {
+            arrBuf.push(indexPet);
+            arrPets.push(indexPet);
+        } else {
+            i--;
+        }
+
+        if (arrBuf.length % 8 === 0) {
+            arrBuf = arrBuf.slice(4, 9);
+        }
+    }
 }
 
 function randomPet() {
@@ -32,10 +53,14 @@ function randomPet() {
 }
 
 function fillCardsPets() {
+    let cardPet = document.querySelectorAll('.card-pet');
     for (let i = 0; i < petsNames.length; i++) {
-        randomPet();
-        petsNames[i].textContent = pets[indexPet].name;
-        petsImages[i].setAttribute('src', pets[indexPet].img);
+        let computedStyle = getComputedStyle(cardPet[i]);
+        if (computedStyle.display !== 'none') {
+            petsNames[i].textContent = pets[arrPets[count]].name;
+            petsImages[i].setAttribute('src', pets[arrPets[count]].img);
+            count++;
+        }
     }
 }
 
