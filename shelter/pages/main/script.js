@@ -76,6 +76,10 @@ function getInformationResult(point) {
     return result;
 }
 
+function resizeChange () {
+    fillCardsPets();
+}
+
 function fillPopup(index) {
     let imagePetPopup = document.querySelector('.image-pet-popup');
     let petNamePopup = document.querySelector('.pet-name-popup');
@@ -137,6 +141,7 @@ knowRest.addEventListener('click', pagePets);
 arrowLeft.addEventListener('click', getPets);
 arrowRight.addEventListener('click', getPets);
 buttonPopup.addEventListener('click', hidePopup);
-containerPopup.addEventListener('click', hidePopup)
-popup.addEventListener('click', hidePopup)
+containerPopup.addEventListener('click', hidePopup);
+popup.addEventListener('click', hidePopup);
+window.addEventListener('resize', resizeChange);
 getPets();
