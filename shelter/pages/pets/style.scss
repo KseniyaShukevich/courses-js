@@ -1,11 +1,72 @@
 @import "../../styles/style";
 
+.body-hidden {
+  overflow: hidden;
+}
+
 .section-header {
   height: 120px;
 }
 
 .container-header {
   @extend %container;
+  @media screen and (max-width: 1279px) {
+    padding: 0 30px;
+  }
+  @media screen and (max-width: 767px) {
+    padding: 0 10px;
+  }
+}
+
+
+.background-screen-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 823px;
+  overflow: hidden;
+  background-color: rgba(29, 29, 29, 0.6);
+  .nav-screen-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 320px;
+    height: 100%;
+    background-color: $base-dark-gray;
+    margin-right: -320px;
+    transition: margin-right 1s;
+    .container-nav-screen-menu {
+      @include flex($tDirection: column);
+      width: 243px;
+      height: 310px;
+      padding-left: 10px;
+      align-items: center;
+        .container-link-screen-nav {
+          width: fit-content;
+          .link-screen-nav {
+            @include fontMain($fontSize: 1.9rem, $tColor: $base-gray, $lSpacing: 0.044rem);
+            text-decoration: none;
+            &:hover {
+              color: $base-white;
+              cursor: pointer;
+            }
+          }
+          .link-hover-nav {
+            width: 100%;
+            height: 3px;
+            background-color: $base-pink;
+            margin-top: 8px;
+            margin-bottom: -8px;
+            border-radius: 10%;
+          }
+        }
+    }
+  }
+  .slide-out-menu {
+    margin-right: 0;
+  }
 }
 
 .header {
@@ -13,9 +74,19 @@
   @include flex();
   align-items: center;
   .logo-screen {
-    width: 184px;
+    text-decoration: none;
+    z-index: 10;
+    width: 186px;
     height: 72px;
+    @media screen and (max-width: 1279px) {
+      height: 75px;
+    }
+    @media screen and (max-width: 767px) {
+      position: absolute;
+      right: 128px;
+    }
     .title-screen {
+      transition: color 1s;
       @include fontDecor(
         $fontSize: 2rem,
         $lHeight: 0.6rem,
@@ -23,20 +94,59 @@
         $lSpacing: 0.1rem
       );
     }
+    .animation-logo-title {
+      color: $base-pink;
+    }
     .subtitle-screen {
+      transition: color 1s;
       @include fontMain(
         $fontSize: 0.9rem,
         $tColor: $base-dark-gray,
         $lSpacing: 0.05rem
       );
+      @media screen and (max-width: 1279px) {
+        padding-left: 3px;
+      }
+    }
+    .animation-logo-subtitle {
+      color: $base-white;
     }
   }
+
   .nav-screen {
     width: 443px;
     @include flex();
     align-items: center;
+    @media screen and (max-width: 767px) {
+      width: 30px;
+      height: 22px;
+      @include flex($tDirection: column);
+      margin-right: 40px;
+      margin-left: auto;
+      z-index: 10;
+      transform: rotate(0deg);
+      transition: transform 1s;
+      &:hover {
+        cursor: pointer;
+      }
+      .burger-menu {
+        width: 30px;
+        height: 2px;
+        background-color: black;
+        transition: background-color 1s;
+      }
+      .animation-burger-menu {
+        background-color: $base-pink;
+      }
+    }
     .container-link-screen {
       height: 20px;
+      @media screen and (max-width: 1279px) {
+        height: 22px;
+      }
+      @media screen and (max-width: 767px) {
+          display: none;
+        }
       .link-screen {
         @include fontMain($fontSize: 0.9rem, $tColor: $text-middle-gray);
         text-decoration: none;
@@ -44,6 +154,9 @@
           color: $base-dark-gray;
           font-weight: 600;
           cursor: pointer;
+        }
+        @media screen and (max-width: 1279px) {
+          letter-spacing: 0.02rem;
         }
       }
       .link-hover {
@@ -54,11 +167,20 @@
       }
     }
   }
+  .nav-screen-rotate {
+    transform: rotate(90deg);
+  }
 }
 
 .section-pets {
   height: 1342px;
   background-color: $color-light-l;
+  @media screen and (max-width: 1279px) {
+    height: 1733px;
+  }
+  @media screen and (max-width: 767px) {
+    height: 1649px;
+  }
 }
 
 .container-pets {
@@ -71,6 +193,18 @@
   @include fontDecor($fontSize: 2.2rem, $lSpacing: 0.13rem, $lHeight: 2.9rem);
   margin-top: 80px;
   height: 100px;
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 21px;
+  }
+  @media screen and (max-width: 767px) {
+    @include fontDecor(
+    $fontSize: 1.6rem,
+    $lSpacing: 0.07rem,
+    $lHeight: 2.1rem
+    );
+    margin-top: 42px;
+    margin-bottom: 7px;
+  }
 }
 
 .grid-pets {
@@ -82,6 +216,18 @@
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 12px;
   grid-column-gap: 36px;
+  @media screen and (max-width: 1279px) {
+    width: 584px;
+    height: 1382px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 767px) {
+    width: 270px;
+    height: 1385px;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .card-pet {
@@ -92,8 +238,10 @@
   @include flex($tDirection: column);
   align-items: center;
   border-radius: 10px;
+  opacity: 0;
   &:hover {
     cursor: pointer;
+    background-color: white;
     box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
   }
   .pet-name {
@@ -109,6 +257,23 @@
     margin-bottom: 31px;
   }
 }
+.animation-card-pet {
+  transition: opacity 1s;
+}
+.opacity-card-pet {
+  opacity: 1;
+}
+.card-pet-none-1279 {
+  @media screen and (max-width: 1279px) {
+    display: none;
+  }
+}
+
+.card-pet-none-767 {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
 
 .container-nav-pets {
   width: 340px;
@@ -116,6 +281,13 @@
   @include flex();
   align-items: center;
   margin-bottom: 76px;
+  @media screen and (max-width: 1279px) {
+    margin-bottom: 54px;
+  }
+  @media screen and (max-width: 767px) {
+    margin-bottom: 19px;
+    width: 300px;
+  }
   .button_paginator_inactive {
     height: 50px;
     width: 50px;
@@ -147,23 +319,186 @@
   }
 }
 
+.container-popup {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(29, 29, 29, 0.6);
+  display: none;
+  .popup {
+    width: 950px;
+    min-height: 552px;
+    padding-left: 50px;
+    @media screen and (max-width: 1279px) {
+      width: 680px;
+      min-height: 402px;
+    }
+    @media screen and (max-width: 767px) {
+      width: 270px;
+      min-height: 393px;
+    }
+    .button-popup {
+      @include buttonPopup();
+      margin-right: 8px;
+      margin-left: auto;
+      @media screen and (max-width: 767px) {
+        margin-right: 0;
+      }
+    }
+    .container-content-popup {
+      @include flex();
+      align-items: center;
+      background-color:#FAFAFA;
+      border-radius: 10px;
+      width: 900px;
+      min-height: 500px;
+      margin-right: auto;
+      overflow: hidden;
+      @media screen and (max-width: 1279px) {
+        width: 630px;
+        min-height: 350px;
+      }
+      @media screen and (max-width: 767px) {
+        width: 240px;
+        min-height: 341px;
+      }
+      .image-pet-popup {
+        width: 500px;
+        border-radius: 10px;
+        @media screen and (max-width: 1279px) {
+          width: 420px;
+          margin-right: 13px;
+        }
+        @media screen and (max-width: 767px) {
+          display: none;
+        }
+      }
+      .content-popup {
+        height: 395px;
+        width: 370px;
+        @media screen and (max-width: 1279px) {
+          height: 323px;
+          width: 325px;
+        }
+        @media screen and (max-width: 767px) {
+          height: auto;
+          min-height: 314px;
+          width: auto;
+          padding-bottom: 2px;
+        }
+        .pet-name-popup {
+          @include fontDecor($fontSize: 2.2rem, $tColor: black, $lSpacing: 0.12rem);
+          @media screen and (max-width: 767px) {
+            text-align: center;
+          }
+        }
+        .breed-popup {
+          @include fontDecor($fontSize: 1.3rem, $tColor: black, $lSpacing: 0.05rem);
+          margin-top: 12px;
+          @media screen and (max-width: 767px) {
+            text-align: center;
+          }
+        }
+        .description-popup {
+          @include fontDecor($fontSize: 1rem, $tColor: black, $lSpacing: 0.027rem, $lHeight: 1.1rem);
+          margin-top: 40px;
+          padding-right: 18px;
+          @media screen and (max-width: 1279px) {
+            font-size: 0.8rem;
+            letter-spacing: 0.055rem;
+            line-height: 0.9rem;
+            margin-top: 21px;
+            padding-right: 6px;;
+          }
+          @media screen and (max-width: 767px) {
+            text-align: justify;
+            padding: 0 10px;
+          }
+        }
+        .container-list {
+          margin-top: 40px;
+          min-height: 101px;
+          padding-right: 4px;
+          @include flex($tDirection: column);
+          @media screen and (max-width: 1279px) {
+            margin-top: 20px;
+            min-height: 86px;
+          }
+          @media screen and (max-width: 767px) {
+            padding-left: 10px;
+            margin-top: 23px;
+            padding-right: 0;
+          }
+          .point {
+            display: flex;
+            align-items: center;
+            .list-pointer {
+              width: 4px;
+              height: 4px;
+              border-radius: 50%;
+              background-color: $base-pink;
+              margin-right: 9px;
+            }
+            .information-popup {
+              @include fontDecor($fontSize: 1rem, $tColor: black, $lSpacing: 0.027rem, $lHeight: 1.1rem);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .footer {
   height: 350px;
   background-image: url(../../assets/images/footer-background.jpg);
   background-size: cover;
+  @media screen and (max-width: 1279px) {
+    height: 624px;
+    padding-top: 15px;
+  }
+  @media screen and (max-width: 767px) {
+    height: 890px;
+    padding-top: 9px;
+  }
   .container-footer {
     @extend %container;
     @include flex();
     align-items: center;
+    @media screen and (max-width: 1279px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 690px;
+      box-sizing: border-box;
+    }
+    @media screen and (max-width: 767px) {
+      width: 320px;
+    }
     .contacts-footer {
       height: 235px;
       width: 440px;
       margin-top: -6px;
       @include flex($tDirection: column);
+      @media screen and (max-width: 1279px) {
+        flex: 40%;
+        width: 200px;
+        margin-left: -15px;
+      }
+      @media screen and (max-width: 767px) {
+        margin-left: 0;
+        height: 238px;
+        margin-top: -4px;
+      }
       .contacts {
         @include flex();
         align-items: center;
         text-decoration: none;
+        @media screen and (max-width: 767px) {
+          margin-left: 2px;
+          width: 290px;
+        }
         .icon-footer-contacts {
           width: 40px;
         }
@@ -175,12 +510,25 @@
       width: 440px;
       margin-top: -6px;
       @include flex($tDirection: column);
+      @media screen and (max-width: 1279px) {
+        flex: 40%;
+        margin-left: 50px;
+        width: 200px;
+      }
+      @media screen and (max-width: 767px) {
+        margin-left: 0;
+        margin-bottom: 27px;
+        height: 238px;
+      }
       .location {
         @include flex();
         align-items: center;
         text-decoration: none;
+        @media screen and (max-width: 767px) {
+          margin-left: -9px;
+        }
         .icon-footer-location {
-          width: 20px;
+          width: 22px;
         }
       }
     }
@@ -198,6 +546,13 @@
       width: 300px;
       margin-top: auto;
       margin-left: auto;
+      @media screen and (max-width: 1279px) {
+        margin: auto auto 0 auto;
+      }
+      @media screen and (max-width: 767px) {
+        width: 260px;
+        height: 269px;
+      }
     }
   }
 }
@@ -213,4 +568,15 @@
     $lHeight: 2.8rem,
     $tColor: $base-white
   );
+  @media screen and (max-width: 767px) {
+    text-align: center;
+    margin-top: 5px;
+    margin-left: -3px;
+    @include fontDecor(
+    $fontSize: 2.2rem,
+    $lSpacing: 0.13rem,
+    $lHeight: 2.8rem,
+    $tColor: $base-white
+  );
+  }
 }

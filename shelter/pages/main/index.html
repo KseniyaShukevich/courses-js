@@ -11,17 +11,17 @@
     <section class="section-screen">
       <div class="container-screen">
         <header class="header">
-          <div class="logo-screen">
+          <a href="#" class="logo-screen">
             <h1 class="title-screen">Cozy House</h1>
             <p class="subtitle-screen">Shelter for pets in Boston</p>
-          </div>
+          </a>
           <nav class="nav-screen">
             <div class="container-link-screen">
-              <a href="" class="link-screen" style="color: white;">About the shelter</a>
+              <a href="#" class="link-screen" style="color: white;">About the shelter</a>
               <div class="link-hover"></div>
             </div>
             <div class="container-link-screen">
-              <a href="" class="link-screen">Our pets</a>
+              <a href="../pets/index.html" class="link-screen">Our pets</a>
             </div>
             <div class="container-link-screen">
               <a href="" class="link-screen">To help the shelter</a>
@@ -31,6 +31,25 @@
             </div>
           </nav>
         </header>
+        <div class="background-screen-menu">
+          <nav class="nav-screen-menu">
+            <div class="container-nav-screen-menu">
+              <div class="container-link-screen-nav">
+                <a href="" class="link-screen-nav" style="color: white;">About the shelter</a>
+                <div class="link-hover-nav"></div>
+              </div>
+              <div class="container-link-screen-nav">
+                <a href="../pets/index.html" class="link-screen-nav">Our pets</a>
+              </div>
+              <div class="container-link-screen-nav">
+                <a href="#" class="link-screen-nav">Help the shelter</a>
+              </div>
+              <div class="container-link-screen-nav">
+                <a href="#" class="link-screen-nav">Contacts</a>
+              </div>
+            </div>
+          </nav>
+        </div>
         <div class="container-screen-content">
           <div class="content-screen">
             <div class="heading-content-screen">
@@ -47,7 +66,7 @@
         </div>
       </div>
     </section>
-    <section class="section-about">
+    <section class="section section-about">
       <div class="container-about">
         <div class="container-content-about">
           <div class="image-about">
@@ -77,7 +96,7 @@
         </div>
       </div>
     </section>
-    <section class="section-pets">
+    <section class="section section-pets">
       <h2 style="font-size: 0">pets</h2>
       <div class="container-pets">
         <div class="container-content-pets">
@@ -87,7 +106,7 @@ are looking for a house
                 </pre
           >
           <div class="container-cards-pets">
-            <div class="slider-pets-arrow">
+            <div class="slider-pets-arrow slider-pets-arrow-left">
               <svg
                 width="14"
                 height="6"
@@ -101,33 +120,33 @@ are looking for a house
             <div class="container-pets">
               <div class="card-pet">
                 <img
-                  src="../../assets/images/pets-katrine.png"
-                  class="image-pet-Katrine"
+                  src=""
+                  class="image-pet"
                   alt="pet"
                 />
-                <p class="pet-name">Katrine</p>
+                <p class="pet-name"></p>
                 <button class="button-pet">Learn more</button>
               </div>
-              <div class="card-pet">
+              <div class="card-pet card-none-767">
                 <img
-                  src="../../assets/images/pets-jennifer.png"
-                  class="image-pet-Jennifer"
+                  src=""
+                  class="image-pet"
                   alt="pet"
                 />
-                <p class="pet-name">Jennifer</p>
+                <p class="pet-name"></p>
                 <button class="button-pet">Learn more</button>
               </div>
-              <div class="card-pet">
+              <div class="card-pet card-none">
                 <img
-                  src="../../assets/images/pets-woody.png"
-                  class="image-pet-Woody"
+                  src=""
+                  class="image-pet"
                   alt="pet"
                 />
-                <p class="pet-name">Woody</p>
+                <p class="pet-name"></p>
                 <button class="button-pet">Learn more</button>
               </div>
             </div>
-            <div class="slider-pets-arrow">
+            <div class="slider-pets-arrow slider-pets-arrow-right">
               <svg
                 width="14"
                 height="6"
@@ -142,8 +161,54 @@ are looking for a house
           <button class="button-pets">Get to know the rest</button>
         </div>
       </div>
+
+      <div class="container-popup">
+        <div class="popup">
+            <div class="button-popup">
+              <img src="../../assets/icons/VectorExit.svg" alt="exit" />
+            </div>
+          <div class="container-content-popup">
+            <img class="image-pet-popup" src="" alt="pet" />
+            <div class="content-popup">
+              <div class="pet-name-popup">
+              </div>
+              <div class="breed-popup">
+              </div>
+              <div class="description-popup">
+              </div>
+              <div class="container-list">
+                <div class="point">
+                  <div class="list-pointer"></div>
+                    <div class="information-popup">
+                      <b style="font-weight: bold;">Age: </b> <span id="age"></span>
+                    </div>
+                </div>
+                <div class="point">
+                  <div class="list-pointer"></div>
+                    <div class="information-popup">
+                      <b style="font-weight: bold;">Inoculations: </b><span id="inoculations"></span>
+                    </div>
+                </div>
+                <div class="point">
+                  <div class="list-pointer"></div>
+                    <div class="information-popup">
+                      <b style="font-weight: bold;">Diseases: </b><span id="diseases"></span>
+                    </div>
+                </div>
+                <div class="point">
+                  <div class="list-pointer"></div>
+                    <div class="information-popup">
+                      <b style="font-weight: bold;">Parasites: </b><span id="parasites"></span>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
-    <section class="section-help">
+    <section class="section section-help">
       <h2 style="font-size: 0">help our shelter</h2>
       <div class="container-help">
         <div class="container-content-help">
@@ -169,7 +234,7 @@ our shelter
               />
               <div class="text-help">Transportation</div>
             </div>
-            <div class="container-help-1">
+            <div class="container-help-1 container-help-767">
               <img
                 class="svg-help"
                 src="../../assets/icons/icon-toys.svg"
@@ -177,7 +242,7 @@ our shelter
               />
               <div class="text-help">Toys</div>
             </div>
-            <div class="container-help-1">
+            <div class="container-help-1 container-help-900 container-help-767">
               <img
                 class="svg-help"
                 src="../../assets/icons/icon-bowls-and-cups.svg"
@@ -185,7 +250,7 @@ our shelter
               />
               <div class="text-help">Bowls and cups</div>
             </div>
-            <div class="container-help-1">
+            <div class="container-help-1 container-help-900 container-help-1-767">
               <img
                 class="svg-help"
                 src="../../assets/icons/icon-shampoos.svg"
@@ -194,7 +259,7 @@ our shelter
               <div class="text-help">Shampoos</div>
             </div>
             <div class="space"></div>
-            <div class="container-help-2">
+            <div class="container-help-2 container-help-900 container-help-1-767">
               <img
                 class="svg-help"
                 src="../../assets/icons/icon-vitamins.svg"
@@ -317,5 +382,7 @@ make a donation
         />
       </div>
     </footer>
+    <script src="../../styles/scriptMenu.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

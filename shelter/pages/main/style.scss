@@ -1,9 +1,19 @@
 @import '../../styles/style';
 
+.body-hidden {
+  overflow: hidden;
+}
+
 .section-screen {
   height: 908px;
   background-image: url(../../assets/images/start-screen-background.jpg);
   background-size: cover;
+  @media screen and (max-width: 1279px) {
+    height: 1165px;
+  }
+  @media screen and (max-width: 767px) {
+    height: 823px;
+  }
   .container-screen {
     @extend %container;
     @include flex($tDirection: column);
@@ -13,10 +23,22 @@
 .header {
   height: 60px;
   margin-top: 52px;
+  @media screen and (max-width: 1279px) {
+    margin-top: 22px;
+  }
   @include flex();
   .logo-screen {
+    text-decoration: none;
+    z-index: 10;
     width: 184px;
-    height: 100%;
+    height: auto;
+    @media screen and (max-width: 1279px) {
+      margin-left: -8px;
+    }
+    @media screen and (max-width: 767px) {
+      position: absolute;
+      right: 123px;
+    }
     .title-screen {
       @include fontDecor(
         $fontSize: 2rem,
@@ -37,8 +59,31 @@
     width: 443px;
     @include flex();
     align-items: center;
+    @media screen and (max-width: 1279px) {
+      width: 400px;
+      width: 438px;
+      margin-right: -8px;
+      margin-top: 3px;
+    }
+    @media screen and (max-width: 767px) {
+      width: 30px;
+      height: 22px;
+      margin-left: auto;
+      margin-right: 33px;
+      margin-top: 28px;
+      z-index: 10;
+      background-image: url(../../assets/icons/Burger.svg);
+      transform: rotate(0deg);
+      transition: transform 1s;
+      &:hover {
+        cursor: pointer;
+      }
+    }
     .container-link-screen {
       height: 10px;
+      @media screen and (max-width: 767px) {
+        display: none;
+      }
       .link-screen {
         @include fontMain($fontSize: 0.9rem, $tColor: $base-gray);
         text-decoration: none;
@@ -49,23 +94,91 @@
       }
       .link-hover {
         width: 100%;
-        margin-top: 5px;
+        margin-top: 4px;
         border-radius: 20%;
         border: 1px solid $base-pink;
+        @media screen and (max-width: 767px) {
+          display: none;
+        }
       }
     }
+  }
+  .nav-screen-rotate {
+    transform: rotate(90deg);
+  }
+}
+
+.background-screen-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 823px;
+  overflow: hidden;
+  background-color: rgba(29, 29, 29, 0.6);
+  .nav-screen-menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    width: 320px;
+    height: 100%;
+    background-color: $base-dark-gray;
+    margin-right: -320px;
+    transition: margin-right 1s;
+    .container-nav-screen-menu {
+      @include flex($tDirection: column);
+      width: 243px;
+      height: 310px;
+      padding-left: 10px;
+      align-items: center;
+        .container-link-screen-nav {
+          width: fit-content;
+          .link-screen-nav {
+            @include fontMain($fontSize: 1.9rem, $tColor: $base-gray, $lSpacing: 0.044rem);
+            text-decoration: none;
+            &:hover {
+              color: $base-white;
+              cursor: pointer;
+            }
+          }
+          .link-hover-nav {
+            width: 100%;
+            height: 3px;
+            background-color: $base-pink;
+            margin-top: 8px;
+            margin-bottom: -8px;
+            border-radius: 10%;
+          }
+        }
+    }
+  }
+  .slide-out-menu {
+    margin-right: 0;
   }
 }
 
 .container-screen-content {
   height: 720px;
-
   @include flex();
   align-items: center;
+  @media screen and (max-width: 1279px) {
+    flex-direction: column;
+    justify-content: center;
+    height: auto;
+  }
   .content-screen {
     padding-bottom: 85px;
     width: 465px;
     height: 321px;
+    @media screen and (max-width: 1279px) {
+      padding-bottom: 100px;
+    }
+    @media screen and (max-width: 767px) {
+      width: 288px;
+      text-align: center;
+      padding-bottom: 80px;
+    }
     .heading-content-screen {
       width: 400px;
       margin-bottom: 43px;
@@ -75,6 +188,17 @@
         $tColor: $base-white,
         $lHeight: 3.5rem
       );
+      @media screen and (max-width: 767px) {
+        @include fontDecor(
+        $fontSize: 1.6rem,
+        $lSpacing: 0.07rem,
+        $tColor: $base-white,
+        $lHeight: 2rem
+        );
+        width: 290px;
+        text-align: center;
+        margin-bottom: 40px;
+      }
     }
     .text-content-screen {
       @include fontMain(
@@ -82,10 +206,23 @@
         $tColor: $base-gray,
         $lHeight: 1.6rem
       );
+      @media screen and (max-width: 767px) {
+        text-align: justify;
+        line-height: 1.5rem;
+      }
     }
     .button-screen {
       @include button();
       margin-top: 25px;
+      @media screen and (max-width: 1279px) {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 40px;
+      }
+      @media screen and (max-width: 767px) {
+        margin-top: 44px;
+      }
     }
   }
   .image-screen {
@@ -93,11 +230,27 @@
     height: 720px;
     background-image: url(../../assets/images/start-screen-puppy.png);
     background-size: cover;
+    @media screen and (max-width: 1279px) {
+      width: 569px;
+      height: 593px;
+      margin-left: 138px;
+    }
+    @media screen and (max-width: 767px) {
+      height: 271px;
+      width: 260px;
+      margin-left: 40px;
+    }
   }
 }
 
 .section-about {
   height: 588px;
+  @media screen and (max-width: 1279px) {
+    height: 1048px;
+  }
+  @media screen and (max-width: 767px) {
+    height: 974px;
+  }
   .container-about {
     @include flex();
     justify-content: center;
@@ -108,13 +261,33 @@
       width: 852px;
       align-items: center;
       padding-bottom: 17px;
+      @media screen and (max-width: 1279px) {
+        flex-direction: column-reverse;
+      }
       .image {
         height: 408px;
         width: 300px;
+        @media screen and (max-width: 1279px) {
+          margin-bottom: 80px;
+        }
+        @media screen and (max-width: 767px) {
+          width: 260px;
+          height: 353px;
+          margin-bottom: 20px;
+        }
       }
       .content-about {
         height: 380px;
         width: 433px;
+        @media screen and (max-width: 1279px) {
+          margin-top: 83px;
+        }
+        @media screen and (max-width: 767px) {
+          width: 270px;
+          text-align: justify;
+          height: 478px;
+          margin-top: 41px;
+        }
         .heading-about {
           margin-top: 0;
           display: block;
@@ -125,6 +298,16 @@
             $lHeight: 2.7rem
           );
           margin-bottom: 27px;
+          @media screen and (max-width: 767px) {
+            @include fontDecor(
+            $fontSize: 1.6rem,
+            $lSpacing: 0.07rem,
+            $lHeight: 2.1rem
+            );
+            text-align: center;
+            width: 270px;
+            margin-bottom: 23px;
+          }
         }
         .text-content-about {
           @include fontMain(
@@ -134,6 +317,9 @@
             $lSpacing: 0.02rem
           );
           margin-bottom: 26px;
+          @media screen and (max-width: 767px) {
+            margin-bottom: 22px;
+          }
         }
       }
     }
@@ -143,10 +329,16 @@
 .section-pets {
   height: 877px;
   background-color: $base-light-gray;
+  @media screen and (max-width: 767px) {
+    height: 791px;
+  }
   .container-pets {
     @extend %container;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 1279px) {
+      padding: 0 10px;
+    }
     .container-content-pets {
       height: 672px;
       width: 100%;
@@ -158,18 +350,55 @@
         margin-top: -25px;
         text-align: center;
         @include fontDecor($fontSize: 2.5rem, $lSpacing: 0.01rem, $lHeight: 2.9rem);
+        @media screen and (max-width: 767px) {
+          @include fontDecor(
+          $fontSize: 1.6rem,
+          $lSpacing: 0.07rem,
+          $lHeight: 2.1rem
+          );
+          text-align: center;
+          margin-top: -18px;
+          margin-bottom: 8px;
+        }
       }
       .container-cards-pets {
         width: 100%;
         height: auto;
         @include flex();
         align-items: center;
+        @media screen and (max-width: 1279px) {
+            width: 708px;
+        }
+        @media screen and (max-width: 767px) {
+            width: 300px;
+            flex-flow: wrap;
+        }
         .slider-pets-arrow {
           @include arrow();
+          @media screen and (max-width: 767px) {
+            order: 1;
+            margin-bottom: -18px;
+            width: 50px;
+            height: 50px;
+          }
+        }
+        @media screen and (max-width: 767px) {
+          .slider-pets-arrow-left {
+            margin-left: 57px;
+          }
+          .slider-pets-arrow-right {
+            margin-right: 57px;
+          }
         }
         .container-pets {
           @include flex();
           width: 990px;
+          @media screen and (max-width: 767px) {
+              width: auto;
+              height: 472px;
+              order: 0;
+              margin-top: -32px;
+          }
           .card-pet {
             height: 435px;
             width: 270px;
@@ -177,8 +406,10 @@
             @include flex($tDirection: column);
             align-items: center;
             border-radius: 10px;
+            opacity: 0;
             &:hover {
               cursor: pointer;
+              background-color: white;
               box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
             }
             .pet-name {
@@ -194,11 +425,161 @@
               margin-bottom: 31px;
             }
           }
+          .animation-card-pet {
+            transition: opacity 1s;
+          }
+          .opacity-card-pet {
+            opacity: 1;
+          }
+          @media screen and (max-width: 1279px) {
+            .card-none {
+              display: none;
+            }
+          }
+          @media screen and (max-width: 767px) {
+            .card-none-767 {
+              display: none;
+            }
+          }
         }
       }
       .button-pets {
         @include button($bWidth: 261px);
         margin-top: 28px;
+        @media screen and (max-width: 767px) {
+          margin-bottom: -16px;
+        }
+      }
+    }
+  }
+  .container-popup {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(29, 29, 29, 0.6);
+    display: none;
+    .popup {
+      width: 950px;
+      min-height: 552px;
+      padding-left: 50px;
+      @media screen and (max-width: 1279px) {
+        width: 680px;
+        min-height: 402px;
+      }
+      @media screen and (max-width: 767px) {
+        width: 270px;
+        min-height: 393px;
+      }
+      .button-popup {
+        @include buttonPopup();
+        margin-right: 8px;
+        margin-left: auto;
+        @media screen and (max-width: 767px) {
+          margin-right: 0;
+        }
+      }
+      .container-content-popup {
+        @include flex();
+        align-items: center;
+        background-color:#FAFAFA;
+        border-radius: 10px;
+        width: 900px;
+        min-height: 500px;
+        margin-right: auto;
+        overflow: hidden;
+        @media screen and (max-width: 1279px) {
+          width: 630px;
+          min-height: 350px;
+        }
+        @media screen and (max-width: 767px) {
+          width: 240px;
+          min-height: 341px;
+        }
+        .image-pet-popup {
+          width: 500px;
+          border-radius: 10px;
+          @media screen and (max-width: 1279px) {
+            width: 420px;
+            margin-right: 13px;
+          }
+          @media screen and (max-width: 767px) {
+            display: none;
+          }
+        }
+        .content-popup {
+          height: 395px;
+          width: 370px;
+          @media screen and (max-width: 1279px) {
+            height: 323px;
+            width: 325px;
+          }
+          @media screen and (max-width: 767px) {
+            height: auto;
+            min-height: 314px;
+            width: auto;
+            padding-bottom: 2px;
+          }
+          .pet-name-popup {
+            @include fontDecor($fontSize: 2.2rem, $tColor: black, $lSpacing: 0.12rem);
+            @media screen and (max-width: 767px) {
+              text-align: center;
+            }
+          }
+          .breed-popup {
+            @include fontDecor($fontSize: 1.3rem, $tColor: black, $lSpacing: 0.05rem);
+            margin-top: 12px;
+            @media screen and (max-width: 767px) {
+              text-align: center;
+            }
+          }
+          .description-popup {
+            @include fontDecor($fontSize: 1rem, $tColor: black, $lSpacing: 0.027rem, $lHeight: 1.1rem);
+            margin-top: 40px;
+            padding-right: 18px;
+            @media screen and (max-width: 1279px) {
+              font-size: 0.8rem;
+              letter-spacing: 0.055rem;
+              line-height: 0.9rem;
+              margin-top: 21px;
+              padding-right: 6px;;
+            }
+            @media screen and (max-width: 767px) {
+              text-align: justify;
+              padding: 0 10px;
+            }
+          }
+          .container-list {
+            margin-top: 40px;
+            min-height: 101px;
+            padding-right: 4px;
+            @include flex($tDirection: column);
+            @media screen and (max-width: 1279px) {
+              margin-top: 20px;
+              min-height: 86px;
+            }
+            @media screen and (max-width: 767px) {
+              padding-left: 10px;
+              margin-top: 23px;
+              padding-right: 0;
+            }
+            .point {
+              display: flex;
+              align-items: center;
+              .list-pointer {
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                background-color: $base-pink;
+                margin-right: 9px;
+              }
+              .information-popup {
+                @include fontDecor($fontSize: 1rem, $tColor: black, $lSpacing: 0.027rem, $lHeight: 1.1rem);
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -206,18 +587,42 @@
 
 .section-help {
   height: 611px;
+  @media screen and (max-width: 1279px) {
+    height: 779px;
+  }
+  @media screen and (max-width: 767px) {
+    height: 745px;
+  }
   .container-help {
     @extend %container;
     @include flex();
     align-items: center;
     justify-content: center;
+    @media screen and (max-width: 1279px) {
+      height: 614px;
+    }
     .container-content-help {
       height: 522px;
       width: 100%;
       text-align: center;
+      @media screen and (max-width: 1279px) {
+        width: 690px;
+      }
+      @media screen and (max-width: 767px) {
+        width: 322px;
+        margin-bottom: 60px;
+      }
       .heading-help {
         @include fontDecor($fontSize: 2.2rem, $lSpacing: 0.1rem, $lHeight: 2.8rem);
         margin-bottom: -8px;
+        @media screen and (max-width: 767px) {
+          @include fontDecor(
+          $fontSize: 1.6rem,
+          $lSpacing: 0.07rem,
+          $lHeight: 2.1rem
+          );
+          text-align: center;
+        }
       }
       .grid {
         display: grid;
@@ -225,23 +630,69 @@
         grid-template-columns: repeat(20, 1fr);
         align-items: center;
         justify-items: center;
+        @media screen and (max-width: 1279px) {
+          grid-template-rows: repeat(3, 1fr);
+          grid-template-columns: repeat(3, 1fr);
+        }
+        @media screen and (max-width: 767px) {
+          grid-template-rows: repeat(2, 1fr);
+          grid-template-columns: repeat(2, 1fr);
+        }
         .container-help-1 {
           flex-direction: column;
           margin-top: 10px;
           grid-column: span 4;
+          @media screen and (max-width: 1279px) {
+            grid-column: span 1;
+            margin-top: 4px;
+          }
+          @media screen and (max-width: 767px) {
+            margin-top: 9px;
+          }
           .svg-help {
-            width: 62px
+            width: 62px;
+            @media screen and (max-width: 767px) {
+              width: 50px;
+            }
           }
         }
         .space {
           grid-column: 2 span;
+          @media screen and (max-width: 1279px) {
+            display: none;
+          }
         }
         .container-help-2 {
           flex-direction: column;
           margin-top: 37px;
           grid-column: span 4;
+          @media screen and (max-width: 1279px) {
+            grid-column: span 1;
+            margin-top: 42px;
+          }
+          @media screen and (max-width: 767px) {
+            margin-top: 28px;
+          }
           .svg-help {
             width: 62px;
+            @media screen and (max-width: 767px) {
+              width: 50px;
+            }
+          }
+        }
+        .container-help-900 {
+          @media screen and (max-width: 1279px) {
+            margin-top: 24px;
+          }
+        }
+        @media screen and (max-width: 767px) {
+          .container-help-767 {
+            margin-top: 21px;
+          }
+        }
+        @media screen and (max-width: 767px) {
+          .container-help-1-767 {
+            margin-top: 28px;
           }
         }
       }
@@ -252,11 +703,21 @@
 .text-help {
   margin-top: 27px;
   @include fontDecor($fontSize: 1.3rem, $tColor: $text-middle-gray);
+  @media screen and (max-width: 767px) {
+    @include fontDecor($fontSize: 1rem, $tColor: $text-middle-gray);
+    margin-top: 17px;
+  }
 }
 
 .section-donation {
   height: 464px;
   background-color: $base-light-gray;
+  @media screen and (max-width: 1279px) {
+    height: 783px;
+  }
+  @media screen and (max-width: 767px) {
+    height: 542px;
+  }
   .container-donation {
     @extend %container;
     @include flex();
@@ -267,24 +728,61 @@
       height: 305px;
       @include flex();
       align-content: center;
+      @media screen and (max-width: 1279px) {
+        flex-direction: column-reverse;
+        height: 586px;
+        width: auto;
+      }
+      @media screen and (max-width: 767px) {
+        height: 460px;
+      }
       .image-donation {
         height: 261px;
         width: 505px;
         margin-top: 10px;
         margin-left: 10px;
+        @media screen and (max-width: 767px) {
+          width: 260px;
+          height: 135px;
+        }
       }
       .content-donation {
         width: 390px;
+        @media screen and (max-width: 1279px) {
+          margin: auto;
+          margin-top: -19px;
+          width: 380px;
+        }
+        @media screen and (max-width: 767px) {
+          width: 280px;
+          text-align: justify;
+          margin-top: 0;
+        }
         .heading-donation {
           @include fontDecor(
             $fontSize: 2.2rem, $lSpacing: 0.14rem, $lHeight: 2.9rem
           );
           margin-top: 0;
           margin-bottom: -40px;
+          @media screen and (max-width: 767px) {
+            @include fontDecor(
+            $fontSize: 1.6rem,
+            $lSpacing: 0.07rem,
+            $lHeight: 2.1rem
+            );
+            text-align: center;
+            white-space: normal;
+            height: 113px;
+          }
         }
         .text-name-bank {
           @include fontDecor($fontSize: 0.9rem, $lSpacing: 0.08rem);
           margin-bottom: 18px;
+          @media screen and (max-width: 767px) {
+            @include fontDecor($fontSize: 0.93rem, $lSpacing: 0.01rem);
+            text-align: center;
+            margin-bottom: 24px;
+          }
         }
         .link-bank {
           @include flex();
@@ -300,12 +798,20 @@
           &:hover {
             background-color: $base-pink-hover;
           }
+          @media screen and (max-width: 767px) {
+            width: 250px;
+            padding: 0 15px;
+            @include fontDecor($fontSize: 0.97rem, $lSpacing: 0.033rem);
+          }
           .icon-credit-card {
             width: 31px;
           }
           .text-number-card {
             margin-right: auto;
             margin-left: 12px;
+            @media screen and (max-width: 767px) {
+              margin-left: 15px;
+            }
           }
         }
         .text-donation {
@@ -315,6 +821,14 @@
             $lHeight: 1.1rem
           );
           padding-right: 18px;
+          @media screen and (max-width: 767px) {
+            padding: 0;
+            @include fontMain(
+            $fontSize: 0.75rem,
+            $tColor: $donation-description,
+            $lHeight: 1.15rem
+          );
+          }
         }
       }
     }
@@ -325,19 +839,50 @@
   height: 350px;
   background-image: url(../../assets/images/footer-background.jpg);
   background-size: cover;
+  @media screen and (max-width: 1279px) {
+    height: 624px;
+    padding-top: 15px;
+  }
+  @media screen and (max-width: 767px) {
+    height: 890px;
+    padding-top: 9px;
+  }
   .container-footer {
     @extend %container;
     @include flex();
     align-items: center;
+    @media screen and (max-width: 1279px) {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 690px;
+      box-sizing: border-box;
+    }
+    @media screen and (max-width: 767px) {
+      width: 320px;
+    }
     .contacts-footer {
       height: 235px;
       width: 440px;
       margin-top: -6px;
+      @media screen and (max-width: 1279px) {
+        flex: 40%;
+        width: 200px;
+        margin-left: -15px;
+      }
+      @media screen and (max-width: 767px) {
+        margin-left: 0;
+        height: 238px;
+        margin-top: -4px;
+      }
       @include flex($tDirection: column);
       .contacts {
         @include flex();
         align-items: center;
         text-decoration: none;
+        @media screen and (max-width: 767px) {
+          margin-left: 2px;
+          width: 290px;
+        }
         .icon-footer-contacts {
           width: 40px;
         }
@@ -349,12 +894,25 @@
       width: 440px;
       margin-top: -6px;
       @include flex($tDirection: column);
+      @media screen and (max-width: 1279px) {
+        flex: 40%;
+        margin-left: 50px;
+        width: 200px;
+      }
+      @media screen and (max-width: 767px) {
+        margin-left: 0;
+        margin-bottom: 27px;
+        height: 238px;
+      }
       .location {
         @include flex();
         align-items: center;
         text-decoration: none;
+        @media screen and (max-width: 767px) {
+          margin-left: -9px;
+        }
         .icon-footer-location {
-          width: 20px;
+          width: 22px;
         }
       }
     }
@@ -372,6 +930,13 @@
       width: 300px;
       margin-top: auto;
       margin-left: auto;
+      @media screen and (max-width: 1279px) {
+        margin: auto auto 0 auto;
+      }
+      @media screen and (max-width: 767px) {
+        width: 260px;
+        height: 269px;
+      }
     }
   }
 }
@@ -387,4 +952,15 @@
     $lHeight: 2.8rem,
     $tColor: $base-white
   );
+  @media screen and (max-width: 767px) {
+    text-align: center;
+    margin-top: 5px;
+    margin-left: -3px;
+    @include fontDecor(
+    $fontSize: 2.2rem,
+    $lSpacing: 0.13rem,
+    $lHeight: 2.8rem,
+    $tColor: $base-white
+  );
+  }
 }

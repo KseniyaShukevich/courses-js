@@ -13,6 +13,13 @@ $text-middle-gray: #545454;
 $button-dark-gray: #292929;
 $color-light-l: #F6F6F6;
 
+* {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 @mixin fontMain(
   $fontSize: 1.2rem,
   $lSpacing: 0px,
@@ -53,6 +60,9 @@ $color-light-l: #F6F6F6;
   background-color: $base-pink;
   border: none;
   border-radius: 26px;
+  &:focus {
+    outline: none;
+  }
   &:hover {
     background-color: $base-pink-hover;
     cursor: pointer;
@@ -69,6 +79,9 @@ $color-light-l: #F6F6F6;
   height: $bHeight;
   border: 2px solid $base-pink;
   border-radius: 26px;
+  &:focus {
+    outline: none;
+  }
   &:hover {
     background-color: $base-pink-hover;
     border-color: $base-pink-hover;
@@ -81,7 +94,26 @@ $color-light-l: #F6F6F6;
   );
 }
 
+@mixin buttonPopup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid $base-pink;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      cursor: pointer;
+      background-color: $base-pink-hover;
+      border-color: $base-pink-hover;
+    }
+}
+
 @mixin arrow() {
+  flex-shrink: 0;
   height: 50px;
   width: 50px;
   border-radius: 100%;
@@ -96,7 +128,11 @@ $color-light-l: #F6F6F6;
 }
 
 %container {
-  width: 1200px;
+  max-width: 1200px;
+  padding: 0 40px;
   height: 100%;
   margin: 0 auto;
+  @media screen and (max-width: 767px) {
+    padding: 0 20px;
+  }
 }
