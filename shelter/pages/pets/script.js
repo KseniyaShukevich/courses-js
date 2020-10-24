@@ -300,6 +300,18 @@ function hidePopup(e) {
     }
 }
 
+function hover(e) {
+    if (e.target === containerPopup || e.target === popup) {
+        buttonPopup.style.backgroundColor = ' #fddcc4';
+        buttonPopup.style.borderColor = ' #fddcc4';
+    }
+}
+
+function noHover() {
+    buttonPopup.style.backgroundColor = '';
+    buttonPopup.style.borderColor = '';
+}
+
 for (let i = 0; i < btnLearnMore.length; i++) {
     btn = btnLearnMore[i];
     btn.addEventListener('click', () => getPopup(i));
@@ -313,4 +325,8 @@ paginatorRight.addEventListener('click', rightPage);
 window.addEventListener('resize', resizeChange);
 paginatorLeftBegin.addEventListener('click', getFirstPage);
 paginatorRightEnd.addEventListener('click', getLastPage);
+containerPopup.addEventListener('mouseover', hover);
+containerPopup.addEventListener('mouseout', noHover);
+popup.addEventListener('mouseover', hover);
+popup.addEventListener('mouseout', noHover);
 getPets();
