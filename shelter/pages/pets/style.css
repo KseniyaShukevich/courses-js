@@ -301,6 +301,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
+  opacity: 0;
 }
 .card-pet:hover {
   cursor: pointer;
@@ -335,6 +336,14 @@
   background-color: #fddcc4;
   border-color: #fddcc4;
   cursor: pointer;
+}
+
+.animation-card-pet {
+  transition: opacity 1s;
+}
+
+.opacity-card-pet {
+  opacity: 1;
 }
 
 @media screen and (max-width: 1279px) {

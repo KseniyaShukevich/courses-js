@@ -556,6 +556,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
+  opacity: 0;
 }
 .section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .card-pet:hover {
   cursor: pointer;
@@ -590,6 +591,12 @@
   background-color: #fddcc4;
   border-color: #fddcc4;
   cursor: pointer;
+}
+.section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .animation-card-pet {
+  transition: opacity 1s;
+}
+.section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .opacity-card-pet {
+  opacity: 1;
 }
 @media screen and (max-width: 1279px) {
   .section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .card-none {

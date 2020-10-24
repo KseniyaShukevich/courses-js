@@ -1,20 +1,47 @@
-let btnMakeFriend = document.querySelector('.button-screen');
-let knowRest = document.querySelector('.button-pets');
-let petsNames = document.querySelectorAll('.pet-name');
-let petsImages = document.querySelectorAll('.image-pet');
-let arrowLeft = document.querySelector('.slider-pets-arrow-left');
-let arrowRight = document.querySelector('.slider-pets-arrow-right');
-let btnLearnMore = document.querySelectorAll('.button-pet');
-let containerPopup = document.querySelector('.container-popup');
-let buttonPopup = document.querySelector('.button-popup');
-let popup = document.querySelector('.popup');
-let sections = document.querySelectorAll('.section');
-let isPopup = false;
-let noScrollWidth = document.body.clientWidth;
+const btnMakeFriend = document.querySelector('.button-screen');
+const knowRest = document.querySelector('.button-pets');
+const petsNames = document.querySelectorAll('.pet-name');
+const petsImages = document.querySelectorAll('.image-pet');
+const arrowLeft = document.querySelector('.slider-pets-arrow-left');
+const arrowRight = document.querySelector('.slider-pets-arrow-right');
+const btnLearnMore = document.querySelectorAll('.button-pet');
+const containerPopup = document.querySelector('.container-popup');
+const buttonPopup = document.querySelector('.button-popup');
+const popup = document.querySelector('.popup');
+const sections = document.querySelectorAll('.section');
+const noScrollWidth = document.body.clientWidth;
+let isLeft = false;
+let isPagination = false;
 let pets = [];
 let arrPets = [];
 let count = 0;
 let indexPet = 0;
+
+function addAnimationSlider() {
+    let cardPet = document.querySelectorAll('.card-pet');
+        for (let card of cardPet) {
+            card.classList.add('animation-card-pet');
+            card.classList.add('opacity-card-pet');
+        }
+}
+
+function removeAnimationSlider() {
+    let cardPet = document.querySelectorAll('.card-pet');
+        for (let card of cardPet) {
+            card.classList.remove('animation-card-pet');
+            card.classList.remove('opacity-card-pet');
+        }
+}
+
+function pressPagination() {
+    if(!isPagination) {
+        isPagination = true;
+        removeAnimationSlider();
+        fillCardsPets();
+        addAnimationSlider();
+        setTimeout(() => isPagination = false, 900);
+    }
+}
 
 function pagePets() {
     window.location.href = '../pets/index.html';
@@ -59,6 +86,7 @@ function fillCardsPets() {
         if (computedStyle.display !== 'none') {
             petsNames[i].textContent = pets[arrPets[count]].name;
             petsImages[i].setAttribute('src', pets[arrPets[count]].img);
+            cardPet[i].classList.add('opacity-card-pet');
             count++;
         }
     }
@@ -141,8 +169,8 @@ for (let i = 0; i < btnLearnMore.length; i++) {
 
 btnMakeFriend.addEventListener('click', pagePets);
 knowRest.addEventListener('click', pagePets);
-arrowLeft.addEventListener('click', fillCardsPets);
-arrowRight.addEventListener('click', fillCardsPets);
+arrowLeft.addEventListener('click', pressPagination);
+arrowRight.addEventListener('click', pressPagination);
 buttonPopup.addEventListener('click', hidePopup);
 containerPopup.addEventListener('click', hidePopup);
 popup.addEventListener('click', hidePopup);

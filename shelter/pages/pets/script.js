@@ -1,23 +1,24 @@
-let petsNames = document.querySelectorAll('.pet-name');
-let petsImages = document.querySelectorAll('.image-pet');
-let btnLearnMore = document.querySelectorAll('.button-pet');
-let containerPopup = document.querySelector('.container-popup');
-let buttonPopup = document.querySelector('.button-popup');
-let popup = document.querySelector('.popup');
-let sections = document.querySelectorAll('.section');
-let paginatorLeftBegin = document.querySelector('.paginator-left-begin');
-let paginatorLeft = document.querySelector('.paginator-left');
-let paginatorNumber = document.querySelector('.paginator-number');
-let paginatorRight = document.querySelector('.paginator-right');
-let paginatorRightEnd = document.querySelector('.paginator-right-end');
-let imagePaginatorRight = document.querySelector('.image-paginator-right');
-let imagePaginatorRightEnd = document.querySelector('.image-paginator-right-end');
-let imagePaginatorLeft = document.querySelector('.image-paginator-left');
-let imagePaginatorLeftBegin = document.querySelector('.image-paginator-left-begin');
+const petsNames = document.querySelectorAll('.pet-name');
+const petsImages = document.querySelectorAll('.image-pet');
+const btnLearnMore = document.querySelectorAll('.button-pet');
+const containerPopup = document.querySelector('.container-popup');
+const buttonPopup = document.querySelector('.button-popup');
+const popup = document.querySelector('.popup');
+const sections = document.querySelectorAll('.section');
+const paginatorLeftBegin = document.querySelector('.paginator-left-begin');
+const paginatorLeft = document.querySelector('.paginator-left');
+const paginatorNumber = document.querySelector('.paginator-number');
+const paginatorRight = document.querySelector('.paginator-right');
+const paginatorRightEnd = document.querySelector('.paginator-right-end');
+const imagePaginatorRight = document.querySelector('.image-paginator-right');
+const imagePaginatorRightEnd = document.querySelector('.image-paginator-right-end');
+const imagePaginatorLeft = document.querySelector('.image-paginator-left');
+const imagePaginatorLeftBegin = document.querySelector('.image-paginator-left-begin');
+const noScrollWidth = document.body.clientWidth;
+let isPagination = false;
 let isPopup = false;
 let isActiveLeft = false;
 let isActiveRight = true;
-let scrollWidth = window.innerWidth - document.documentElement.clientWidth;
 let pets = [];
 let indexPet = 0;
 let arrPets = [];
@@ -52,6 +53,22 @@ function randomPet() {
     indexPet = Math.floor(Math.random() * pets.length);
 }
 
+function addAnimationSlider() {
+    let cardPet = document.querySelectorAll('.card-pet');
+        for (let card of cardPet) {
+            card.classList.add('animation-card-pet');
+            card.classList.add('opacity-card-pet');
+        }
+}
+
+function removeAnimationSlider() {
+    let cardPet = document.querySelectorAll('.card-pet');
+        for (let card of cardPet) {
+            card.classList.remove('animation-card-pet');
+            card.classList.remove('opacity-card-pet');
+        }
+}
+
 function fillCardsPets(count = 0) {
     let cardPet = document.querySelectorAll('.card-pet');
     for (let i = 0; i < petsNames.length; i++) {
@@ -59,6 +76,7 @@ function fillCardsPets(count = 0) {
         if (computedStyle.display !== 'none') {
             petsNames[i].textContent = pets[arrPets[count]].name;
             petsImages[i].setAttribute('src', pets[arrPets[count]].img);
+            cardPet[i].classList.add('opacity-card-pet');
             count++;
         }
     }
@@ -108,57 +126,71 @@ function getPopup(index) {
     document.body.style.overflow = 'hidden';
 
     for (let section of sections) {
-        section.style.paddingRight = scrollWidth + 'px';
+        section.style.paddingRight = document.body.clientWidth - noScrollWidth + 'px';
     }
 
     fillPopup(index);
 }
 
 function leftPage() {
-    if (pagePagination === 2) {
-        isActiveLeft = false;
-        pagePagination--;
-        paginatorNumber.textContent = pagePagination;
-        fillLeftPaginationInactive();
-        fillCardsPets(getCountPag());
-    } else {
-        if (!isActiveRight) {
-            isActiveRight = true;
-            fillRightPaginationActive();
-        }
-
-        if (isActiveLeft) {
+    if(!isPagination) {
+        if (pagePagination === 2) {
+            isActiveLeft = false;
             pagePagination--;
             paginatorNumber.textContent = pagePagination;
-            fillCardsPets(getCountPag());
-        }
-
-        if (window.innerWidth > 1279 && pagePagination === 1) {
-            isActiveLeft = false;
             fillLeftPaginationInactive();
+            removeAnimationSlider();
+            fillCardsPets(getCountPag());
+            addAnimationSlider();
+            setTimeout(() => isPagination = false, 900);
+        } else {
+            if (!isActiveRight) {
+                isActiveRight = true;
+                fillRightPaginationActive();
+            }
+
+            if (isActiveLeft) {
+                pagePagination--;
+                paginatorNumber.textContent = pagePagination;
+                removeAnimationSlider();
+                fillCardsPets(getCountPag());
+                addAnimationSlider();
+                setTimeout(() => isPagination = false, 900);
+            }
+
+            if (window.innerWidth > 1279 && pagePagination === 1) {
+                isActiveLeft = false;
+                fillLeftPaginationInactive();
+            }
         }
     }
 }
 
 function rightPage() {
-    if (!isActiveLeft) {
-        isActiveLeft = true;
-        fillLeftPaginationActive();
-    }
-    if (isActiveRight) {
-        pagePagination++;
-        paginatorNumber.textContent = pagePagination;
-        fillCardsPets(getCountPag());
-    }
-    if (window.innerWidth > 1279 && pagePagination === 6) {
-        isActiveRight = false;
-        fillRightPaginationInactive();
-    } else if (window.innerWidth > 767 && window.innerWidth < 1280 && pagePagination === 8) {
-        isActiveRight = false;
-        fillRightPaginationInactive();
-    } else if (window.innerWidth < 768 && pagePagination === 16) {
-        isActiveRight = false;
-        fillRightPaginationInactive();
+    if(!isPagination) {
+        isPagination = true;
+        if (!isActiveLeft) {
+            isActiveLeft = true;
+            fillLeftPaginationActive();
+        }
+        if (isActiveRight) {
+            pagePagination++;
+            paginatorNumber.textContent = pagePagination;
+            removeAnimationSlider();
+            fillCardsPets(getCountPag());
+            addAnimationSlider();
+        }
+        if (window.innerWidth > 1279 && pagePagination === 6) {
+            isActiveRight = false;
+            fillRightPaginationInactive();
+        } else if (window.innerWidth > 767 && window.innerWidth < 1280 && pagePagination === 8) {
+            isActiveRight = false;
+            fillRightPaginationInactive();
+        } else if (window.innerWidth < 768 && pagePagination === 16) {
+            isActiveRight = false;
+            fillRightPaginationInactive();
+        }
+        setTimeout(() => isPagination = false, 900);
     }
 }
 
@@ -218,18 +250,23 @@ function resizeChange() {
 }
 
 function getFirstPage() {
-    if (!isActiveRight) {
-        isActiveRight = true;
-        fillRightPaginationActive();
-    }
+    if(!isPagination) {
+        if (!isActiveRight) {
+            isActiveRight = true;
+            fillRightPaginationActive();
+        }
 
-    isActiveLeft = false;
-    isActiveRight = true;
-    pagePagination = 1;
-    paginatorNumber.textContent = pagePagination;
-    fillCardsPets();
-    fillLeftPaginationInactive();
-    fillRightPaginationActive();
+        isActiveLeft = false;
+        isActiveRight = true;
+        pagePagination = 1;
+        paginatorNumber.textContent = pagePagination;
+        removeAnimationSlider();
+        fillCardsPets();
+        addAnimationSlider();
+        fillLeftPaginationInactive();
+        fillRightPaginationActive();
+        setTimeout(() => isPagination = false, 900);
+    }
 }
 
 function getEndPage() {
@@ -243,16 +280,21 @@ function getEndPage() {
 }
 
 function getLastPage() {
-    if (!isActiveLeft) {
-        isActiveLeft = true;
-        fillLeftPaginationActive();
-    }
+    if(!isPagination) {
+        if (!isActiveLeft) {
+            isActiveLeft = true;
+            fillLeftPaginationActive();
+        }
 
-    isActiveRight = false;
-    pagePagination = getEndPage();
-    paginatorNumber.textContent = pagePagination;
-    fillCardsPets(getCountPag());
-    fillRightPaginationInactive();
+        isActiveRight = false;
+        pagePagination = getEndPage();
+        paginatorNumber.textContent = pagePagination;
+        removeAnimationSlider();
+        fillCardsPets(getCountPag());
+        addAnimationSlider();
+        fillRightPaginationInactive();
+        setTimeout(() => isPagination = false, 900);
+    }
 }
 
 function hidePopup(e) {
