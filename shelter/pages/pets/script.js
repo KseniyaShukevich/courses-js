@@ -70,16 +70,17 @@ function removeAnimationSlider() {
 }
 
 function fillCardsPets(count = 0) {
+    removeAnimationSlider();
     let cardPet = document.querySelectorAll('.card-pet');
     for (let i = 0; i < petsNames.length; i++) {
         let computedStyle = getComputedStyle(cardPet[i]);
         if (computedStyle.display !== 'none') {
             petsNames[i].textContent = pets[arrPets[count]].name;
             petsImages[i].setAttribute('src', pets[arrPets[count]].img);
-            cardPet[i].classList.add('opacity-card-pet');
             count++;
         }
     }
+    addAnimationSlider();
 }
 
 function getInformationResult(point) {
@@ -139,9 +140,7 @@ function leftPage() {
             pagePagination--;
             paginatorNumber.textContent = pagePagination;
             fillLeftPaginationInactive();
-            removeAnimationSlider();
             fillCardsPets(getCountPag());
-            addAnimationSlider();
             setTimeout(() => isPagination = false, 900);
         } else {
             if (!isActiveRight) {
@@ -152,9 +151,7 @@ function leftPage() {
             if (isActiveLeft) {
                 pagePagination--;
                 paginatorNumber.textContent = pagePagination;
-                removeAnimationSlider();
                 fillCardsPets(getCountPag());
-                addAnimationSlider();
                 setTimeout(() => isPagination = false, 900);
             }
 
@@ -176,9 +173,7 @@ function rightPage() {
         if (isActiveRight) {
             pagePagination++;
             paginatorNumber.textContent = pagePagination;
-            removeAnimationSlider();
             fillCardsPets(getCountPag());
-            addAnimationSlider();
         }
         if (window.innerWidth > 1279 && pagePagination === 6) {
             isActiveRight = false;
@@ -260,9 +255,7 @@ function getFirstPage() {
         isActiveRight = true;
         pagePagination = 1;
         paginatorNumber.textContent = pagePagination;
-        removeAnimationSlider();
         fillCardsPets();
-        addAnimationSlider();
         fillLeftPaginationInactive();
         fillRightPaginationActive();
         setTimeout(() => isPagination = false, 900);
@@ -289,9 +282,7 @@ function getLastPage() {
         isActiveRight = false;
         pagePagination = getEndPage();
         paginatorNumber.textContent = pagePagination;
-        removeAnimationSlider();
         fillCardsPets(getCountPag());
-        addAnimationSlider();
         fillRightPaginationInactive();
         setTimeout(() => isPagination = false, 900);
     }

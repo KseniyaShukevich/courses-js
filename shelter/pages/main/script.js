@@ -36,9 +36,7 @@ function removeAnimationSlider() {
 function pressPagination() {
     if(!isPagination) {
         isPagination = true;
-        removeAnimationSlider();
         fillCardsPets();
-        addAnimationSlider();
         setTimeout(() => isPagination = false, 900);
     }
 }
@@ -80,19 +78,20 @@ function randomPet() {
 }
 
 function fillCardsPets() {
+    removeAnimationSlider();
     let cardPet = document.querySelectorAll('.card-pet');
     for (let i = 0; i < petsNames.length; i++) {
         let computedStyle = getComputedStyle(cardPet[i]);
         if (computedStyle.display !== 'none') {
             petsNames[i].textContent = pets[arrPets[count]].name;
             petsImages[i].setAttribute('src', pets[arrPets[count]].img);
-            cardPet[i].classList.add('opacity-card-pet');
             count++;
         }
     }
     if(count >= arrPets.length) {
         count = 0;
     }
+    addAnimationSlider();
 }
 
 function getInformationResult(point) {
