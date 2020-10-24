@@ -1,3 +1,10 @@
+* {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 .footer .container-footer, .section-donation .container-donation, .section-help .container-help, .section-pets .container-pets, .section-about .container-about, .section-screen .container-screen {
   max-width: 1200px;
   padding: 0 40px;
