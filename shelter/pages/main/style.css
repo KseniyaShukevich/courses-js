@@ -560,6 +560,7 @@
 }
 .section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .card-pet:hover {
   cursor: pointer;
+  background-color: white;
   box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
 }
 .section-pets .container-pets .container-content-pets .container-cards-pets .container-pets .card-pet .pet-name {
