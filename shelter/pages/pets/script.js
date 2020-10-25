@@ -123,6 +123,9 @@ function getPopup(index) {
     isPopup = true;
     let coords = document.body.getBoundingClientRect();
     containerPopup.style.top = Math.abs(coords.top) + 'px';
+    setTimeout(() =>
+    containerPopup.classList.add('animation-popup')
+    , 0);
     containerPopup.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 
@@ -291,12 +294,14 @@ function getLastPage() {
 function hidePopup(e) {
     if ( (e.target === buttonPopup || e.target === containerPopup || e.target === popup || e.currentTarget === buttonPopup) && isPopup) {
         isPopup = false;
-        containerPopup.style.display = '';
-        document.body.style.overflow = '';
-
-        for (let section of sections) {
-            section.style.paddingRight = '';
-        }
+        containerPopup.classList.remove('animation-popup');
+        setTimeout(() => {
+            containerPopup.style.display = '';
+            document.body.style.overflow = '';
+            for (let section of sections) {
+                section.style.paddingRight = '';
+            }
+        }, 1000);
     }
 }
 
