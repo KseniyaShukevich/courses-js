@@ -82,6 +82,14 @@
   color: white;
   cursor: pointer;
 }
+.background-screen-menu .nav-screen-menu .container-nav-screen-menu .container-link-screen-nav .link-screen-nav-no-hover {
+  font-family: Arial;
+  font-weight: lighter;
+  font-size: 1.9rem;
+  letter-spacing: 0.044rem;
+  line-height: auto;
+  color: #cdcdcd;
+}
 .background-screen-menu .nav-screen-menu .container-nav-screen-menu .container-link-screen-nav .link-hover-nav {
   width: 100%;
   height: 3px;
@@ -103,6 +111,7 @@
 }
 .header .logo-screen {
   text-decoration: none;
+  position: absolute;
   z-index: 10;
   width: 186px;
   height: 75px;
@@ -150,6 +159,7 @@
 }
 .header .nav-screen {
   width: 519px;
+  margin-left: auto;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -210,6 +220,19 @@
 }
 @media screen and (max-width: 1279px) {
   .header .nav-screen .container-link-screen .link-screen {
+    letter-spacing: 0.02rem;
+  }
+}
+.header .nav-screen .container-link-screen .link-screen-no-hover {
+  font-family: Arial;
+  font-weight: lighter;
+  font-size: 0.9rem;
+  letter-spacing: 0.03rem;
+  line-height: auto;
+  color: #545454;
+}
+@media screen and (max-width: 1279px) {
+  .header .nav-screen .container-link-screen .link-screen-no-hover {
     letter-spacing: 0.02rem;
   }
 }
