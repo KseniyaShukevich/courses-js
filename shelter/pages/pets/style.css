@@ -516,6 +516,7 @@
   min-height: 500px;
   margin-right: auto;
   overflow: hidden;
+  margin-bottom: 48px;
 }
 @media screen and (max-width: 1279px) {
   .container-popup .popup .container-content-popup {
