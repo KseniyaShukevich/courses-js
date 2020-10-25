@@ -105,7 +105,7 @@
   text-decoration: none;
   z-index: 10;
   width: 186px;
-  height: 72px;
+  height: 75px;
 }
 @media screen and (max-width: 1279px) {
   .header .logo-screen {
@@ -115,7 +115,7 @@
 @media screen and (max-width: 767px) {
   .header .logo-screen {
     position: absolute;
-    right: 128px;
+    right: 120px;
   }
 }
 .header .logo-screen .title-screen {
@@ -123,7 +123,7 @@
   font-family: Georgia;
   font-weight: lighter;
   font-size: 2rem;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.12rem;
   line-height: 0.6rem;
   color: #545454;
 }
@@ -132,6 +132,7 @@
 }
 .header .logo-screen .subtitle-screen {
   transition: color 1s;
+  padding-left: 2px;
   font-family: Arial;
   font-weight: lighter;
   font-size: 0.9rem;
@@ -148,7 +149,7 @@
   color: white;
 }
 .header .nav-screen {
-  width: 443px;
+  width: 519px;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -197,7 +198,7 @@
   font-family: Arial;
   font-weight: lighter;
   font-size: 0.9rem;
-  letter-spacing: 0px;
+  letter-spacing: 0.03rem;
   line-height: auto;
   color: #545454;
   text-decoration: none;
@@ -214,7 +215,7 @@
 }
 .header .nav-screen .container-link-screen .link-hover {
   width: 100%;
-  margin-top: 5px;
+  margin-top: 3px;
   border-radius: 20%;
   border: 1px solid #f1cdb3;
 }
@@ -648,7 +649,7 @@
 }
 @media screen and (max-width: 767px) {
   .footer {
-    height: 890px;
+    height: 800px;
     padding-top: 9px;
   }
 }
@@ -673,7 +674,7 @@
 }
 .footer .container-footer .contacts-footer {
   height: 235px;
-  width: 440px;
+  width: 437px;
   margin-top: -6px;
   display: flex;
   justify-content: space-between;
@@ -689,8 +690,8 @@
 @media screen and (max-width: 767px) {
   .footer .container-footer .contacts-footer {
     margin-left: 0;
-    height: 238px;
-    margin-top: -4px;
+    height: 224px;
+    margin-top: -8px;
   }
 }
 .footer .container-footer .contacts-footer .contacts {
@@ -702,7 +703,7 @@
 }
 @media screen and (max-width: 767px) {
   .footer .container-footer .contacts-footer .contacts {
-    margin-left: 2px;
+    margin-left: 14px;
     width: 290px;
   }
 }
@@ -727,8 +728,8 @@
 @media screen and (max-width: 767px) {
   .footer .container-footer .location-footer {
     margin-left: 0;
-    margin-bottom: 27px;
     height: 238px;
+    margin-bottom: -3px;
   }
 }
 .footer .container-footer .location-footer .location {
@@ -757,8 +758,8 @@
   margin-left: 20px;
 }
 .footer .container-footer .image-footer {
-  height: 315px;
-  width: 300px;
+  height: 311px;
+  width: 301px;
   margin-top: auto;
   margin-left: auto;
 }
@@ -789,13 +790,14 @@
 @media screen and (max-width: 767px) {
   .heading-footer {
     text-align: center;
-    margin-top: 5px;
+    margin-bottom: -2px;
     margin-left: -3px;
+    margin-top: 16px;
     font-family: Georgia;
     font-weight: lighter;
-    font-size: 2.2rem;
+    font-size: 1.5rem;
     letter-spacing: 0.13rem;
-    line-height: 2.8rem;
+    line-height: 2.1rem;
     color: white;
   }
 }

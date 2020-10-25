@@ -21,7 +21,7 @@
 }
 
 .header {
-  height: 60px;
+  height: 63px;
   margin-top: 52px;
   @media screen and (max-width: 1279px) {
     margin-top: 22px;
@@ -29,11 +29,13 @@
   @include flex();
   .logo-screen {
     text-decoration: none;
+    padding-top: 1px;
     z-index: 10;
-    width: 184px;
+    width: 187px;
     height: auto;
     @media screen and (max-width: 1279px) {
-      margin-left: -8px;
+      margin-left: -10px;
+      padding-top: 2px;
     }
     @media screen and (max-width: 767px) {
       position: absolute;
@@ -44,15 +46,18 @@
         $fontSize: 2rem,
         $lHeight: 0.6rem,
         $tColor: $base-pink,
-        $lSpacing: 0.1rem
+        $lSpacing: 0.12rem
       );
     }
     .subtitle-screen {
       @include fontMain(
-        $fontSize: 0.9rem,
+        $fontSize: 0.8rem,
         $tColor: $base-white,
         $lSpacing: 0.05rem
       );
+      letter-spacing: 0.09rem;
+      padding-left: 3px;
+      padding-top: 1px;
     }
   }
   .nav-screen {
@@ -60,8 +65,7 @@
     @include flex();
     align-items: center;
     @media screen and (max-width: 1279px) {
-      width: 400px;
-      width: 438px;
+      width: 442px;
       margin-right: -8px;
       margin-top: 3px;
     }
@@ -85,7 +89,7 @@
         display: none;
       }
       .link-screen {
-        @include fontMain($fontSize: 0.9rem, $tColor: $base-gray);
+        @include fontMain($fontSize: 0.9rem, $tColor: $base-gray, $lSpacing: 0.02rem);
         text-decoration: none;
         &:hover {
           color: $base-white;
@@ -160,6 +164,7 @@
 }
 
 .container-screen-content {
+  overflow: hidden;
   height: 720px;
   @include flex();
   align-items: center;
@@ -169,16 +174,17 @@
     height: auto;
   }
   .content-screen {
-    padding-bottom: 85px;
+    padding-bottom: 76px;
     width: 465px;
-    height: 321px;
+    height: 331px;
     @media screen and (max-width: 1279px) {
-      padding-bottom: 100px;
+      padding-bottom: 86px;
+      height: 334px;
     }
     @media screen and (max-width: 767px) {
       width: 288px;
       text-align: center;
-      padding-bottom: 80px;
+      padding-bottom: 67px;
     }
     .heading-content-screen {
       width: 400px;
@@ -196,39 +202,40 @@
         $tColor: $base-white,
         $lHeight: 2rem
         );
-        width: 290px;
         text-align: center;
         margin-bottom: 40px;
+        width: 261px;
+        padding-left: 14px;
       }
     }
     .text-content-screen {
       @include fontMain(
         $fontSize: 0.9rem,
         $tColor: $base-gray,
-        $lHeight: 1.6rem
+        $lHeight: 1.5rem,
+        $lSpacing: 0.017rem
       );
       @media screen and (max-width: 767px) {
         text-align: justify;
-        line-height: 1.5rem;
       }
     }
     .button-screen {
       @include button();
-      margin-top: 25px;
+      margin-top: 28px;
       @media screen and (max-width: 1279px) {
         display: block;
         margin-right: auto;
         margin-left: auto;
-        margin-top: 40px;
+        margin-top: 43px;
       }
       @media screen and (max-width: 767px) {
-        margin-top: 44px;
+        margin-top: 20px;
       }
     }
   }
   .image-screen {
-    width: 698px;
-    height: 720px;
+    width: 701px;
+    height: 734px;
     background-image: url(../../assets/images/start-screen-puppy.png);
     background-size: cover;
     @media screen and (max-width: 1279px) {
@@ -279,7 +286,7 @@
       }
       .content-about {
         height: 380px;
-        width: 433px;
+        width: 432px;
         @media screen and (max-width: 1279px) {
           margin-top: 83px;
         }
@@ -292,13 +299,13 @@
         .heading-about {
           margin-top: 0;
           display: block;
-          width: 300px;
+          width: 305px;
           @include fontDecor(
             $fontSize: 2.2rem,
-            $lSpacing: 0.1rem,
-            $lHeight: 2.7rem
+            $lSpacing: 0.13rem,
+            $lHeight: 2.75rem
           );
-          margin-bottom: 27px;
+          margin-bottom: 25px;
           @media screen and (max-width: 767px) {
             @include fontDecor(
             $fontSize: 1.6rem,
@@ -341,16 +348,19 @@
       padding: 0 10px;
     }
     .container-content-pets {
-      height: 672px;
+      height: 674px;
       width: 100%;
       @include flex($tDirection: column);
       align-items: center;
       .heading-pets {
         display: block;
         height: 80px;
-        margin-top: -25px;
+        margin-top: -23px;
         text-align: center;
-        @include fontDecor($fontSize: 2.5rem, $lSpacing: 0.01rem, $lHeight: 2.9rem);
+        @include fontDecor($fontSize: 2.27rem, $lSpacing: 0.09rem, $lHeight: 2.9rem);
+        @media screen and (max-width: 1279px) {
+          margin-top: -20px;
+        }
         @media screen and (max-width: 767px) {
           @include fontDecor(
           $fontSize: 1.6rem,
@@ -367,6 +377,7 @@
         height: auto;
         @include flex();
         align-items: center;
+        padding-top: 3px;
         @media screen and (max-width: 1279px) {
             width: 708px;
         }
@@ -616,11 +627,21 @@
       }
       @media screen and (max-width: 767px) {
         width: 322px;
+        height: 543px;
+        }
         margin-bottom: 60px;
-      }
       .heading-help {
-        @include fontDecor($fontSize: 2.2rem, $lSpacing: 0.1rem, $lHeight: 2.8rem);
+        @include fontDecor($fontSize: 2.2rem, $lSpacing: 0.123rem, $lHeight: 2.8rem);
         margin-bottom: -8px;
+        display: flex;
+        justify-content: center;
+        margin-top: 67px;
+        .container-heading-help {
+          width: 320px;
+          @media screen and (max-width: 767px) {
+            width: 220px;
+          }
+        }
         @media screen and (max-width: 767px) {
           @include fontDecor(
           $fontSize: 1.6rem,
@@ -628,9 +649,11 @@
           $lHeight: 2.1rem
           );
           text-align: center;
+          margin-top: 36px;
         }
       }
       .grid {
+        margin-top: 44px;
         display: grid;
         grid-template-rows: repeat(2, 1fr);
         grid-template-columns: repeat(20, 1fr);
@@ -641,6 +664,7 @@
           grid-template-columns: repeat(3, 1fr);
         }
         @media screen and (max-width: 767px) {
+          margin-top: 32px;
           grid-template-rows: repeat(2, 1fr);
           grid-template-columns: repeat(2, 1fr);
         }
@@ -716,7 +740,7 @@
 }
 
 .section-donation {
-  height: 464px;
+  height: 462px;
   background-color: $base-light-gray;
   @media screen and (max-width: 1279px) {
     height: 783px;
@@ -730,6 +754,7 @@
     justify-content: center;
     align-items: center;
     .container-content-donation {
+      margin-top: 2px;
       width: 930px;
       height: 305px;
       @include flex();
@@ -745,15 +770,20 @@
       .image-donation {
         height: 261px;
         width: 505px;
-        margin-top: 10px;
-        margin-left: 10px;
+        margin-top: 11px;
+        margin-left: 8px;
+        @media screen and (max-width: 1279px) {
+          height: 263px;
+          margin-left: -3px;
+        }
         @media screen and (max-width: 767px) {
           width: 260px;
-          height: 135px;
+          height: 138px;
+          margin-left: 10px;
         }
       }
       .content-donation {
-        width: 390px;
+        width: 389px;
         @media screen and (max-width: 1279px) {
           margin: auto;
           margin-top: -19px;
@@ -770,6 +800,9 @@
           );
           margin-top: 0;
           margin-bottom: -40px;
+          @media screen and (max-width: 1279px) {
+            letter-spacing: 0.123rem;
+          }
           @media screen and (max-width: 767px) {
             @include fontDecor(
             $fontSize: 1.6rem,
@@ -779,6 +812,9 @@
             text-align: center;
             white-space: normal;
             height: 113px;
+            width: 227px;
+            margin-left: auto;
+            margin-right: auto;
           }
         }
         .text-name-bank {
@@ -796,7 +832,7 @@
           padding: 0 17px;
           align-items: center;
           height: 43px;
-          width: 321px;
+          width: 317px;
           border-radius: 10px;
           background-color: $base-pink;
           margin-bottom: 20px;
@@ -804,13 +840,16 @@
           &:hover {
             background-color: $base-pink-hover;
           }
+          @media screen and (max-width: 1279px) {
+            padding: 0 15px;
+          }
           @media screen and (max-width: 767px) {
             width: 250px;
             padding: 0 15px;
             @include fontDecor($fontSize: 0.97rem, $lSpacing: 0.033rem);
           }
           .icon-credit-card {
-            width: 31px;
+            width: 30px;
           }
           .text-number-card {
             margin-right: auto;
@@ -824,7 +863,7 @@
           @include fontMain(
             $fontSize: 0.8rem,
             $tColor: $donation-description,
-            $lHeight: 1.1rem
+            $lHeight: 1.18rem
           );
           padding-right: 18px;
           @media screen and (max-width: 767px) {
@@ -850,7 +889,7 @@
     padding-top: 15px;
   }
   @media screen and (max-width: 767px) {
-    height: 890px;
+    height: 800px;
     padding-top: 9px;
   }
   .container-footer {
@@ -868,7 +907,7 @@
     }
     .contacts-footer {
       height: 235px;
-      width: 440px;
+      width: 437px;
       margin-top: -6px;
       @media screen and (max-width: 1279px) {
         flex: 40%;
@@ -877,8 +916,8 @@
       }
       @media screen and (max-width: 767px) {
         margin-left: 0;
-        height: 238px;
-        margin-top: -4px;
+        height: 224px;
+        margin-top: -8px;
       }
       @include flex($tDirection: column);
       .contacts {
@@ -886,7 +925,7 @@
         align-items: center;
         text-decoration: none;
         @media screen and (max-width: 767px) {
-          margin-left: 2px;
+          margin-left: 14px;
           width: 290px;
         }
         .icon-footer-contacts {
@@ -907,8 +946,8 @@
       }
       @media screen and (max-width: 767px) {
         margin-left: 0;
-        margin-bottom: 27px;
         height: 238px;
+        margin-bottom: -3px;
       }
       .location {
         @include flex();
@@ -932,8 +971,8 @@
       margin-left: 20px;
     }
     .image-footer {
-      height: 315px;
-      width: 300px;
+      height: 311px;
+      width: 301px;
       margin-top: auto;
       margin-left: auto;
       @media screen and (max-width: 1279px) {
@@ -960,12 +999,13 @@
   );
   @media screen and (max-width: 767px) {
     text-align: center;
-    margin-top: 5px;
+    margin-bottom: -2px;
     margin-left: -3px;
+    margin-top: 16px;
     @include fontDecor(
-    $fontSize: 2.2rem,
+    $fontSize: 1.5rem,
     $lSpacing: 0.13rem,
-    $lHeight: 2.8rem,
+    $lHeight: 2.1rem,
     $tColor: $base-white
   );
   }

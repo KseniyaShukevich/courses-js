@@ -78,13 +78,13 @@
     text-decoration: none;
     z-index: 10;
     width: 186px;
-    height: 72px;
+    height: 75px;
     @media screen and (max-width: 1279px) {
       height: 75px;
     }
     @media screen and (max-width: 767px) {
       position: absolute;
-      right: 128px;
+      right: 120px;
     }
     .title-screen {
       transition: color 1s;
@@ -92,7 +92,7 @@
         $fontSize: 2rem,
         $lHeight: 0.6rem,
         $tColor: $text-middle-gray,
-        $lSpacing: 0.1rem
+        $lSpacing: 0.12rem
       );
     }
     .animation-logo-title {
@@ -100,6 +100,7 @@
     }
     .subtitle-screen {
       transition: color 1s;
+      padding-left: 2px;
       @include fontMain(
         $fontSize: 0.9rem,
         $tColor: $base-dark-gray,
@@ -115,7 +116,8 @@
   }
 
   .nav-screen {
-    width: 443px;
+    width: 519px;
+    // width: 443px;
     @include flex();
     align-items: center;
     @media screen and (max-width: 767px) {
@@ -149,7 +151,7 @@
           display: none;
         }
       .link-screen {
-        @include fontMain($fontSize: 0.9rem, $tColor: $text-middle-gray);
+        @include fontMain($fontSize: 0.9rem, $tColor: $text-middle-gray, $lSpacing: 0.03rem);
         text-decoration: none;
         &:hover {
           color: $base-dark-gray;
@@ -162,7 +164,7 @@
       }
       .link-hover {
         width: 100%;
-        margin-top: 5px;
+        margin-top: 3px;
         border-radius: 20%;
         border: 1px solid $base-pink;
       }
@@ -467,7 +469,7 @@
     padding-top: 15px;
   }
   @media screen and (max-width: 767px) {
-    height: 890px;
+    height: 800px;
     padding-top: 9px;
   }
   .container-footer {
@@ -485,9 +487,8 @@
     }
     .contacts-footer {
       height: 235px;
-      width: 440px;
+      width: 437px;
       margin-top: -6px;
-      @include flex($tDirection: column);
       @media screen and (max-width: 1279px) {
         flex: 40%;
         width: 200px;
@@ -495,15 +496,16 @@
       }
       @media screen and (max-width: 767px) {
         margin-left: 0;
-        height: 238px;
-        margin-top: -4px;
+        height: 224px;
+        margin-top: -8px;
       }
+      @include flex($tDirection: column);
       .contacts {
         @include flex();
         align-items: center;
         text-decoration: none;
         @media screen and (max-width: 767px) {
-          margin-left: 2px;
+          margin-left: 14px;
           width: 290px;
         }
         .icon-footer-contacts {
@@ -524,8 +526,8 @@
       }
       @media screen and (max-width: 767px) {
         margin-left: 0;
-        margin-bottom: 27px;
         height: 238px;
+        margin-bottom: -3px;
       }
       .location {
         @include flex();
@@ -549,8 +551,8 @@
       margin-left: 20px;
     }
     .image-footer {
-      height: 315px;
-      width: 300px;
+      height: 311px;
+      width: 301px;
       margin-top: auto;
       margin-left: auto;
       @media screen and (max-width: 1279px) {
@@ -577,12 +579,13 @@
   );
   @media screen and (max-width: 767px) {
     text-align: center;
-    margin-top: 5px;
+    margin-bottom: -2px;
     margin-left: -3px;
+    margin-top: 16px;
     @include fontDecor(
-    $fontSize: 2.2rem,
+    $fontSize: 1.5rem,
     $lSpacing: 0.13rem,
-    $lHeight: 2.8rem,
+    $lHeight: 2.1rem,
     $tColor: $base-white
   );
   }
