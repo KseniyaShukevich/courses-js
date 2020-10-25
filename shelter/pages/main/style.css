@@ -56,9 +56,10 @@
 }
 .header .logo-screen {
   text-decoration: none;
+  position: absolute;
   padding-top: 1px;
   z-index: 10;
-  width: 187px;
+  width: 200px;
   height: auto;
 }
 @media screen and (max-width: 1279px) {
@@ -98,6 +99,7 @@
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
+  margin-left: auto;
 }
 @media screen and (max-width: 1279px) {
   .header .nav-screen {
