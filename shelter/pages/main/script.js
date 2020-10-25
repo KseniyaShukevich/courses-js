@@ -42,7 +42,7 @@ function pressPagination() {
 }
 
 function pagePets() {
-    window.location.href = '../pets/index.html';
+    window.location.href = '../pets/';
 }
 
 async function getPets() {
