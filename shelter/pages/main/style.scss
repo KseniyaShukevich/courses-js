@@ -29,9 +29,10 @@
   @include flex();
   .logo-screen {
     text-decoration: none;
+    position: absolute;
     padding-top: 1px;
     z-index: 10;
-    width: 187px;
+    width: 200px;
     height: auto;
     @media screen and (max-width: 1279px) {
       margin-left: -10px;
@@ -64,6 +65,7 @@
     width: 443px;
     @include flex();
     align-items: center;
+    margin-left: auto;
     @media screen and (max-width: 1279px) {
       width: 442px;
       margin-right: -8px;

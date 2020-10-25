@@ -113,7 +113,7 @@
   text-decoration: none;
   position: absolute;
   z-index: 10;
-  width: 186px;
+  width: 200px;
   height: 75px;
 }
 @media screen and (max-width: 1279px) {
