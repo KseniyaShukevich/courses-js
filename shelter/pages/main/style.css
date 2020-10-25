@@ -651,6 +651,8 @@
   width: 100%;
   background-color: rgba(29, 29, 29, 0.6);
   display: none;
+  opacity: 0;
+  transition: opacity 1s;
 }
 .section-pets .container-popup .popup {
   width: 950px;
@@ -841,6 +843,9 @@
   letter-spacing: 0.027rem;
   line-height: 1.1rem;
   color: black;
+}
+.section-pets .animation-popup {
+  opacity: 1;
 }
 
 .section-help {
