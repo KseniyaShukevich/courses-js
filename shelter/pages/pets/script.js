@@ -194,36 +194,36 @@ function rightPage() {
 
 
 function fillRightPaginationActive() {
-    imagePaginatorRight.setAttribute('src', '../../assets/icons/_active.svg');
+    imagePaginatorRight.setAttribute('src', '../../assets/icons/chevron-active.svg');
     imagePaginatorRight.style.transform = '';
-    imagePaginatorRightEnd.setAttribute('src', '../../assets/icons/__active.svg');
+    imagePaginatorRightEnd.setAttribute('src', '../../assets/icons/chevron-two-active.svg');
     imagePaginatorRightEnd.style.transform = '';
     paginatorRight.setAttribute('class', 'button-paginator');
     paginatorRightEnd.setAttribute('class', 'button-paginator');
 }
 
 function fillLeftPaginationActive() {
-    imagePaginatorLeft.setAttribute('src', '../../assets/icons/_active.svg');
+    imagePaginatorLeft.setAttribute('src', '../../assets/icons/chevron-active.svg');
     imagePaginatorLeft.style.transform = 'rotate(180deg)';
-    imagePaginatorLeftBegin.setAttribute('src', '../../assets/icons/__active.svg');
+    imagePaginatorLeftBegin.setAttribute('src', '../../assets/icons/chevron-two-active.svg');
     imagePaginatorLeftBegin.style.transform = 'rotate(180deg)';
     paginatorLeft.setAttribute('class', 'button-paginator');
     paginatorLeftBegin.setAttribute('class', 'button-paginator');
 }
 
 function fillLeftPaginationInactive() {
-    imagePaginatorLeft.setAttribute('src', '../../assets/icons/_.svg');
+    imagePaginatorLeft.setAttribute('src', '../../assets/icons/chevron.svg');
     imagePaginatorLeft.style.transform = '';
-    imagePaginatorLeftBegin.setAttribute('src', '../../assets/icons/__.svg');
+    imagePaginatorLeftBegin.setAttribute('src', '../../assets/icons/chevron-two.svg');
     imagePaginatorLeftBegin.style.transform = '';
     paginatorLeft.setAttribute('class', 'button_paginator_inactive');
     paginatorLeftBegin.setAttribute('class', 'button_paginator_inactive');
 }
 
 function fillRightPaginationInactive() {
-    imagePaginatorRight.setAttribute('src', '../../assets/icons/_.svg');
+    imagePaginatorRight.setAttribute('src', '../../assets/icons/chevron.svg');
     imagePaginatorRight.style.transform = 'rotate(180deg)';
-    imagePaginatorRightEnd.setAttribute('src', '../../assets/icons/__.svg');
+    imagePaginatorRightEnd.setAttribute('src', '../../assets/icons/chevron-two.svg');
     imagePaginatorRightEnd.style.transform = 'rotate(180deg)';
     paginatorRight.setAttribute('class', 'button_paginator_inactive');
     paginatorRightEnd.setAttribute('class', 'button_paginator_inactive');
