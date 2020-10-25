@@ -1,10 +1,10 @@
-let navScreen = document.querySelector('.nav-screen');
-let navScreenMenu = document.querySelector('.nav-screen-menu');
-let backgroundScreenMenu = document.querySelector('.background-screen-menu');
-let linksPage = document.querySelectorAll('.link-screen-nav');
-let titleScreen = document.querySelector('.title-screen');
-let subtitleScreen = document.querySelector('.subtitle-screen');
-let burgerMenu = document.querySelectorAll('.burger-menu');
+const navScreen = document.querySelector('.nav-screen');
+const navScreenMenu = document.querySelector('.nav-screen-menu');
+const backgroundScreenMenu = document.querySelector('.background-screen-menu');
+const linksPage = document.querySelectorAll('.link-screen-nav');
+const titleScreen = document.querySelector('.title-screen');
+const subtitleScreen = document.querySelector('.subtitle-screen');
+const burgerMenu = document.querySelectorAll('.burger-menu');
 let isNavScreen = false;
 
 function addClassesMenu() {
