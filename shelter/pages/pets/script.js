@@ -122,7 +122,7 @@ function fillPopup(index) {
 function getPopup(index) {
     isPopup = true;
     let coords = document.body.getBoundingClientRect();
-    containerPopup.style.top = Math.abs(coords.top) + 120 + 'px';
+    containerPopup.style.top = Math.abs(coords.top) + 'px';
     setTimeout(() =>
     containerPopup.classList.add('animation-popup')
     , 0);
