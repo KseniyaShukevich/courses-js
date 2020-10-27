@@ -177,10 +177,11 @@ function noHover() {
     buttonPopup.style.borderColor = '';
 }
 
-for (let i = 0; i < btnLearnMore.length; i++) {
-    btn = btnLearnMore[i];
+let cardPet = document.querySelectorAll('.card-pet');
 
-    btn.addEventListener('click', () => getPopup(i));
+for (let i = 0; i < cardPet.length; i++) {
+    card = cardPet[i];
+    card.addEventListener('click', () => getPopup(i));
 }
 
 btnMakeFriend.addEventListener('click', pagePets);

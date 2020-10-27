@@ -122,7 +122,7 @@ function fillPopup(index) {
 function getPopup(index) {
     isPopup = true;
     let coords = document.body.getBoundingClientRect();
-    containerPopup.style.top = Math.abs(coords.top) + 'px';
+    containerPopup.style.top = Math.abs(coords.top) + 120 + 'px';
     setTimeout(() =>
     containerPopup.classList.add('animation-popup')
     , 0);
@@ -317,9 +317,11 @@ function noHover() {
     buttonPopup.style.borderColor = '';
 }
 
-for (let i = 0; i < btnLearnMore.length; i++) {
-    btn = btnLearnMore[i];
-    btn.addEventListener('click', () => getPopup(i));
+let cardPet = document.querySelectorAll('.card-pet');
+
+for (let i = 0; i < cardPet.length; i++) {
+    card = cardPet[i];
+    card.addEventListener('click', () => getPopup(i));
 }
 
 buttonPopup.addEventListener('click', hidePopup);
