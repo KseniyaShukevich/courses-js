@@ -317,9 +317,11 @@ function noHover() {
     buttonPopup.style.borderColor = '';
 }
 
-for (let i = 0; i < btnLearnMore.length; i++) {
-    btn = btnLearnMore[i];
-    btn.addEventListener('click', () => getPopup(i));
+let cardPet = document.querySelectorAll('.card-pet');
+
+for (let i = 0; i < cardPet.length; i++) {
+    card = cardPet[i];
+    card.addEventListener('click', () => getPopup(i));
 }
 
 buttonPopup.addEventListener('click', hidePopup);

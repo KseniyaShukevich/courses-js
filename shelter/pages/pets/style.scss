@@ -6,6 +6,10 @@
 
 .section-header {
   height: 120px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: white;
 }
 
 .container-header {
@@ -187,6 +191,7 @@
 
 .section-pets {
   height: 1342px;
+  padding-top: 120px;
   background-color: $color-light-l;
   @media screen and (max-width: 1279px) {
     height: 1733px;
