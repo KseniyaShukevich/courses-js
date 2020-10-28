@@ -13,7 +13,8 @@ const Keyboard = {
   properties: {
     value: "",
     capsLock: false,
-    shift: false
+    shift: false,
+    language: "en"
   },
 
   init() {
@@ -50,7 +51,7 @@ const Keyboard = {
       "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
       "shift", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
       "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
-      "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
+      "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "en",
       "space"
     ];
 
@@ -101,6 +102,17 @@ const Keyboard = {
 
           break;
 
+        case "en":
+          keyElement.classList.add("keyboard__key--wide");
+          keyElement.innerHTML = `<div class="lang">${key}</div>`;
+
+          keyElement.addEventListener("click", () => {
+            this._language();
+            this._getKeysLanguage();
+          });
+
+          break;
+
         case "space":
           keyElement.classList.add("keyboard__key--extra-wide");
           keyElement.innerHTML = createIconHTML("space_bar");
@@ -139,13 +151,13 @@ const Keyboard = {
 
           keyElement.addEventListener("click", () => {
             if (this.properties.capsLock && !this.properties.shift) {
-              this.properties.value += key.toUpperCase();
+              this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent.toUpperCase();
             } else if (this.properties.shift && !this.properties.capsLock) {
               this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent;
             } else if (this.properties.shift && this.properties.capsLock) {
               this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent.toLowerCase();
             } else {
-              this.properties.value += key.toLowerCase();
+              this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent;
             }
 
             this._triggerEvent("oninput");
@@ -188,20 +200,52 @@ const Keyboard = {
     }
   },
 
-  _toggleShift() {
-    const shiftKeyLayout = [
-      "!", "@", "#", "$", "%", "^", "&", "*", "(", ")",
-      "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
-      "A", "S", "D", "F", "G", "H", "J", "K", "L",
-      "Z", "X", "C", "V", "B", "N", "M", "<", ">", "/"
-    ];
+  _language() {
+    let langEl = document.querySelector('.lang');
+    if (this.properties.language === "en") {
+      this.properties.language = "ru";
+    } else {
+      this.properties.language = "en";
+    }
 
-    const keyLayoutNotShift = [
-      "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
-      "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
-      "a", "s", "d", "f", "g", "h", "j", "k", "l",
-      "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
-    ];
+    for (const key of this.elements.keys) {
+      if (key.textContent === "en") {
+        langEl.textContent = "ru";
+      } else if (key.textContent === 'ru') {
+        langEl.textContent = 'en';
+      }
+    }
+  },
+
+  _getKeysLanguage() {
+    let arrKeys = this._getConstForShift();
+    let lKeyLayout = '';
+
+    if (this.properties.shift) {
+      lKeyLayout = arrKeys[0];
+      if (this.properties.capsLock) {
+        lKeyLayout = lKeyLayout.map(key => key = key.toLowerCase());
+      }
+    } else {
+      lKeyLayout = arrKeys[1];
+      if (this.properties.capsLock) {
+        lKeyLayout = lKeyLayout.map(key => key = key.toUpperCase());
+      }
+    }
+
+    let count = 0;
+      for (const key of this.elements.keys) {
+        if (key.childElementCount === 0) {
+          key.textContent = lKeyLayout[count];
+          count++;
+        }
+      }
+  },
+
+  _toggleShift() {
+    let arrKey =  this._getConstForShift();
+    let shiftKeyLayout = arrKey[0];
+    let keyLayoutNotShift = arrKey[1];
 
     this.properties.shift = !this.properties.shift;
 
@@ -242,6 +286,41 @@ const Keyboard = {
         }
       }
     }
+  },
+
+  _getConstForShift() {
+    let arr = [];
+    if (this.properties.language === "en") {
+      const enShiftKeyLayout = [
+        "!", "@", "#", "$", "%", "^", "&", "*", "(", ")",
+        "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+        "A", "S", "D", "F", "G", "H", "J", "K", "L",
+        "Z", "X", "C", "V", "B", "N", "M", "<", ">", "/"
+      ];
+      const enKeyLayoutNotShift = [
+        "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+        "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+        "a", "s", "d", "f", "g", "h", "j", "k", "l",
+        "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
+      ];
+      arr.push(enShiftKeyLayout, enKeyLayoutNotShift);
+    } else {
+      const ruShiftKeyLayout = [
+        "!", "\"", "№", ";", "%", ":", "?", "*", "(", ")",
+        "Й", "Ц", "У", "К", "Е", "Н", "Г", "Ш", "Щ", "З",
+        "Ф", "Ы", "В", "А", "П", "Р", "О", "Л", "Д",
+        "Я", "Ч", "С", "М", "И", "Т", "Ь", "Б", "Ю", ",",
+      ];
+      const ruKeyLayoutNotShift = [
+        "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+        "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з",
+        "ф", "ы", "в", "а", "п", "р", "о", "л", "д",
+        "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ".",
+      ];
+      arr.push(ruShiftKeyLayout, ruKeyLayoutNotShift);
+    }
+
+    return arr;
   },
 
   open(initialValue, oninput, onclose) {
