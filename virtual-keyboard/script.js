@@ -12,7 +12,8 @@ const Keyboard = {
 
   properties: {
     value: "",
-    capsLock: false
+    capsLock: false,
+    shift: false
   },
 
   init() {
@@ -47,7 +48,7 @@ const Keyboard = {
     const fragment = document.createDocumentFragment();
     const keyLayout = [
       "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
-      "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+      "shift", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
       "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
       "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
       "space"
@@ -122,11 +123,31 @@ const Keyboard = {
 
           break;
 
+        case "shift":
+          keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
+          keyElement.innerHTML = createIconHTML("arrow_upward");
+
+          keyElement.addEventListener("click", () => {
+            this._toggleShift();
+            keyElement.classList.toggle("keyboard__key--active", this.properties.shift);
+          });
+
+          break;
+
         default:
           keyElement.textContent = key.toLowerCase();
 
           keyElement.addEventListener("click", () => {
-            this.properties.value += this.properties.capsLock ? key.toUpperCase() : key.toLowerCase();
+            if (this.properties.capsLock && !this.properties.shift) {
+              this.properties.value += key.toUpperCase();
+            } else if (this.properties.shift && !this.properties.capsLock) {
+              this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent;
+            } else if (this.properties.shift && this.properties.capsLock) {
+              this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent.toLowerCase();
+            } else {
+              this.properties.value += key.toLowerCase();
+            }
+
             this._triggerEvent("oninput");
           });
 
@@ -152,9 +173,73 @@ const Keyboard = {
   _toggleCapsLock() {
     this.properties.capsLock = !this.properties.capsLock;
 
-    for (const key of this.elements.keys) {
-      if (key.childElementCount === 0) {
-        key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+    if (!this.properties.shift) {
+      for (const key of this.elements.keys) {
+        if (key.childElementCount === 0) {
+          key.textContent = this.properties.capsLock ? key.textContent.toUpperCase() : key.textContent.toLowerCase();
+        }
+      }
+    } else {
+      for (const key of this.elements.keys) {
+        if (key.childElementCount === 0) {
+          key.textContent = this.properties.capsLock ? key.textContent.toLowerCase() : key.textContent.toUpperCase();
+        }
+      }
+    }
+  },
+
+  _toggleShift() {
+    const shiftKeyLayout = [
+      "!", "@", "#", "$", "%", "^", "&", "*", "(", ")",
+      "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
+      "A", "S", "D", "F", "G", "H", "J", "K", "L",
+      "Z", "X", "C", "V", "B", "N", "M", "<", ">", "/"
+    ];
+
+    const keyLayoutNotShift = [
+      "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+      "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
+      "a", "s", "d", "f", "g", "h", "j", "k", "l",
+      "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
+    ];
+
+    this.properties.shift = !this.properties.shift;
+
+    if (!this.properties.capsLock) {
+      if (this.properties.shift) {
+        let count = 0;
+        for (const key of this.elements.keys) {
+          if (this.properties.shift && key.childElementCount === 0) {
+            key.textContent = shiftKeyLayout[count];
+            count++;
+          }
+        }
+      } else if (!this.properties.shift) {
+        let count = 0;
+        for (const key of this.elements.keys) {
+          if (key.childElementCount === 0) {
+            key.textContent = keyLayoutNotShift[count];
+            count++;
+          }
+        }
+      }
+    } else {
+      if (this.properties.shift) {
+        let count = 0;
+        for (const key of this.elements.keys) {
+          if (this.properties.shift && key.childElementCount === 0) {
+            key.textContent = shiftKeyLayout[count].toLowerCase();
+            count++;
+          }
+        }
+      } else if (!this.properties.shift) {
+        let count = 0;
+        for (const key of this.elements.keys) {
+          if (key.childElementCount === 0) {
+            key.textContent = keyLayoutNotShift[count].toUpperCase();
+            count++;
+          }
+        }
       }
     }
   },
