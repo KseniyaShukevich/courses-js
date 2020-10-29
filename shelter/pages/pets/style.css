@@ -27,6 +27,7 @@
   position: fixed;
   top: 0;
   background-color: white;
+  z-index: 998;
 }
 
 @media screen and (max-width: 1279px) {
@@ -468,6 +469,7 @@
   display: none;
   opacity: 0;
   transition: opacity 1s;
+  z-index: 999;
 }
 .container-popup .popup {
   width: 950px;
