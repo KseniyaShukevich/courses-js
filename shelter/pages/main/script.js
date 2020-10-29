@@ -197,4 +197,3 @@ containerPopup.addEventListener('mouseout', noHover);
 popup.addEventListener('mouseover', hover);
 popup.addEventListener('mouseout', noHover);
 getPets();
-alert('Если появляется скролл, посмотри, пожалуйста, видео: https://youtu.be/GhscCq3urg8');
