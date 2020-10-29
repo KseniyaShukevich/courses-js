@@ -10,6 +10,7 @@
   position: fixed;
   top: 0;
   background-color: white;
+  z-index: 998;
 }
 
 .container-header {
@@ -347,6 +348,7 @@
   display: none;
   opacity: 0;
   transition: opacity 1s;
+  z-index: 999;
   .popup {
     width: 950px;
     min-height: 552px;
