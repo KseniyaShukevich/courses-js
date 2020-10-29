@@ -52,7 +52,7 @@ const Keyboard = {
       "shift", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
       "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
       "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "en",
-      "space"
+      "space", "left", "right"
     ];
 
     // Creates HTML for an icon
@@ -74,8 +74,15 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("backspace");
 
           keyElement.addEventListener("click", () => {
-            this.properties.value = this.properties.value.substring(0, this.properties.value.length - 1);
-            this._triggerEvent("oninput");
+            let input = document.querySelector(".use-keyboard-input");
+            let cursorPos = input.selectionStart;
+            let buf = this.properties.value.slice();
+
+            if (cursorPos > 0) {
+              this.properties.value = buf.slice(0, cursorPos - 1) + buf.slice(cursorPos);
+              this._triggerEvent("oninput");
+              input.setSelectionRange(cursorPos-1, cursorPos-1);
+            }
           });
 
           break;
@@ -96,8 +103,33 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("keyboard_return");
 
           keyElement.addEventListener("click", () => {
-            this.properties.value += "\n";
+            let input = document.querySelector(".use-keyboard-input");
+            let cursorPos = input.selectionStart;
+            let buf = this.properties.value.slice();
+
+            this.properties.value = buf.slice(0, cursorPos) + '\n' + buf.slice(cursorPos);
             this._triggerEvent("oninput");
+            input.setSelectionRange(cursorPos+1, cursorPos+1);
+          });
+
+          break;
+
+        case "left":
+          keyElement.classList.add("keyboard__key--wide");
+          keyElement.innerHTML = createIconHTML("keyboard_arrow_left");
+
+          keyElement.addEventListener("click", () => {
+            this._getLeft();
+          });
+
+          break;
+
+        case "right":
+          keyElement.classList.add("keyboard__key--wide");
+          keyElement.innerHTML = createIconHTML("keyboard_arrow_right");
+
+          keyElement.addEventListener("click", () => {
+            this._getRight();
           });
 
           break;
@@ -118,8 +150,13 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("space_bar");
 
           keyElement.addEventListener("click", () => {
-            this.properties.value += " ";
+            let input = document.querySelector(".use-keyboard-input");
+            let cursorPos = input.selectionStart;
+            let buf = this.properties.value.slice();
+
+            this.properties.value = buf.slice(0, cursorPos) + ' ' + buf.slice(cursorPos);
             this._triggerEvent("oninput");
+            input.setSelectionRange(cursorPos+1, cursorPos+1);
           });
 
           break;
@@ -150,17 +187,24 @@ const Keyboard = {
           keyElement.textContent = key.toLowerCase();
 
           keyElement.addEventListener("click", () => {
+            let input = document.querySelector(".use-keyboard-input");
+            let cursorPos = input.selectionStart;
+            let buf = this.properties.value.slice();
+            let keyContent = this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent;
+
             if (this.properties.capsLock && !this.properties.shift) {
-              this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent.toUpperCase();
+              this.properties.value = buf.slice(0, cursorPos) + keyContent.toUpperCase() + buf.slice(cursorPos);
+
             } else if (this.properties.shift && !this.properties.capsLock) {
-              this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent;
+              this.properties.value = buf.slice(0, cursorPos) + keyContent + buf.slice(cursorPos);
             } else if (this.properties.shift && this.properties.capsLock) {
-              this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent.toLowerCase();
+              this.properties.value = buf.slice(0, cursorPos) + keyContent.toLowerCase() + buf.slice(cursorPos);
             } else {
-              this.properties.value += this.elements.keys[keyLayout.indexOf(key.toLowerCase())].textContent;
+              this.properties.value = buf.slice(0, cursorPos) + keyContent + buf.slice(cursorPos);
             }
 
             this._triggerEvent("oninput");
+            input.setSelectionRange(cursorPos+1, cursorPos+1);
           });
 
           break;
@@ -179,6 +223,24 @@ const Keyboard = {
   _triggerEvent(handlerName) {
     if (typeof this.eventHandlers[handlerName] == "function") {
       this.eventHandlers[handlerName](this.properties.value);
+    }
+  },
+
+  _getLeft() {
+    let input = document.querySelector(".use-keyboard-input");
+    let start = input.selectionStart;
+
+    if(start > 0) {
+      input.setSelectionRange(start - 1, start - 1);
+    }
+  },
+
+  _getRight() {
+    let input = document.querySelector(".use-keyboard-input");
+    let start = input.selectionStart;
+
+    if(start < this.properties.value.length) {
+      input.setSelectionRange(start + 1, start + 1);
     }
   },
 
