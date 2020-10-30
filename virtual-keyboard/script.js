@@ -1,3 +1,5 @@
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
 const Keyboard = {
   elements: {
     main: null,
@@ -14,10 +16,14 @@ const Keyboard = {
     value: "",
     capsLock: false,
     shift: false,
-    language: "en"
+    language: "en",
+    speech: false,
+    recognition: null,
   },
 
   init() {
+    this. _getSpeechRecognition();
+
     // Create main elements
     this.elements.main = document.createElement("div");
     this.elements.keysContainer = document.createElement("div");
@@ -45,6 +51,27 @@ const Keyboard = {
     });
   },
 
+  _getSpeechRecognition() {
+    this.properties.recognition = new SpeechRecognition();
+    this.properties.recognition.interimResults = true;
+    this.properties.recognition.continuos = true;
+    this.properties.recognition.addEventListener('result', e => {
+      console.log(e.results);
+      const transcript = Array.from(e.results)
+        .map(result => result[0])
+        .map(result => result.transcript)
+        .join('');
+
+      if (e.results[0].isFinal) {
+        this.properties.value += transcript + ' ';
+        this._triggerEvent("oninput");
+      }
+    });
+    this.properties.recognition.addEventListener('end', () => {
+      if(this.properties.speech) {this.properties.recognition.start();}
+    });
+  },
+
   _createKeys() {
     const fragment = document.createDocumentFragment();
     const keyLayout = [
@@ -52,7 +79,7 @@ const Keyboard = {
       "shift", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
       "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
       "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "en",
-      "space", "left", "right"
+      "speech", "space", "left", "right"
     ];
 
     // Creates HTML for an icon
@@ -94,6 +121,17 @@ const Keyboard = {
           keyElement.addEventListener("click", () => {
             this._toggleCapsLock();
             keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
+          });
+
+          break;
+
+        case "speech":
+          keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
+          keyElement.innerHTML = createIconHTML("keyboard_voice");
+
+          keyElement.addEventListener("click", () => {
+            this._speech(() => keyElement.classList.remove("keyboard__key--active"));
+            keyElement.classList.toggle("keyboard__key--active", this.properties.speech);
           });
 
           break;
@@ -223,6 +261,23 @@ const Keyboard = {
   _triggerEvent(handlerName) {
     if (typeof this.eventHandlers[handlerName] == "function") {
       this.eventHandlers[handlerName](this.properties.value);
+    }
+  },
+
+  _speech(removeClass) {
+    this.properties.speech = !this.properties.speech;
+
+    if(this.properties.speech) {
+      this.properties.recognition.lang = 'en-US';
+      // recognition.continuous = true;
+      if (this.properties.language === 'ru') {
+        this.properties.recognition.lang = 'ru-RU';
+      }
+
+      this.properties.recognition.start();
+    } else {
+      this.properties.recognition.stop();
+      //removeClass();
     }
   },
 
