@@ -160,13 +160,18 @@ function getImage() {
   if (!isGetImage) {
     isGetImage = true;
     counter++;
+
     if (counter > 23) {
       counter = 0;
     }
-    document.body.style.backgroundImage =
-      `url('${base}${fullArrImages[counter]}')`;
 
-    setTimeout(() => {isGetImage = false;}, 1000);
+    const img = document.createElement('img');
+    const src = `${base}${fullArrImages[counter]}`
+    img.src = src;
+    img.onload = () => {
+      document.body.style.backgroundImage = `url(${src})`;
+      document.body.ontransitionend = () => isGetImage = false;
+    };
   }
 }
 
