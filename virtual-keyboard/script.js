@@ -18,11 +18,30 @@ const Keyboard = {
     shift: false,
     language: "en",
     speech: false,
+    sounds: false,
     recognition: null,
+  },
+
+  sounds: {
+    ru: {
+      caps: null,
+      shift: null,
+      backspace: null,
+      enter: null,
+      def: null
+    },
+    en: {
+      caps: null,
+      shift: null,
+      backspace: null,
+      enter: null,
+      def: null
+    }
   },
 
   init() {
     this._getSpeechRecognition();
+    this._createAudio();
 
     // Create main elements
     this.elements.main = document.createElement("div");
@@ -53,6 +72,38 @@ const Keyboard = {
     this._physicalKeyboard();
   },
 
+  _createAudio() {
+    this.sounds.ru.def = document.createElement("audio");
+    this.sounds.ru.def.src = 'sounds/button6.wav';
+
+    this.sounds.ru.caps = document.createElement("audio");
+    this.sounds.ru.caps.src = 'sounds/button8.wav';
+
+    this.sounds.ru.shift = document.createElement("audio");
+    this.sounds.ru.shift.src = 'sounds/button9.wav';
+
+    this.sounds.ru.backspace = document.createElement("audio");
+    this.sounds.ru.backspace.src = 'sounds/button10.wav';
+
+    this.sounds.ru.enter = document.createElement("audio");
+    this.sounds.ru.enter.src = 'sounds/button11.wav';
+
+    this.sounds.en.def = document.createElement("audio");
+    this.sounds.en.def.src = 'sounds/button12.wav';
+
+    this.sounds.en.caps = document.createElement("audio");
+    this.sounds.en.caps.src = 'sounds/button16.wav';
+
+    this.sounds.en.shift = document.createElement("audio");
+    this.sounds.en.shift.src = 'sounds/button17.wav';
+
+    this.sounds.en.backspace = document.createElement("audio");
+    this.sounds.en.backspace.src = 'sounds/button18.wav';
+
+    this.sounds.en.enter = document.createElement("audio");
+    this.sounds.en.enter.src = 'sounds/button20.wav';
+  },
+
   _getSpeechRecognition() {
     this.properties.recognition = new SpeechRecognition();
     this.properties.recognition.interimResults = true;
@@ -80,8 +131,8 @@ const Keyboard = {
       "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
       "shift", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
       "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
-      "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?", "en",
-      "speech", "space", "left", "right"
+      "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
+      "sounds", "en", "speech", "space", "left", "right"
     ];
 
     // Creates HTML for an icon
@@ -103,6 +154,8 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("backspace");
 
           keyElement.addEventListener("click", () => {
+            this._getSound('backspace');
+
             let input = document.querySelector(".use-keyboard-input");
             let cursorPos = input.selectionStart;
             let buf = this.properties.value.slice();
@@ -121,6 +174,8 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("keyboard_capslock");
 
           keyElement.addEventListener("click", () => {
+            this._getSound('caps');
+
             this._toggleCapsLock();
             keyElement.classList.toggle("keyboard__key--active", this.properties.capsLock);
           });
@@ -132,6 +187,8 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("keyboard_voice");
 
           keyElement.addEventListener("click", () => {
+            this._getSound('def');
+
             this._speech(() => keyElement.classList.remove("keyboard__key--active"));
             keyElement.classList.toggle("keyboard__key--active", this.properties.speech);
           });
@@ -143,6 +200,8 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("keyboard_return");
 
           keyElement.addEventListener("click", () => {
+            this._getSound('enter');
+
             let input = document.querySelector(".use-keyboard-input");
             let cursorPos = input.selectionStart;
             let buf = this.properties.value.slice();
@@ -159,6 +218,7 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("keyboard_arrow_left");
 
           keyElement.addEventListener("click", () => {
+            this._getSound('def');
             this._getLeft();
           });
 
@@ -169,6 +229,7 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("keyboard_arrow_right");
 
           keyElement.addEventListener("click", () => {
+            this._getSound('def');
             this._getRight();
           });
 
@@ -179,6 +240,7 @@ const Keyboard = {
           keyElement.innerHTML = `<div class="lang">${key}</div>`;
 
           keyElement.addEventListener("click", () => {
+            this._getSound('def');
             this._language();
             this._getKeysLanguage();
           });
@@ -190,6 +252,8 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("space_bar");
 
           keyElement.addEventListener("click", () => {
+            this._getSound('def');
+
             let input = document.querySelector(".use-keyboard-input");
             let cursorPos = input.selectionStart;
             let buf = this.properties.value.slice();
@@ -206,6 +270,7 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("check_circle");
 
           keyElement.addEventListener("click", () => {
+            this._getSound('def');
             this.close();
             this._triggerEvent("onclose");
           });
@@ -217,16 +282,30 @@ const Keyboard = {
           keyElement.innerHTML = createIconHTML("arrow_upward");
 
           keyElement.addEventListener("click", () => {
+            this._getSound('shift');
             this._toggleShift();
             keyElement.classList.toggle("keyboard__key--active", this.properties.shift);
           });
 
           break;
 
+        case "sounds":
+          keyElement.classList.add("keyboard__key--wide", "keyboard__key--activatable");
+          keyElement.innerHTML = createIconHTML("volume_up");
+
+          keyElement.addEventListener("click", () => {
+            this._getSound('def');
+            this._isSounds();
+            keyElement.classList.toggle("keyboard__key--active", this.properties.sounds);
+          });
+          break;
+
         default:
           keyElement.textContent = key.toLowerCase();
 
           keyElement.addEventListener("click", () => {
+            this._getSound('def');
+
             let input = document.querySelector(".use-keyboard-input");
             let cursorPos = input.selectionStart;
             let buf = this.properties.value.slice();
@@ -263,6 +342,22 @@ const Keyboard = {
   _triggerEvent(handlerName) {
     if (typeof this.eventHandlers[handlerName] == "function") {
       this.eventHandlers[handlerName](this.properties.value);
+    }
+  },
+
+  _isSounds(){
+    this.properties.sounds = !this.properties.sounds;
+  },
+
+  _getSound(key) {
+    if(this.properties.sounds) {
+      if (this.properties.language === 'en') {
+        this.sounds.en[key].currentTime = 0;
+        this.sounds.en[key].play();
+      } else {
+        this.sounds.ru[key].currentTime = 0;
+        this.sounds.ru[key].play();
+      }
     }
   },
 
