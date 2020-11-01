@@ -19,6 +19,7 @@ const Keyboard = {
     language: "en",
     speech: false,
     sounds: false,
+    open: false,
     recognition: null,
   },
 
@@ -40,6 +41,7 @@ const Keyboard = {
   },
 
   init() {
+    this.properties.open = true;
     this._getSpeechRecognition();
     this._createAudio();
 
@@ -363,78 +365,79 @@ const Keyboard = {
   },
 
   _physicalKeyboard() {
-    const physicalKeys = [
-      192, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 8,
-      81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221,
-      20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222,
-      16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 13,
-      32,
-      "done", "en", "sounds", 37, 39, "speech"
-    ];
+      const physicalKeys = [
+        192, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 8,
+        81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221,
+        20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222,
+        16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 13,
+        32,
+        "done", "en", "sounds", 37, 39, "speech"
+      ];
 
-    let input = document.querySelector(".use-keyboard-input");
-    let btn = document.querySelectorAll('.keyboard__key');
+      let input = document.querySelector(".use-keyboard-input");
+      let btn = document.querySelectorAll('.keyboard__key');
 
-    input.addEventListener('keydown', (event) => {
+      input.addEventListener('keydown', (event) => {
+        if (this.properties.open) {
+          let curBtnIndex = physicalKeys.indexOf(event.keyCode);
 
-      let curBtnIndex = physicalKeys.indexOf(event.keyCode);
+          if (curBtnIndex !== -1) {
+            btn[curBtnIndex].style.backgroundColor = '#4CB27F';
+            setTimeout(() => btn[curBtnIndex].style.backgroundColor = '', 200);
 
-      if (curBtnIndex !== -1) {
-        btn[curBtnIndex].style.backgroundColor = '#4CB27F';
-      setTimeout(() => btn[curBtnIndex].style.backgroundColor = '', 200);
-
-
-
-      switch (this.elements.keys[curBtnIndex].textContent) {
-        case "backspace":
-          break;
-
-        case "keyboard_capslock":
-          this._toggleCapsLock();
-          btn[curBtnIndex].classList.toggle("keyboard__key--active", this.properties.capsLock);
-          break;
-
-        case "keyboard_return":
-          break;
-
-        case "keyboard_arrow_left":
-          break;
-
-        case "keyboard_arrow_right":
-          break;
-
-        case "space_bar":
-          break;
-
-        case "arrow_upward":
-          this._toggleShift();
-          btn[curBtnIndex].classList.toggle("keyboard__key--active", this.properties.shift);
-          break;
-
-        default:
-      let cursorPos = input.selectionStart;
-            let buf = this.properties.value.slice();
-            let keyContent = this.elements.keys[physicalKeys.indexOf(event.keyCode)].textContent;
-
-            if (this.properties.capsLock && !this.properties.shift) {
-              this.properties.value = buf.slice(0, cursorPos) + keyContent.toUpperCase() + buf.slice(cursorPos);
-
-            } else if (this.properties.shift && !this.properties.capsLock) {
-              this.properties.value = buf.slice(0, cursorPos) + keyContent + buf.slice(cursorPos);
-            } else if (this.properties.shift && this.properties.capsLock) {
-              this.properties.value = buf.slice(0, cursorPos) + keyContent.toLowerCase() + buf.slice(cursorPos);
-            } else {
-              this.properties.value = buf.slice(0, cursorPos) + keyContent + buf.slice(cursorPos);
-            }
-
-            this._triggerEvent("oninput");
-            event.preventDefault();
+        switch (this.elements.keys[curBtnIndex].textContent) {
+          case "backspace":
             break;
 
-          }
+          case "keyboard_capslock":
+            this._toggleCapsLock();
+            btn[curBtnIndex].classList.toggle("keyboard__key--active", this.properties.capsLock);
+            break;
 
-      }
-    });
+          case "keyboard_return":
+            break;
+
+          case "keyboard_arrow_left":
+            break;
+
+          case "keyboard_arrow_right":
+            break;
+
+          case "space_bar":
+            break;
+
+          case "arrow_upward":
+            this._toggleShift();
+            btn[curBtnIndex].classList.toggle("keyboard__key--active", this.properties.shift);
+            break;
+
+          default:
+              let cursorPos = input.selectionStart;
+              let buf = this.properties.value.slice();
+              let keyContent = this.elements.keys[physicalKeys.indexOf(event.keyCode)].textContent;
+
+              if (this.properties.capsLock && !this.properties.shift) {
+                this.properties.value = buf.slice(0, cursorPos) + keyContent.toUpperCase() + buf.slice(cursorPos);
+
+              } else if (this.properties.shift && !this.properties.capsLock) {
+                this.properties.value = buf.slice(0, cursorPos) + keyContent + buf.slice(cursorPos);
+              } else if (this.properties.shift && this.properties.capsLock) {
+                this.properties.value = buf.slice(0, cursorPos) + keyContent.toLowerCase() + buf.slice(cursorPos);
+              } else {
+                this.properties.value = buf.slice(0, cursorPos) + keyContent + buf.slice(cursorPos);
+              }
+
+              this._triggerEvent("oninput");
+              input.setSelectionRange(cursorPos+1, cursorPos+1);
+              event.preventDefault();
+
+              break;
+
+            }
+
+        }
+        }
+      });
   },
 
   _speech() {
@@ -612,6 +615,7 @@ const Keyboard = {
   },
 
   open(initialValue, oninput, onclose) {
+    this.properties.open = true;
     this.properties.value = initialValue || "";
     this.eventHandlers.oninput = oninput;
     this.eventHandlers.onclose = onclose;
@@ -619,6 +623,7 @@ const Keyboard = {
   },
 
   close() {
+    this.properties.open = false;
     this.properties.value = "";
     this.eventHandlers.oninput = oninput;
     this.eventHandlers.onclose = onclose;
