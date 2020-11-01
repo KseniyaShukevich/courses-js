@@ -128,11 +128,11 @@ const Keyboard = {
   _createKeys() {
     const fragment = document.createDocumentFragment();
     const keyLayout = [
-      "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
-      "shift", "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
-      "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", "enter",
-      "done", "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
-      "sounds", "en", "speech", "space", "left", "right"
+      "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "backspace",
+      "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
+      "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'",
+      "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "enter",
+      "done", "en", "sounds", "space", "left", "right", "speech"
     ];
 
     // Creates HTML for an icon
@@ -142,7 +142,7 @@ const Keyboard = {
 
     keyLayout.forEach(key => {
       const keyElement = document.createElement("button");
-      const insertLineBreak = ["backspace", "p", "enter", "?"].indexOf(key) !== -1;
+      const insertLineBreak = ["backspace", "]", "'", "enter"].indexOf(key) !== -1;
 
       // Add attributes/classes
       keyElement.setAttribute("type", "button");
@@ -363,17 +363,19 @@ const Keyboard = {
 
   _physicalKeyboard() {
     const physicalKeys = [
-      49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 8,
-      16, 81, 87, 69, 82, 84, 89, 85, 73, 79, 80,
-      20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 13,
-      "done", 90, 88, 67, 86, 66, 78, 77, 188, 190, "?", "en",
-      "speech", 32, 37, 39
+      192, 49, 50, 51, 52, 53, 54, 55, 56, 57, 48, 8,
+      81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221,
+      20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222,
+      16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 13,
+      "done", "en", "sounds", 32, 37, 39, "speech"
     ];
 
     let input = document.querySelector(".use-keyboard-input");
     let btn = document.querySelectorAll('.keyboard__key');
 
     input.addEventListener('keydown', (event) => {
+      console.log(event.keyCode);
+
       let curBtnIndex = physicalKeys.indexOf(event.keyCode);
 
       if (curBtnIndex !== -1) {
@@ -577,29 +579,29 @@ const Keyboard = {
     let arr = [];
     if (this.properties.language === "en") {
       const enShiftKeyLayout = [
-        "!", "@", "#", "$", "%", "^", "&", "*", "(", ")",
-        "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",
-        "A", "S", "D", "F", "G", "H", "J", "K", "L",
+        "~", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")",
+        "Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P",  "{", "}",
+        "A", "S", "D", "F", "G", "H", "J", "K", "L", ":", "\"",
         "Z", "X", "C", "V", "B", "N", "M", "<", ">", "/"
       ];
       const enKeyLayoutNotShift = [
-        "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
-        "q", "w", "e", "r", "t", "y", "u", "i", "o", "p",
-        "a", "s", "d", "f", "g", "h", "j", "k", "l",
-        "z", "x", "c", "v", "b", "n", "m", ",", ".", "?",
+        "`", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+        "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
+        "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'",
+        "z", "x", "c", "v", "b", "n", "m", ",", ".", "/",
       ];
       arr.push(enShiftKeyLayout, enKeyLayoutNotShift);
     } else {
       const ruShiftKeyLayout = [
-        "!", "\"", "№", ";", "%", ":", "?", "*", "(", ")",
-        "Й", "Ц", "У", "К", "Е", "Н", "Г", "Ш", "Щ", "З",
-        "Ф", "Ы", "В", "А", "П", "Р", "О", "Л", "Д",
+        "Ё", "!", "\"", "№", ";", "%", ":", "?", "*", "(", ")",
+        "Й", "Ц", "У", "К", "Е", "Н", "Г", "Ш", "Щ", "З", "Х", "Ъ",
+        "Ф", "Ы", "В", "А", "П", "Р", "О", "Л", "Д", "Ж", "Э",
         "Я", "Ч", "С", "М", "И", "Т", "Ь", "Б", "Ю", ",",
       ];
       const ruKeyLayoutNotShift = [
-        "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
-        "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з",
-        "ф", "ы", "в", "а", "п", "р", "о", "л", "д",
+        "ё", "1", "2", "3", "4", "5", "6", "7", "8", "9", "0",
+        "й", "ц", "у", "к", "е", "н", "г", "ш", "щ", "з", "х", "ъ",
+        "ф", "ы", "в", "а", "п", "р", "о", "л", "д", "ж", "э",
         "я", "ч", "с", "м", "и", "т", "ь", "б", "ю", ".",
       ];
       arr.push(ruShiftKeyLayout, ruKeyLayoutNotShift);
