@@ -132,7 +132,8 @@ const Keyboard = {
       "q", "w", "e", "r", "t", "y", "u", "i", "o", "p", "[", "]",
       "caps", "a", "s", "d", "f", "g", "h", "j", "k", "l", ";", "'",
       "shift", "z", "x", "c", "v", "b", "n", "m", ",", ".", "/", "enter",
-      "done", "en", "sounds", "space", "left", "right", "speech"
+      "space",
+      "done", "en", "sounds", "left", "right", "speech"
     ];
 
     // Creates HTML for an icon
@@ -142,7 +143,7 @@ const Keyboard = {
 
     keyLayout.forEach(key => {
       const keyElement = document.createElement("button");
-      const insertLineBreak = ["backspace", "]", "'", "enter"].indexOf(key) !== -1;
+      const insertLineBreak = ["backspace", "]", "'", "enter", "space"].indexOf(key) !== -1;
 
       // Add attributes/classes
       keyElement.setAttribute("type", "button");
@@ -367,14 +368,14 @@ const Keyboard = {
       81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221,
       20, 65, 83, 68, 70, 71, 72, 74, 75, 76, 186, 222,
       16, 90, 88, 67, 86, 66, 78, 77, 188, 190, 191, 13,
-      "done", "en", "sounds", 32, 37, 39, "speech"
+      32,
+      "done", "en", "sounds", 37, 39, "speech"
     ];
 
     let input = document.querySelector(".use-keyboard-input");
     let btn = document.querySelectorAll('.keyboard__key');
 
     input.addEventListener('keydown', (event) => {
-      console.log(event.keyCode);
 
       let curBtnIndex = physicalKeys.indexOf(event.keyCode);
 
