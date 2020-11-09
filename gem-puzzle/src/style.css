@@ -1,5 +1,100 @@
 @import "~normalize.css";
 
 * {
-    color: red;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  position: relative;
+  top: 100px;
+  margin: auto auto;
+  background-color: gray;
+  border: 1px solid black;
+  height: 400px;
+  width: 400px;
+}
+
+.element {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid lightgray;
+  border-radius: 10%;
+  background-color: black;
+  color: lightgray;
+  font-size: 20px;
+}
+
+.element:hover {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.container-menu {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  top: 100px;
+  left: calc(100% / 2 - 200px);
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 400px;
+  width: 400px;
+}
+
+.container-content-menu {
+  height: 60%;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button-menu {
+  font-size: 22px;
+  padding: 2px 7px;
+  color: aqua;
+  box-shadow: 0 0 3px white;
+}
+
+.button-menu:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.header {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: aqua;
+}
+
+.setting {
+  font-size: 22px;
+  color: aqua;
+}
+
+.select {
+  font-size: 22px;
+}
+
+.message {
+  color: white;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    width: 100vw;
+    height: 100vw;
+  }
+
+  .container-menu {
+    width: 100vw;
+    height: 100vw;
+    left: 0;
+  }
 }
