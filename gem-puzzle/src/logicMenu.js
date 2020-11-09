@@ -1,4 +1,4 @@
-export default function createNodeMenu(classes, text) {
+export default function createNode(classes, text) {
   const node = document.createElement('div');
   node.className = classes;
   node.textContent = text;

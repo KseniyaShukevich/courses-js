@@ -6,6 +6,35 @@
   padding: 0;
 }
 
+.container-header {
+  position: absolute;
+  display: flex;
+  padding: 0 5px;
+  justify-content: space-between;
+  align-items: center;
+  top: 60px;
+  left: calc(100% / 2 - 200px);
+  height: 40px;
+  width: 400px;
+}
+
+.content {
+  width: auto;
+  text-align: center;
+  font-size: 16px;
+}
+
+.btnPause {
+  width: 70px;
+  padding: 2px 7px;
+  box-shadow: 0 0 3px black;
+}
+
+.btnPause:hover {
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .container {
   position: relative;
   top: 100px;
@@ -87,6 +116,11 @@
 }
 
 @media screen and (max-width: 400px) {
+  .container-header {
+    width: 100vw;
+    left: 0;
+  }
+
   .container {
     width: 100vw;
     height: 100vw;

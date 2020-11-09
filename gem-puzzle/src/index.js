@@ -1,4 +1,5 @@
 import './style.css';
+import './createHeader';
 import './menu';
 import getNewGame from './newGame';
 

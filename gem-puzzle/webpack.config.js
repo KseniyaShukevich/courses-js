@@ -48,7 +48,6 @@ module.exports = {
   mode: 'development',
   entry: {
     main: ['@babel/polyfill', './index.js'],
-    analytics: './analitick.js',
   },
   output: {
     filename: filename('js'),
