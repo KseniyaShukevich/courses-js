@@ -4,8 +4,8 @@ const containerMenu = document.createElement('div');
 const containerContentMenu = document.createElement('div');
 
 function createMainMenu() {
-  containerContentMenu.append(createNodeMenu('button-menu main', 'Новая игра'));
-  containerContentMenu.append(createNodeMenu('button-menu main', 'Настройки'));
+  containerContentMenu.append(createNodeMenu('button-menu main btn-new-game', 'Новая игра'));
+  containerContentMenu.append(createNodeMenu('button-menu main btn-settings', 'Настройки'));
 }
 
 function createSelect() {
@@ -37,7 +37,7 @@ function createSettingsMenu() {
   containerContentMenu.append(createNodeMenu('setting settings', 'Размер поля'));
   containerContentMenu.append(createSelect());
   containerContentMenu.append(createMessage('Сохранено. Начните новую игру.'));
-  containerContentMenu.append(createNodeMenu('button-menu settings', 'Назад'));
+  containerContentMenu.append(createNodeMenu('button-menu settings exit-settings', 'Назад'));
 }
 
 function hideSettingsMenu() {

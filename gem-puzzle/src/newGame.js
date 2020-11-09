@@ -1,7 +1,7 @@
 import getSize from './settings';
 import getHtmlElement from './elementHtml';
 
-const btnMain = document.querySelectorAll('.main');
+const btnNewGame = document.querySelector('.btn-new-game');
 let arr = [];
 
 function getRandomNumber(max) {
@@ -54,4 +54,4 @@ export default function getNewGame() {
   createElements();
 }
 
-btnMain[0].addEventListener('click', () => { getNewGame(); hideMenu(); });
+btnNewGame.addEventListener('click', () => { getNewGame(); hideMenu(); });

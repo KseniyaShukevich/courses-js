@@ -24,13 +24,13 @@
   font-size: 16px;
 }
 
-.btnPause {
+.btn-pause {
   width: 70px;
   padding: 2px 7px;
   box-shadow: 0 0 3px black;
 }
 
-.btnPause:hover {
+.btn-pause:hover {
   font-weight: bold;
   cursor: pointer;
 }

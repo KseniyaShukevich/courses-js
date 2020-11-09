@@ -2,6 +2,9 @@ import { changeDisplayNodes } from './logicMenu';
 
 const btnMain = document.querySelectorAll('.main');
 const settings = document.querySelectorAll('.settings');
+const select = document.querySelector('.select');
+const btnSettings = document.querySelector('.btn-settings');
+const exit = document.querySelector('.exit-settings');
 const message = document.querySelector('.message');
 let size = 4;
 
@@ -26,6 +29,6 @@ export default function getSize() {
   return size;
 }
 
-btnMain[1].addEventListener('click', getSettingsMenu);
-settings[2].addEventListener('change', getMessage);
-settings[4].addEventListener('click', getMainMenu);
+btnSettings.addEventListener('click', getSettingsMenu);
+select.addEventListener('change', getMessage);
+exit.addEventListener('click', getMainMenu);
