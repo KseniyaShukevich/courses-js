@@ -1,5 +1,7 @@
 import createNodeMenu, { changeDisplayNodes } from './logicMenu';
 
+const btnPause = document.querySelector('.btn-pause');
+
 const containerMenu = document.createElement('div');
 const containerContentMenu = document.createElement('div');
 
@@ -45,6 +47,10 @@ function hideSettingsMenu() {
   changeDisplayNodes(settings, 'none');
 }
 
+function getMenu() {
+  containerMenu.style.display = '';
+}
+
 containerMenu.className = 'container-menu';
 containerContentMenu.className = 'container-content-menu';
 containerMenu.append(containerContentMenu);
@@ -54,3 +60,4 @@ createSettingsMenu();
 document.body.append(containerMenu);
 
 hideSettingsMenu();
+btnPause.addEventListener('click', getMenu);
