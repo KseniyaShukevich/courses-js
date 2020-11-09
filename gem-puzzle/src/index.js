@@ -1,5 +1,9 @@
-import Post from './test';
 import './style.css';
+import './menu';
+import getNewGame from './newGame';
 
-console.log('warn');
-(new Post()).po();
+const mainDiv = document.createElement('div');
+mainDiv.className = 'container';
+document.body.append(mainDiv);
+
+getNewGame();
