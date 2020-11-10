@@ -1,5 +1,6 @@
 import getSize from './settings';
 import getHtmlElement from './elementHtml';
+import isSolvability from './solvabilityСheck';
 
 const btnNewGame = document.querySelector('.btn-new-game');
 let arr = [];
@@ -10,8 +11,8 @@ function getRandomNumber(max) {
 }
 
 function getArray() {
-  const allElements = getSize() * getSize();
-
+  const size = getSize();
+  const allElements = size * size;
   for (let i = 0; i < allElements; i += 1) {
     const number = getRandomNumber(allElements);
     if (arr.indexOf(number) === -1) {
@@ -19,6 +20,10 @@ function getArray() {
     } else {
       i -= 1;
     }
+  }
+  if (!isSolvability(arr, size)) {
+    arr = [];
+    getArray();
   }
 }
 
