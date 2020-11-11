@@ -59,4 +59,8 @@ export default function getNewGame() {
   createElements();
 }
 
+export function getAr() {
+  return arr;
+}
+
 btnNewGame.addEventListener('click', () => { getNewGame(); hideMenu(); });
