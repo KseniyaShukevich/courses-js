@@ -26,7 +26,7 @@ function getMessage(e) {
 }
 
 export default function getSize() {
-  return size;
+  return +size;
 }
 
 btnSettings.addEventListener('click', getSettingsMenu);
