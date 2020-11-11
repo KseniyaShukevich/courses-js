@@ -3,6 +3,7 @@ import getHtmlElement from './elementHtml';
 import isSolvability from './solvabilityСheck';
 
 const btnNewGame = document.querySelector('.btn-new-game');
+const moves = document.querySelector('.moves');
 let arr = [];
 
 function getRandomNumber(max) {
@@ -53,6 +54,7 @@ function hideMenu() {
 }
 
 export default function getNewGame() {
+  moves.textContent = 'Шагов: 0';
   arr = [];
   deleteNodes();
   getArray();

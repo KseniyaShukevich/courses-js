@@ -5,6 +5,7 @@ export default class Graph {
   constructor() {
     this.head = null;
     this.length = 0;
+    this.moves = 0;
   }
 
   addNext(value) {
@@ -22,6 +23,11 @@ export default class Graph {
     }
 
     this.length += 1;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  fun() {
+    return true;
   }
 
   createGraphOfElements() {
@@ -76,6 +82,7 @@ export default class Graph {
       this.side = side;
       this.cur = cur;
       if (this.side && this.side.value === 0) {
+        this.moves += 1;
         if (this.side === current.left) {
           this.htmlElement.style.left = `${
             ((this.cur.position - 2) % this.size) * (100 / this.size)}%`;

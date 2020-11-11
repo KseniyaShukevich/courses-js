@@ -6,9 +6,13 @@ let graf = {};
 getNewGame();
 
 const btnNewGame = document.querySelector('.btn-new-game');
+const moves = document.querySelector('.moves');
+let movesCounter = 0;
 
 function fun(e) {
   graf.searchAndSwap(e.target.textContent, e.target);
+  movesCounter = graf.moves;
+  moves.textContent = `Шагов: ${movesCounter}`;
 }
 
 function listenElements() {
