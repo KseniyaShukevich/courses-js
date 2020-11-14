@@ -2,6 +2,7 @@ import getSize from './settings';
 import getHtmlElement from './elementHtml';
 import isSolvability from './solvabilityСheck';
 import changeTime from './time';
+import { hideMenu } from './statusMenu';
 
 const btnNewGame = document.querySelector('.btn-new-game');
 const moves = document.querySelector('.moves');
@@ -62,13 +63,6 @@ function deleteNodes() {
       item.remove();
     });
   }
-}
-
-function hideMenu() {
-  const containerMenu = document.querySelector('.container-menu');
-  const btnPause = document.querySelector('.btn-pause');
-  containerMenu.style.display = 'none';
-  btnPause.textContent = 'Пауза';
 }
 
 export default function getNewGame() {
