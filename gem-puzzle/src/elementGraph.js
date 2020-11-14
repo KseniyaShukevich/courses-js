@@ -1,6 +1,38 @@
 import getSize from './settings';
 import Node from './node';
 
+function getArrayCorrect() {
+  const size = getSize();
+  const maxNumber = (size * size) - 1;
+  const array = [];
+  for (let i = 1; i <= maxNumber; i += 1) {
+    array.push(i);
+  }
+  array.push(0);
+  return array;
+}
+
+function getArrayGame(obj) {
+  const arrayGame = [];
+  let current = obj.head;
+  arrayGame.push(current.value);
+  while (current.next) {
+    current = current.next;
+    arrayGame.push(current.value);
+  }
+  return arrayGame;
+}
+
+export function isEnd(obj) {
+  const array = getArrayCorrect();
+  const arrayGame = getArrayGame(obj);
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i] !== arrayGame[i]) {
+      return false;
+    }
+  }
+  return true;
+}
 export default class Graph {
   constructor() {
     this.head = null;
@@ -23,11 +55,6 @@ export default class Graph {
     }
 
     this.length += 1;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  fun() {
-    return true;
   }
 
   createGraphOfElements() {

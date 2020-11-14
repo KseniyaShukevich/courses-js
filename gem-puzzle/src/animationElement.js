@@ -145,4 +145,8 @@ export default function createGraf() {
   listenElements();
 }
 
+export function getGraf() {
+  return graf;
+}
+
 btnNewGame.addEventListener('click', createGraf);
