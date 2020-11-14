@@ -1,14 +1,30 @@
 import getSize from './settings';
 import getHtmlElement from './elementHtml';
 import isSolvability from './solvabilityСheck';
+import changeTime from './time';
 
 const btnNewGame = document.querySelector('.btn-new-game');
 const moves = document.querySelector('.moves');
+const time = document.querySelector('.time');
+
 let arr = [];
+let isNewGame = false;
 
 function getRandomNumber(max) {
   const rand = Math.random() * max;
   return Math.floor(rand);
+}
+
+function inputStatusGame() {
+  localStorage.setItem('isGameStart', '0');
+}
+
+inputStatusGame();
+
+function setStatusGame() {
+  if (localStorage.getItem('isGameStart') === '0') {
+    localStorage.setItem('isGameStart', '1');
+  }
 }
 
 function getArray() {
@@ -50,10 +66,13 @@ function deleteNodes() {
 
 function hideMenu() {
   const containerMenu = document.querySelector('.container-menu');
+  const btnPause = document.querySelector('.btn-pause');
   containerMenu.style.display = 'none';
+  btnPause.textContent = 'Пауза';
 }
 
 export default function getNewGame() {
+  time.textContent = 'Время: 00:00';
   moves.textContent = 'Шагов: 0';
   arr = [];
   deleteNodes();
@@ -65,4 +84,12 @@ export function getAr() {
   return arr;
 }
 
-btnNewGame.addEventListener('click', () => { getNewGame(); hideMenu(); });
+function startGame() {
+  changeTime(isNewGame);
+  isNewGame = true;
+  setStatusGame();
+  getNewGame();
+  hideMenu();
+}
+
+btnNewGame.addEventListener('click', startGame);
