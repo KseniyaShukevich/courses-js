@@ -4,6 +4,14 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  -ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+*:focus {
+  outline: none;
 }
 
 .container-header {
