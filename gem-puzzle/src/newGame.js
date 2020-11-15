@@ -1,7 +1,7 @@
 import getSize from './settings';
 import getHtmlElement from './elementHtml';
 import isSolvability from './solvabilityСheck';
-import changeTime from './time';
+import changeTime, { setCounterTime } from './time';
 import { hideMenu } from './statusMenu';
 
 const btnNewGame = document.querySelector('.btn-new-game');
@@ -28,9 +28,7 @@ function setStatusGame() {
   }
 }
 
-function getArray() {
-  const size = getSize();
-  const allElements = size * size;
+function fillArray(allElements) {
   for (let i = 0; i < allElements; i += 1) {
     const number = getRandomNumber(allElements);
     if (arr.indexOf(number) === -1) {
@@ -39,9 +37,35 @@ function getArray() {
       i -= 1;
     }
   }
-  if (!isSolvability(arr, size)) {
-    arr = [];
-    getArray();
+}
+
+function getSaveGame() {
+  const buff = localStorage.getItem('arraySaveGame').split(',');
+  arr = buff.slice(0, buff.length - 2);
+  arr = arr.map((el) => +el);
+  const saveTime = +localStorage.getItem('saveTimeCounter');
+  const [minutes, seconds] = setCounterTime(saveTime);
+  time.textContent = `Время: ${minutes}:${seconds}`;
+  moves.textContent = `Шагов: ${buff[buff.length - 1]}`;
+  return saveTime;
+}
+
+function getArray() {
+  const arraySaveGame = localStorage.getItem('arraySaveGame');
+  if (arraySaveGame === 'null' || !arraySaveGame) {
+    const size = getSize();
+    const allElements = size * size;
+    fillArray(allElements);
+    if (!isSolvability(arr, size)) {
+      arr = [];
+      getArray();
+    }
+  } else {
+    const saveTime = getSaveGame();
+    changeTime(isNewGame, saveTime);
+    isNewGame = true;
+    setStatusGame();
+    hideMenu();
   }
 }
 
@@ -66,8 +90,6 @@ function deleteNodes() {
 }
 
 export default function getNewGame() {
-  time.textContent = 'Время: 00:00';
-  moves.textContent = 'Шагов: 0';
   arr = [];
   deleteNodes();
   getArray();
@@ -79,7 +101,10 @@ export function getAr() {
 }
 
 function startGame() {
-  changeTime(isNewGame);
+  time.textContent = 'Время: 00:00';
+  moves.textContent = 'Шагов: 0';
+  localStorage.setItem('arraySaveGame', 'null');
+  changeTime(isNewGame, 0);
   isNewGame = true;
   setStatusGame();
   getNewGame();

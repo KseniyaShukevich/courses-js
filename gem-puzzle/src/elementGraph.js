@@ -33,6 +33,13 @@ export function isEnd(obj) {
   }
   return true;
 }
+
+export function saveGame(obj) {
+  const arrayForSave = getArrayGame(obj);
+  arrayForSave.push(getSize());
+  arrayForSave.push(obj.moves);
+  localStorage.setItem('arraySaveGame', arrayForSave);
+}
 export default class Graph {
   constructor() {
     this.head = null;
@@ -90,6 +97,7 @@ export default class Graph {
         neighborBottom.top = current;
       }
     }
+    saveGame(this);
   }
 
   getPosition(value) {
@@ -187,6 +195,7 @@ export default class Graph {
         const buf = this.cur.value;
         this.cur.value = neighbor.value;
         neighbor.value = buf;
+        saveGame(this);
       }
     };
 

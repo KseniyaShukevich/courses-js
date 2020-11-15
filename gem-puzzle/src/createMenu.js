@@ -8,12 +8,23 @@ function createMainMenu() {
   containerContentMenu.append(createNodeMenu('button-menu main btn-settings', 'Настройки'));
 }
 
+function getSaveSize() {
+  let size = 4;
+  let arraySaveGame = localStorage.getItem('arraySaveGame');
+  if (arraySaveGame && arraySaveGame !== 'null') {
+    arraySaveGame = arraySaveGame.split(',');
+    size = +arraySaveGame[arraySaveGame.length - 2];
+  }
+  return size;
+}
+
 function createSelect() {
   const select = document.createElement('select');
   select.className = 'select settings';
+  const size = getSaveSize();
   for (let i = 3; i < 9; i += 1) {
     const option = document.createElement('option');
-    if (i === 4) {
+    if (i === size) {
       option.setAttribute('selected', 'selected');
     }
     option.value = i;

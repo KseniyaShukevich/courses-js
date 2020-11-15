@@ -1,10 +1,11 @@
 import getNewGame, { getAr } from './newGame';
-import Graf from './elementGraph';
+import Graf, { saveGame } from './elementGraph';
 import getSize from './settings';
 
 let graf = {};
 
-getNewGame();
+// getNewGame();
+// createGraf();
 
 const btnNewGame = document.querySelector('.btn-new-game');
 const moves = document.querySelector('.moves');
@@ -137,8 +138,10 @@ function listenElements() {
 }
 
 export default function createGraf() {
+  const movesCount = moves.textContent.slice(7, moves.textContent.length);
   const array = getAr();
   graf = new Graf();
+  graf.moves = +movesCount;
 
   array.forEach((item) => graf.addNext(item));
   graf.createGraphOfElements();
@@ -148,5 +151,8 @@ export default function createGraf() {
 export function getGraf() {
   return graf;
 }
+
+getNewGame();
+createGraf();
 
 btnNewGame.addEventListener('click', createGraf);

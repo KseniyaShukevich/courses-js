@@ -8,13 +8,14 @@ const pause = document.querySelector('.btn-pause');
 function getMessage() {
   const time = document.querySelector('.time');
   const moves = document.querySelector('.moves');
-  const strTime = time.textContent.slice(7, time.length);
-  const strMoves = moves.textContent.slice(7, moves.length);
+  const strTime = time.textContent.slice(7, time.textContent.length);
+  const strMoves = moves.textContent.slice(7, moves.textContent.length);
   alert(`Ура! Вы решили головоломку за ${strTime} и ${strMoves} ходов`);
 }
 
 function endGame() {
   localStorage.setItem('isGameStart', '0');
+  localStorage.setItem('arraySaveGame', 'null');
   getMenu();
   pause.textContent = 'Пауза';
   getMessage();
