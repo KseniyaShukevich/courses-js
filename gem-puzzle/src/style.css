@@ -67,6 +67,7 @@
 
 .element:hover {
   background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
 }
 
 .container-menu {
@@ -123,6 +124,13 @@
   font-size: 16px;
 }
 
+.message-gratulate {
+  text-align: center;
+  line-height: 33px;
+  color: white;
+  font-size: 22px;
+}
+
 @media screen and (max-width: 400px) {
   .container-header {
     width: 100vw;
@@ -138,5 +146,10 @@
     width: 100vw;
     height: 100vw;
     left: 0;
+  }
+
+  .message-gratulate {
+    line-height: 27px;
+    font-size: 18px;
   }
 }

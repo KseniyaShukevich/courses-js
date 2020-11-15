@@ -51,6 +51,17 @@ function createSettingsMenu() {
   containerContentMenu.append(createNodeMenu('button-menu settings exit-settings', 'Назад'));
 }
 
+function createGratulate() {
+  containerContentMenu.append(createNodeMenu('header gratulate', 'УРАААА'));
+  containerContentMenu.append(createNodeMenu('message-gratulate gratulate', ''));
+  containerContentMenu.append(createNodeMenu('button-menu gratulate exit-gratulate', 'Назад'));
+}
+
+function hideGratulate() {
+  const gratulateMenu = document.querySelectorAll('.gratulate');
+  changeDisplayNodes(gratulateMenu, 'none');
+}
+
 function hideSettingsMenu() {
   const settings = document.querySelectorAll('.settings');
   changeDisplayNodes(settings, 'none');
@@ -62,6 +73,8 @@ containerMenu.append(containerContentMenu);
 
 createMainMenu();
 createSettingsMenu();
+createGratulate();
 document.body.append(containerMenu);
 
 hideSettingsMenu();
+hideGratulate();
