@@ -1,11 +1,8 @@
 import getNewGame, { getAr } from './newGame';
-import Graf, { saveGame } from './elementGraph';
+import Graf from './elementGraph';
 import getSize from './settings';
 
 let graf = {};
-
-// getNewGame();
-// createGraf();
 
 const btnNewGame = document.querySelector('.btn-new-game');
 const moves = document.querySelector('.moves');

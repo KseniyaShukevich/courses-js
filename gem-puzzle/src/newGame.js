@@ -3,6 +3,7 @@ import getHtmlElement from './elementHtml';
 import isSolvability from './solvabilityСheck';
 import changeTime, { setCounterTime } from './time';
 import { hideMenu } from './statusMenu';
+import inputImage from './images';
 
 const btnNewGame = document.querySelector('.btn-new-game');
 const moves = document.querySelector('.moves');
@@ -78,6 +79,7 @@ function createElements() {
       mainDiv.append(el);
     }
   }
+  inputImage();
 }
 
 function deleteNodes() {
