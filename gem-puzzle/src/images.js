@@ -34,7 +34,7 @@ export default function inputImage() {
   const size = getSize();
   const elements = document.querySelectorAll('.element');
   const arraySaveGame = localStorage.getItem('arraySaveGame');
-  if (arraySaveGame === 'null') {
+  if (!arraySaveGame || arraySaveGame === 'null') {
     image = getRandomNumber(images.length);
     localStorage.setItem('imageSaveGame', image);
   } else {
