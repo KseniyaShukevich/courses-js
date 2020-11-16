@@ -1,4 +1,5 @@
 import { changeDisplayNodes } from './logicMenu';
+import { doMenuFalse } from './statusMenu';
 
 const btnMain = document.querySelectorAll('.main');
 const settings = document.querySelectorAll('.settings');
@@ -30,6 +31,7 @@ function getSettingsMenu() {
 }
 
 function getMessage(e) {
+  doMenuFalse();
   size = e.target.value;
   message.style.opacity = '1';
   setTimeout(() => { message.style.opacity = '0'; }, 2000);
