@@ -13,9 +13,13 @@ function getSound() {
 }
 
 export default function addEventsSound() {
-  createSound();
-  const elements = document.querySelectorAll('.element');
-  elements.forEach((item) => {
-    item.addEventListener('click', getSound);
-  });
+  const arraySaveGame = localStorage.getItem('arraySaveGame');
+  if (!arraySaveGame || arraySaveGame === 'null') {
+    localStorage.setItem('saveSoundGame', '1');
+    createSound();
+    const elements = document.querySelectorAll('.element');
+    elements.forEach((item) => {
+      item.addEventListener('click', getSound);
+    });
+  }
 }
