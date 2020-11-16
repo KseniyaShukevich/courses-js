@@ -4,6 +4,7 @@ import isSolvability from './solvabilityСheck';
 import changeTime, { setCounterTime } from './time';
 import { hideMenu } from './statusMenu';
 import inputImage from './images';
+import addEventsSound from './sound';
 
 const btnNewGame = document.querySelector('.btn-new-game');
 const moves = document.querySelector('.moves');
@@ -111,6 +112,7 @@ function startGame() {
   setStatusGame();
   getNewGame();
   hideMenu();
+  addEventsSound();
 }
 
 btnNewGame.addEventListener('click', startGame);
