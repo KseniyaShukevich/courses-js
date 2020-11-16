@@ -48,12 +48,13 @@ function isEndGame() {
   }
 }
 
-function getEvents() {
+export default function getEvents() {
   const elements = document.querySelectorAll('.element');
   elements.forEach((element) => {
     element.addEventListener('click', isEndGame);
   });
 }
 
+getEvents();
 btnNewGame.addEventListener('click', getEvents);
 exit.addEventListener('click', getMainMenu);
