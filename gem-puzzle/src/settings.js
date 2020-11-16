@@ -8,6 +8,16 @@ const exit = document.querySelector('.exit-settings');
 const message = document.querySelector('.message');
 let size = 4;
 
+function ifGameSave() {
+  let arraySaveGame = localStorage.getItem('arraySaveGame');
+  if (arraySaveGame && arraySaveGame !== 'null') {
+    arraySaveGame = arraySaveGame.split(',');
+    size = +arraySaveGame[arraySaveGame.length - 2];
+  }
+}
+
+ifGameSave();
+
 function getMainMenu() {
   changeDisplayNodes(settings, 'none');
   changeDisplayNodes(btnMain, '');

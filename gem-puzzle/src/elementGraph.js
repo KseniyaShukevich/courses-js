@@ -1,10 +1,50 @@
 import getSize from './settings';
 import Node from './node';
 
+function getArrayCorrect() {
+  const size = getSize();
+  const maxNumber = (size * size) - 1;
+  const array = [];
+  for (let i = 1; i <= maxNumber; i += 1) {
+    array.push(i);
+  }
+  array.push(0);
+  return array;
+}
+
+function getArrayGame(obj) {
+  const arrayGame = [];
+  let current = obj.head;
+  arrayGame.push(current.value);
+  while (current.next) {
+    current = current.next;
+    arrayGame.push(current.value);
+  }
+  return arrayGame;
+}
+
+export function isEnd(obj) {
+  const array = getArrayCorrect();
+  const arrayGame = getArrayGame(obj);
+  for (let i = 0; i < array.length; i += 1) {
+    if (array[i] !== arrayGame[i]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+export function saveGame(obj) {
+  const arrayForSave = getArrayGame(obj);
+  arrayForSave.push(getSize());
+  arrayForSave.push(obj.moves);
+  localStorage.setItem('arraySaveGame', arrayForSave);
+}
 export default class Graph {
   constructor() {
     this.head = null;
     this.length = 0;
+    this.moves = 0;
   }
 
   addNext(value) {
@@ -57,6 +97,67 @@ export default class Graph {
         neighborBottom.top = current;
       }
     }
+    saveGame(this);
+  }
+
+  getPosition(value) {
+    let current = this.head;
+
+    while (current) {
+      if (current.value !== +value) {
+        current = current.next;
+      } else {
+        break;
+      }
+    }
+
+    return current.position;
+  }
+
+  getNeighbor(value) {
+    const arr = [];
+    let current = this.head;
+
+    while (current) {
+      if (current.value !== +value) {
+        current = current.next;
+      } else {
+        break;
+      }
+    }
+
+    const sw = (cur, side) => {
+      this.size = getSize();
+      this.side = side;
+      this.cur = cur;
+      if (this.side && this.side.value === 0) {
+        if (this.side === current.left) {
+          let left = 0;
+          left = ((this.cur.position - 2) % this.size) * (100 / this.size);
+          arr.push('left', left, this.cur.position);
+        } else if (this.side === current.top) {
+          let top = 0;
+          top = Math.floor(((
+            this.cur.position - this.size) - 1) / this.size) * (100 / this.size);
+          arr.push('top', top, this.cur.position);
+        } else if (this.side === current.right) {
+          let left = 0;
+          left = ((this.cur.position) % this.size) * (100 / this.size);
+          arr.push('right', left, this.cur.position);
+        } else {
+          let top = 0;
+          top = Math.floor((this.cur.position + (this.size - 1)) / this.size) * (100 / this.size);
+          arr.push('bottom', top, this.cur.position);
+        }
+      }
+    };
+
+    sw(current, current.left);
+    sw(current, current.bottom);
+    sw(current, current.right);
+    sw(current, current.top);
+
+    return arr;
   }
 
   searchAndSwap(value, htmlElement) {
@@ -76,23 +177,25 @@ export default class Graph {
       this.side = side;
       this.cur = cur;
       if (this.side && this.side.value === 0) {
+        this.moves += 1;
         if (this.side === current.left) {
           this.htmlElement.style.left = `${
             ((this.cur.position - 2) % this.size) * (100 / this.size)}%`;
         } else if (this.side === current.top) {
           this.htmlElement.style.top = `${
-            Math.floor(((this.cur.position - this.size) - 1) / this.size) * (100 / this.size)}%`;
+            Math.floor((((this.cur.position - this.size) - 1) / this.size)) * (100 / this.size)}%`;
         } else if (this.side === current.right) {
           this.htmlElement.style.left = `${
             ((this.cur.position) % this.size) * (100 / this.size)}%`;
         } else {
           this.htmlElement.style.top = `${
-            Math.floor((this.cur.position + (this.size - 1)) / this.size) * (100 / this.size)}%`;
+            Math.floor(((this.cur.position + (this.size - 1)) / this.size)) * (100 / this.size)}%`;
         }
         const neighbor = this.side;
         const buf = this.cur.value;
         this.cur.value = neighbor.value;
         neighbor.value = buf;
+        saveGame(this);
       }
     };
 

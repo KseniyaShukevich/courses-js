@@ -1,6 +1,7 @@
 import './style.css';
 import './createHeader';
 import './createMainDiv';
-import './menu';
+import './createMenu';
 import './newGame';
 import './animationElement';
+import './endOfGame';
