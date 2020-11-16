@@ -5,6 +5,7 @@ const containerContentMenu = document.createElement('div');
 
 function createMainMenu() {
   containerContentMenu.append(createNodeMenu('button-menu main btn-new-game', 'Новая игра'));
+  containerContentMenu.append(createNodeMenu('button-menu main btn-rating', 'Рейтинг'));
   containerContentMenu.append(createNodeMenu('button-menu main btn-settings', 'Настройки'));
 }
 
@@ -57,6 +58,32 @@ function createGratulate() {
   containerContentMenu.append(createNodeMenu('button-menu gratulate exit-gratulate', 'Назад'));
 }
 
+function createRatingColumn(cl, header) {
+  const column = document.createElement('div');
+  column.className = 'column-rating rating';
+  column.append(createNodeMenu('header-rating rating', header));
+  for (let i = 0; i < 10; i += 1) {
+    column.append(createNodeMenu(cl, ''));
+  }
+  return column;
+}
+
+function createBodyRating() {
+  const ratingContainer = document.createElement('div');
+  ratingContainer.className = 'rating-body rating';
+  ratingContainer.append(createRatingColumn('date-rating text-rating rating', 'Дата'));
+  ratingContainer.append(createRatingColumn('time-rating text-rating rating', 'Время'));
+  ratingContainer.append(createRatingColumn('moves-rating text-rating rating', 'Шагов'));
+  ratingContainer.append(createRatingColumn('field-rating text-rating rating', 'Поле'));
+  return ratingContainer;
+}
+
+function createRating() {
+  containerContentMenu.append(createNodeMenu('header rating', 'Рейтинг'));
+  containerContentMenu.append(createBodyRating());
+  containerContentMenu.append(createNodeMenu('button-menu rating exit-rating', 'Назад'));
+}
+
 function hideGratulate() {
   const gratulateMenu = document.querySelectorAll('.gratulate');
   changeDisplayNodes(gratulateMenu, 'none');
@@ -67,6 +94,11 @@ function hideSettingsMenu() {
   changeDisplayNodes(settings, 'none');
 }
 
+function hideRating() {
+  const rating = document.querySelectorAll('.rating');
+  changeDisplayNodes(rating, 'none');
+}
+
 containerMenu.className = 'container-menu';
 containerContentMenu.className = 'container-content-menu';
 containerMenu.append(containerContentMenu);
@@ -74,7 +106,9 @@ containerMenu.append(containerContentMenu);
 createMainMenu();
 createSettingsMenu();
 createGratulate();
+createRating();
 document.body.append(containerMenu);
 
 hideSettingsMenu();
+hideRating();
 hideGratulate();

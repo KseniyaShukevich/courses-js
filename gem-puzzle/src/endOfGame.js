@@ -2,6 +2,7 @@ import { isEnd } from './elementGraph';
 import { getGraf } from './animationElement';
 import { getMenu } from './statusMenu';
 import { changeDisplayNodes } from './logicMenu';
+import setArrayRating from './rating';
 
 const btnNewGame = document.querySelector('.btn-new-game');
 const pause = document.querySelector('.btn-pause');
@@ -37,6 +38,7 @@ function endGame() {
   getGratulate();
   pause.textContent = 'Пауза';
   getMessage();
+  setArrayRating();
 }
 
 function isEndGame() {
