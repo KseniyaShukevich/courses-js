@@ -5,3 +5,4 @@ import './createMenu';
 import './newGame';
 import './animationElement';
 import './endOfGame';
+import './sound';

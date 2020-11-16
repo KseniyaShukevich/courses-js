@@ -97,6 +97,7 @@ export default function getNewGame() {
   deleteNodes();
   getArray();
   createElements();
+  addEventsSound();
 }
 
 export function getAr() {
@@ -112,7 +113,6 @@ function startGame() {
   setStatusGame();
   getNewGame();
   hideMenu();
-  addEventsSound();
 }
 
 btnNewGame.addEventListener('click', startGame);
