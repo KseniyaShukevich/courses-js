@@ -44,10 +44,26 @@ function createMessage(text) {
   return message;
 }
 
+function createSettingSound() {
+  const isSound = localStorage.getItem('saveSoundGame');
+  const container = document.createElement('div');
+  container.className = 'setting settings';
+  const radio = document.createElement('input');
+  radio.type = 'checkbox';
+  if (!isSound || +isSound === 1) {
+    radio.setAttribute('checked', 'checked');
+  }
+  container.textContent = '  Звук  ';
+  radio.className = 'sound-setting';
+  container.append(radio);
+  return container;
+}
+
 function createSettingsMenu() {
   containerContentMenu.append(createNodeMenu('header settings', 'Настройки'));
   containerContentMenu.append(createNodeMenu('setting settings', 'Размер поля'));
   containerContentMenu.append(createSelect());
+  containerContentMenu.append(createSettingSound());
   containerContentMenu.append(createMessage('Сохранено. Начните новую игру.'));
   containerContentMenu.append(createNodeMenu('button-menu settings exit-settings', 'Назад'));
 }
