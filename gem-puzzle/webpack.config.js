@@ -71,7 +71,7 @@ module.exports = {
     rules: [
       {
         test: /\.jpg$/,
-        use: ['file-loader'],
+        type: 'asset/resource',
       },
       {
         test: /\.css$/,
