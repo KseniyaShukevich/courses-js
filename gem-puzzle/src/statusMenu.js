@@ -23,6 +23,10 @@ export function hideMenu() {
   pause.textContent = 'Пауза';
 }
 
+export function doMenuFalse() {
+  isMenu = false;
+}
+
 function setStatusMenu() {
   getStatusGame();
   if (isGameStart) {
