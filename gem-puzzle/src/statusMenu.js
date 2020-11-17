@@ -1,5 +1,8 @@
 const btnPause = document.querySelector('.btn-pause');
+const select = document.querySelector('.select');
+const btnNewGame = document.querySelector('.btn-new-game');
 
+let isSelected = false;
 let isMenu = true;
 let isGameStart = false;
 
@@ -8,6 +11,7 @@ function getStatusGame() {
 }
 
 export function getMenu() {
+  isSelected = false;
   const containerMenu = document.querySelector('.container-menu');
   const pause = document.querySelector('.btn-pause');
   isMenu = true;
@@ -23,16 +27,12 @@ export function hideMenu() {
   pause.textContent = 'Пауза';
 }
 
-export function doMenuFalse() {
-  isMenu = false;
-}
-
 function setStatusMenu() {
   getStatusGame();
   if (isGameStart) {
-    if (isMenu) {
+    if (isMenu && !isSelected) {
       hideMenu();
-    } else {
+    } else if (!isSelected) {
       getMenu();
     }
   }
@@ -42,4 +42,10 @@ export default function getStatusMenu() {
   return isMenu;
 }
 
+function changeStatus() {
+  isSelected = true;
+}
+
 btnPause.addEventListener('click', setStatusMenu);
+select.addEventListener('change', changeStatus);
+btnNewGame.addEventListener('click', () => { isSelected = false; });
