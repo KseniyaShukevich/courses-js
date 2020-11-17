@@ -31,6 +31,7 @@ function getMessage() {
   const strMoves = moves.textContent.slice(7, moves.textContent.length);
   messageGratulate.textContent = `Вы решили головоломку за ${strTime} и ${strMoves} ходов`;
 }
+const settings = document.querySelectorAll('.settings');
 
 function endGame() {
   localStorage.setItem('isGameStart', '0');
