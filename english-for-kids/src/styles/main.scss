@@ -1,0 +1,85 @@
+@import 'styles.scss';
+
+* {
+    padding: 0 0;
+    margin: 0 0;
+    box-sizing: border-box;
+}
+
+.header {
+    position: fixed;
+    z-index: 30;
+    background: white;
+    width: 100%;
+}
+
+.header-container {
+    @include flex();
+    height: 100px;
+    @extend %container;
+    .burger-menu-container {
+        @include flex();
+        flex-direction: column;
+        width: 40px;
+        height: 30px;
+        &:hover {
+            cursor: pointer;
+            .burger-menu {
+                background: darkcyan;
+            }
+        }
+        .burger-menu {
+            height: 4px;
+            width: 100%;
+            border-radius: 2px;
+            background: $main-color;
+            transition: all 1s;
+        }
+    }
+    h1 {
+        color: $train-color;
+        font-size: 50px;
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+    .button-header {
+        @include flex();
+        height: 40px;
+        width: 110px;
+        padding: 5px;
+        border-radius: 5px;
+        background: $train-color-gradient;
+        transition: all 1s;
+        &:hover {
+            cursor: pointer;
+        }
+        .status {
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+            padding-left: 5px;
+        }
+        .button {
+            @include flex($jContent: center);
+            height: 30px;
+            width: 30px;
+            border-radius: 5px;
+            background: white;
+            .cycle-decor {
+                height: 15px;
+                width: 15px;
+                border-radius: 50%;
+                background: linear-gradient(to top,  rgba(250,250,250,1), rgba(0,0,0,0.1));
+            }
+        }
+    }
+}
+
+.main {
+    background: $main-color;
+    .wrapper {
+        @extend %container;
+        height: 1000px;
+    }
+}
