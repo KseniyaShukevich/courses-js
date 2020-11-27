@@ -1,0 +1,32 @@
+.overflow {
+    overflow: hidden;
+}
+
+.displayBlock {
+    display: block;
+}
+
+.displayNone {
+    display: none;
+}
+
+.marginLeftZero {
+    margin-left: 0;
+}
+
+.rotate45 {
+    background: white;
+    top: 13px;
+    transform: rotate(45deg);
+}
+
+.rotate-45 {
+    background: white;
+    top: 13px;
+    transform: rotate(-45deg);
+}
+
+.active-link {
+    color: black !important;
+    font-weight: 900;
+}

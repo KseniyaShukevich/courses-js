@@ -19,21 +19,13 @@
     @extend %container;
     .burger-menu-container {
         @include flex();
+        position: relative;
+        z-index: 200;
         flex-direction: column;
         width: 40px;
         height: 30px;
         &:hover {
             cursor: pointer;
-            .burger-menu {
-                background: darkcyan;
-            }
-        }
-        .burger-menu {
-            height: 4px;
-            width: 100%;
-            border-radius: 2px;
-            background: $main-color;
-            transition: all 1s;
         }
     }
     h1 {
@@ -74,6 +66,23 @@
             }
         }
     }
+}
+
+.burger-menu {
+    top: 0;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+    background: $main-color;
+    transform: rotate(0deg);
+    transition: all 1s;
+}
+.center {
+    top: 13px;
+}
+.bottom {
+    top: 26px;
 }
 
 .main {
