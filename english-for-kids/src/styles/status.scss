@@ -1,0 +1,26 @@
+@import './styles.scss';
+
+
+.status-train {
+    background: $train-color-gradient;
+}
+
+.status-train-heading {
+    color: $train-color;
+}
+
+.status-play {
+    background: $play-color-gradient;
+}
+
+.status-play-heading {
+    color: $play-color;
+}
+
+.play-order-text {
+    margin-left: 41px !important;
+}
+
+.play-order-button {
+    margin-left: 0px !important;
+}

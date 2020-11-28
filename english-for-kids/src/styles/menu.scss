@@ -1,0 +1,34 @@
+@import "styles.scss";
+
+.dark-layer {
+    display: none;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 100;
+}
+
+.nav-menu {
+    height: 100%;
+    width: 320px;
+    margin-left: -320px;
+    transition: all 1s;
+    .menu-container {
+        @include flex();
+        flex-direction: column;
+        height: 500px;
+        width: 100%;
+        padding-top: 120px;
+        .menu-link {
+            font-size: 25px;
+            color: white;
+            &:hover {
+                font-weight: 900;
+                cursor: pointer;
+            }
+        }
+    }
+}
