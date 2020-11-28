@@ -8,11 +8,11 @@
     margin-bottom: 30px;
     background: white;
     border-radius: 10px;
-    box-shadow: 0 2px 7px 0 rgba(0,0,0,.3);
-    transition: all 1s;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.3);
+    transition: all 0.1s;
     &:hover {
         cursor: pointer;
-        box-shadow: 0 6px 12px 0 rgba(0,0,0,.5);
+        box-shadow: 0 7px 18px 0 rgba(0,0,0,.6);
         .card-image {
             border: 0px solid white;
             width: 170px;
@@ -44,7 +44,6 @@
         border-radius: 50%;
         top: 50px;
         left: 70px;
-        // background: black;
         background-size: cover;
         transition: all 1s;
         @media screen and (max-width: 767px) {

@@ -27,7 +27,7 @@ function setTimeoutGetMenu() {
     navMenu.classList.add('marginLeftZero');
     toggleClassesBurger();
   }, 0);
-  setTimeout(() => { isMenu = true; isAnimationCompleted = true; }, 1000);
+  setTimeout(() => { isMenu = true; isAnimationCompleted = true; }, 300);
 }
 
 function getMenu() {
@@ -55,7 +55,7 @@ function setTimeoutHideMenu() {
       isMenu = false;
       isAnimationCompleted = true;
     });
-  }, 1000);
+  }, 300);
 }
 
 function hideMenu() {
