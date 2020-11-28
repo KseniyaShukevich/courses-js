@@ -20,10 +20,18 @@ function changeStatus() {
   }
 }
 
+function changeStylesCardsBackground() {
+  const cardsBackground = document.querySelectorAll('.card-background');
+  cardsBackground.forEach((card) => {
+    toggleStatusStyle(card, 'status-train', 'status-play');
+  });
+}
+
 function changeStyles() {
   toggleStatusStyle(buttonStatus, 'status-train', 'status-play');
   toggleStatusStyle(navMenu, 'status-train', 'status-play');
   toggleStatusStyle(heading, 'status-train-heading', 'status-play-heading');
+  changeStylesCardsBackground();
   textStatus.classList.toggle('play-order-text');
   decorButton.classList.toggle('play-order-button');
 }
@@ -31,6 +39,10 @@ function changeStyles() {
 function changeStatusStyles() {
   changeStatus();
   changeStyles();
+}
+
+export default function getIsStatusTrain() {
+  return statusTrain;
 }
 
 buttonStatus.addEventListener('pointerup', changeStatusStyles);

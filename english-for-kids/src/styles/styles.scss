@@ -1,5 +1,5 @@
 $train-color-gradient: linear-gradient(to top right, darkcyan 0%, cyan 100%);
-$play-color-gradient: linear-gradient(to top right, rgb(122, 29, 29), rgb(211, 73, 73) 100%);
+$play-color-gradient: linear-gradient(to top right, rgb(122, 29, 29), rgb(245, 119, 119) 100%);
 $train-color: darkcyan;
 $play-color: rgb(122, 29, 29);
 $main-color: silver;
@@ -11,10 +11,10 @@ $main-color: silver;
 }
 
 %container {
-    width: 1200px;
+    width: 1270px;
     margin: 0 auto;
     @media screen and (max-width: 1279px) {
-        width: 750px;
+        width: 630px;
     }
     @media screen and (max-width: 767px) {
         width: 300px;
