@@ -1,0 +1,84 @@
+.header {
+    position: fixed;
+    z-index: 30;
+    background: white;
+    width: 100%;
+    box-shadow: 0 2px 7px 0 rgba(0,0,0,.3);
+}
+
+.header-container {
+    @include flex();
+    height: 100px;
+    @extend %container;
+    .burger-menu-container {
+        @include flex();
+        position: relative;
+        z-index: 200;
+        flex-direction: column;
+        width: 40px;
+        height: 30px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    h1 {
+        font-size: 50px;
+        @media screen and (max-width: 767px) {
+            display: none;
+        }
+    }
+    .button-header {
+        @include flex();
+        position: relative;
+        height: 40px;
+        width: 110px;
+        padding: 5px;
+        border-radius: 5px;
+        transition: all 1s;
+        &:hover {
+            cursor: pointer;
+        }
+        .status {
+            position: absolute;
+            margin-left: 0px;
+            color: white;
+            font-size: 18px;
+            text-transform: uppercase;
+            padding: 0 5px;
+            transition: all 0.2s;
+        }
+        .button {
+            @include flex($jContent: center);
+            position: absolute;
+            margin-left: 70px;
+            height: 30px;
+            width: 30px;
+            border-radius: 5px;
+            background: white;
+            transition: all 0.2s;
+            .cycle-decor {
+                height: 15px;
+                width: 15px;
+                border-radius: 50%;
+                background: linear-gradient(to top,  rgba(250,250,250,1), rgba(0,0,0,0.1));
+            }
+        }
+    }
+}
+
+.burger-menu {
+    top: 0;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    border-radius: 2px;
+    background: $main-color;
+    transform: rotate(0deg);
+    transition: all 0.3s;
+}
+.center {
+    top: 13px;
+}
+.bottom {
+    top: 26px;
+}
