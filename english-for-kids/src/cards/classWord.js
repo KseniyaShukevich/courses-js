@@ -4,7 +4,7 @@ export default class Word {
     this.translation = translation;
     this.image = image;
     this.audio = audio;
-    this.elementAudio = false;
+    this.elementAudio = 0;
     this.countErrors = 0;
     this.trainClicks = 0;
   }

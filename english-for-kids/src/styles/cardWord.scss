@@ -1,0 +1,49 @@
+.card-word {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.3);
+    transform: rotateY(0deg);
+    transition: all 0.2s;
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 7px 18px 0 rgba(0,0,0,.6);
+        // transform: perspective(300px) rotateY(180deg);
+        // z-index: 10;
+    }
+    @media screen and (max-width: 767px) {
+        margin: 0 auto;
+        margin-bottom: 30px;
+        width: 280px;
+        height: 280px;
+    }
+    .card-word-image {
+        height: 80%;
+        transition: all 0.2s;
+        background-size: cover;
+        background-position: center;
+    }
+    .container-name-word {
+        // transform: rotateY(180deg);
+        height: 20%;
+        position: relative;
+        font-size: 25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .word-rotate {
+            position: absolute;
+            display: flex;
+            right: 20px;
+            transform: rotate(0deg);
+            transition: all 0.5s;
+            &:hover {
+                transform: rotate(-180deg);
+            }
+        }
+    }
+}

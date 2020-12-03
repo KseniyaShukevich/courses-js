@@ -34,6 +34,10 @@ function createWordsClasses(indexOfCategory, indexOfWord) {
   }
 }());
 
+export default function getArrayCategories() {
+  return arrayCategories;
+}
+
 // function audio() {
 //   arrayCategories[0].words[0].getAudio();
 // }

@@ -37,10 +37,9 @@ function getMenu() {
     document.body.classList.add('overflow');
     const widthNoScroll = document.body.offsetWidth;
     darkLayer.classList.add('displayBlock');
-    sections.forEach((sec) => {
-    // eslint-disable-next-line no-param-reassign
-      sec.style.paddingRight = `${widthNoScroll - widthWithScroll}px`;
-    });
+    for (let i = 0; i < sections.length; i += 1) {
+      sections[i].style.paddingRight = `${widthNoScroll - widthWithScroll}px`;
+    }
     setTimeoutGetMenu();
   }
 }
@@ -49,12 +48,11 @@ function setTimeoutHideMenu() {
   setTimeout(() => {
     document.body.classList.remove('overflow');
     darkLayer.classList.remove('displayBlock');
-    sections.forEach((sec) => {
-      // eslint-disable-next-line no-param-reassign
-      sec.style.paddingRight = '';
+    for (let i = 0; i < sections.length; i += 1) {
+      sections[i].style.paddingRight = '';
       isMenu = false;
       isAnimationCompleted = true;
-    });
+    }
   }, 300);
 }
 
