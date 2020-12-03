@@ -1,43 +1,38 @@
-import cards from '../cards/dataCards';
 import createCard from '../cards/createCard';
-import Category from '../cards/classCategory';
-import Word from '../cards/classWord';
+import removeCards from './logicPages';
+import createCategoriesClasses, { getArrayCategories } from './createObjectCategory';
+import changeStatusLinks from '../menu/statusLinks';
+import createCardsOfWords from './createCardsWords';
+import getIsStatusTrain, { changeStylesCardsBackground } from '../status/status';
 
 const wrapper = document.querySelector('.wrapper');
-const arrayCategories = [];
+const menuLinks = document.querySelectorAll('.menu-link');
 
-function createWordsClasses(indexOfCategory, indexOfWord) {
-  const word = new Word(
-    cards[indexOfCategory + 1][indexOfWord].word,
-    cards[indexOfCategory + 1][indexOfWord].translation,
-    cards[indexOfCategory + 1][indexOfWord].image,
-    cards[indexOfCategory + 1][indexOfWord].audioSrc,
-  );
-  word.createAudioElement();
-  return word;
-}
-
-(function createCategoriesClasses() {
-  for (let i = 0; i < cards[0].length; i += 1) {
-    const indexOfWord = 7;
-    const category = new Category(cards[0][i], cards[i + 1][indexOfWord].image);
-    for (let j = 0; j < cards[1].length; j += 1) {
-      category.addWord(createWordsClasses(i, j));
-    }
-    arrayCategories.push(category);
-  }
-}());
-
-(function fillCardsCategories() {
+function fillCardsCategories() {
+  const arrayCategories = getArrayCategories();
   for (let i = 0; i < arrayCategories.length; i += 1) {
     wrapper.append(createCard(arrayCategories[i].name, arrayCategories[i].image));
   }
-}());
-
-export default function getArrayCategories() {
-  return arrayCategories;
 }
 
-// function audio() {
-//   arrayCategories[0].words[0].getAudio();
-// }
+function addEventForCards() {
+  const cardsCategories = document.querySelectorAll('.card');
+  cardsCategories.forEach((card) => card.addEventListener('pointerup', createCardsOfWords));
+}
+
+function getMainPage(e) {
+  const link = e.currentTarget.getAttribute('data-link');
+  if (link === 'Main page') {
+    removeCards();
+    fillCardsCategories();
+    changeStatusLinks(link);
+    addEventForCards();
+    if (!getIsStatusTrain()) {
+      changeStylesCardsBackground();
+    }
+  }
+}
+
+menuLinks.forEach((link) => link.addEventListener('pointerup', getMainPage));
+createCategoriesClasses();
+fillCardsCategories();

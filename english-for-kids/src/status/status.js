@@ -20,7 +20,7 @@ function changeStatus() {
   }
 }
 
-function changeStylesCardsBackground() {
+export function changeStylesCardsBackground() {
   const cardsBackground = document.querySelectorAll('.card-background');
   const wordsHtml = document.querySelectorAll('.container-name-word');
   const wordsImages = document.querySelectorAll('.card-word-image');

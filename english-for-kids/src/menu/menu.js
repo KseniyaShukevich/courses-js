@@ -1,3 +1,5 @@
+import { activeMainPageLink } from './statusLinks';
+
 const burgerMenuContainer = document.querySelector('.burger-menu-container');
 const darkLayer = document.querySelector('.dark-layer');
 const navMenu = document.querySelector('.nav-menu');
@@ -5,13 +7,6 @@ const sections = document.querySelectorAll('.section');
 const menuLinks = document.querySelectorAll('.menu-link');
 let isMenu = false;
 let isAnimationCompleted = true;
-
-function activeMainPageLink() {
-  const linkMainPage = Array.from(menuLinks).find((link) => link.textContent === 'Main page');
-  linkMainPage.classList.add('active-link');
-}
-
-activeMainPageLink();
 
 function toggleClassesBurger() {
   const topBurgerMenu = document.querySelector('.top-burger-menu');
@@ -85,3 +80,5 @@ menuLinks.forEach((link) => {
 
 burgerMenuContainer.addEventListener('pointerup', changeStatusMenu);
 darkLayer.addEventListener('pointerup', hideMenuForDarkLayer);
+activeMainPageLink();
+activeMainPageLink();
