@@ -1,13 +1,38 @@
-import cards from '../cards/dataCards';
 import createCard from '../cards/createCard';
-// import cry from '../assets/img/cry.jpg';
+import removeCards from './logicPages';
+import createCategoriesClasses, { getArrayCategories } from './createObjectCategory';
+import changeStatusLinks from '../menu/statusLinks';
+import createCardsOfWords from './createCardsWords';
+import getIsStatusTrain, { changeStylesCardsBackground } from '../status/status';
 
 const wrapper = document.querySelector('.wrapper');
+const menuLinks = document.querySelectorAll('.menu-link');
 
-for (let i = 0; i < cards[0].length; i += 1) {
-  wrapper.append(createCard(cards[0][i], cards[1][0].image));
-  // console.log(cards[i + 1][0].image);
+function fillCardsCategories() {
+  const arrayCategories = getArrayCategories();
+  for (let i = 0; i < arrayCategories.length; i += 1) {
+    wrapper.append(createCard(arrayCategories[i].name, arrayCategories[i].image));
+  }
 }
 
-console.log(cards[0][0]);
-console.log(cards[1]);
+function addEventForCards() {
+  const cardsCategories = document.querySelectorAll('.card');
+  cardsCategories.forEach((card) => card.addEventListener('pointerup', createCardsOfWords));
+}
+
+function getMainPage(e) {
+  const link = e.currentTarget.getAttribute('data-link');
+  if (link === 'Main page') {
+    removeCards();
+    fillCardsCategories();
+    changeStatusLinks(link);
+    addEventForCards();
+    if (!getIsStatusTrain()) {
+      changeStylesCardsBackground();
+    }
+  }
+}
+
+menuLinks.forEach((link) => link.addEventListener('pointerup', getMainPage));
+createCategoriesClasses();
+fillCardsCategories();

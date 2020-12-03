@@ -1,5 +1,14 @@
 const cards = [
-  ['Action (set A)', 'Action (set B)', 'Animal (set A)', 'Animal (set B)', 'Clothes', 'Emotions', 'Anything', 'Anything'],
+  [
+    'Action (set A)',
+    'Action (set B)',
+    'Animal (set A)',
+    'Animal (set B)',
+    'Clothes',
+    'Emotions',
+    'Body',
+    'Colors',
+  ],
   [
     {
       word: 'cry',
@@ -298,6 +307,106 @@ const cards = [
       translation: 'смех',
       image: 'img/laugh.jpg',
       audioSrc: 'audio/laugh.mp3',
+    },
+  ],
+  [
+    {
+      word: 'mouth',
+      translation: 'рот',
+      image: 'img/mouth.jpg',
+      audioSrc: 'audio/mouth.mp3',
+    },
+    {
+      word: 'ear',
+      translation: 'ухо',
+      image: 'img/ear.jpg',
+      audioSrc: 'audio/ear.mp3',
+    },
+    {
+      word: 'nose',
+      translation: 'нос',
+      image: 'img/nose.jpg',
+      audioSrc: 'audio/nose.mp3',
+    },
+    {
+      word: 'eye',
+      translation: 'глаз',
+      image: 'img/eye.jpg',
+      audioSrc: 'audio/eye.mp3',
+    },
+    {
+      word: 'hand',
+      translation: 'рука',
+      image: 'img/hand.jpg',
+      audioSrc: 'audio/hand.mp3',
+    },
+    {
+      word: 'leg',
+      translation: 'нога',
+      image: 'img/leg.jpg',
+      audioSrc: 'audio/leg.mp3',
+    },
+    {
+      word: 'finger',
+      translation: 'палец',
+      image: 'img/finger.jpg',
+      audioSrc: 'audio/finger.mp3',
+    },
+    {
+      word: 'head',
+      translation: 'голова',
+      image: 'img/head.jpg',
+      audioSrc: 'audio/head.mp3',
+    },
+  ],
+  [
+    {
+      word: 'black',
+      translation: 'черный',
+      image: 'img/black.jpg',
+      audioSrc: 'audio/black.mp3',
+    },
+    {
+      word: 'red',
+      translation: 'красный',
+      image: 'img/red.jpg',
+      audioSrc: 'audio/red.mp3',
+    },
+    {
+      word: 'pink',
+      translation: 'розовый',
+      image: 'img/pink.jpg',
+      audioSrc: 'audio/pink.mp3',
+    },
+    {
+      word: 'green',
+      translation: 'зеленый',
+      image: 'img/green.jpg',
+      audioSrc: 'audio/green.mp3',
+    },
+    {
+      word: 'yellow',
+      translation: 'желтый',
+      image: 'img/yellow.jpg',
+      audioSrc: 'audio/yellow.mp3',
+    },
+    {
+      word: 'brown',
+      translation: 'коричневый',
+      image: 'img/brown.jpg',
+      audioSrc: 'audio/brown.mp3',
+    },
+    {
+      word: 'blue',
+      translation: 'голубой',
+      image: 'img/blue.jpg',
+      audioSrc: 'audio/blue.mp3',
+    },
+    {
+      word: 'orange',
+      translation: 'оранжевый',
+      image: 'img/orange.jpg',
+      audioSrc: 'audio/orange.mp3',
     },
   ],
 ];

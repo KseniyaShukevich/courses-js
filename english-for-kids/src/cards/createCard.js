@@ -31,6 +31,7 @@ function createCardCategory(cardName) {
 export default function createCard(cardName, image) {
   const card = document.createElement('div');
   card.classList.add('card');
+  card.setAttribute('data-name', cardName);
   card.append(createCardBackground());
   card.append(createCardImage(image));
   card.append(createCardCategory(cardName));

@@ -1,3 +1,5 @@
+import { activeMainPageLink } from './statusLinks';
+
 const burgerMenuContainer = document.querySelector('.burger-menu-container');
 const darkLayer = document.querySelector('.dark-layer');
 const navMenu = document.querySelector('.nav-menu');
@@ -5,13 +7,6 @@ const sections = document.querySelectorAll('.section');
 const menuLinks = document.querySelectorAll('.menu-link');
 let isMenu = false;
 let isAnimationCompleted = true;
-
-function activeMainPageLink() {
-  const linkMainPage = Array.from(menuLinks).find((link) => link.textContent === 'Main page');
-  linkMainPage.classList.add('active-link');
-}
-
-activeMainPageLink();
 
 function toggleClassesBurger() {
   const topBurgerMenu = document.querySelector('.top-burger-menu');
@@ -27,7 +22,7 @@ function setTimeoutGetMenu() {
     navMenu.classList.add('marginLeftZero');
     toggleClassesBurger();
   }, 0);
-  setTimeout(() => { isMenu = true; isAnimationCompleted = true; }, 1000);
+  setTimeout(() => { isMenu = true; isAnimationCompleted = true; }, 300);
 }
 
 function getMenu() {
@@ -37,10 +32,9 @@ function getMenu() {
     document.body.classList.add('overflow');
     const widthNoScroll = document.body.offsetWidth;
     darkLayer.classList.add('displayBlock');
-    sections.forEach((sec) => {
-    // eslint-disable-next-line no-param-reassign
-      sec.style.paddingRight = `${widthNoScroll - widthWithScroll}px`;
-    });
+    for (let i = 0; i < sections.length; i += 1) {
+      sections[i].style.paddingRight = `${widthNoScroll - widthWithScroll}px`;
+    }
     setTimeoutGetMenu();
   }
 }
@@ -49,13 +43,12 @@ function setTimeoutHideMenu() {
   setTimeout(() => {
     document.body.classList.remove('overflow');
     darkLayer.classList.remove('displayBlock');
-    sections.forEach((sec) => {
-      // eslint-disable-next-line no-param-reassign
-      sec.style.paddingRight = '';
+    for (let i = 0; i < sections.length; i += 1) {
+      sections[i].style.paddingRight = '';
       isMenu = false;
       isAnimationCompleted = true;
-    });
-  }, 1000);
+    }
+  }, 300);
 }
 
 function hideMenu() {
@@ -87,3 +80,5 @@ menuLinks.forEach((link) => {
 
 burgerMenuContainer.addEventListener('pointerup', changeStatusMenu);
 darkLayer.addEventListener('pointerup', hideMenuForDarkLayer);
+activeMainPageLink();
+activeMainPageLink();
