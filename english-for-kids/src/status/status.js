@@ -23,12 +23,14 @@ function changeStatus() {
 export function changeStylesCardsBackground() {
   const cardsBackground = document.querySelectorAll('.card-background');
   const wordsHtml = document.querySelectorAll('.container-name-word');
+  const translation = document.querySelectorAll('.container-translation');
   const wordsImages = document.querySelectorAll('.card-word-image');
   if (cardsBackground.length) {
     cardsBackground.forEach((card) => {
       toggleStatusStyle(card, 'status-train', 'status-play');
     });
   } else if (wordsHtml.length) {
+    translation.forEach((word) => word.classList.toggle('play-status-word'));
     wordsHtml.forEach((word) => word.classList.toggle('play-status-word'));
     wordsImages.forEach((image) => image.classList.toggle('play-status-word-image'));
   }

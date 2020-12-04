@@ -1,6 +1,7 @@
 import createCardWord from '../cards/createCardWord';
 import getIsStatusTrain from '../status/status';
 import { getArrayCategories } from './createObjectCategory';
+import addAnimation from '../cards/animationCardWord';
 
 const wrapper = document.querySelector('.wrapper');
 let words = [];
@@ -23,7 +24,8 @@ function changeStylesForCards() {
 }
 
 function getSound(e) {
-  if (getIsStatusTrain()) {
+  const rotate = e.currentTarget.querySelector('.word-rotate');
+  if (getIsStatusTrain() && e.target !== rotate) {
     const nameWord = e.currentTarget.getAttribute('data-word');
     const objWord = words.find((el) => el.word === nameWord);
     objWord.getAudio();
@@ -33,6 +35,7 @@ function getSound(e) {
 function addEventsForCards() {
   const cardsWords = document.querySelectorAll('.card-word');
   cardsWords.forEach((card) => card.addEventListener('pointerup', getSound));
+  addAnimation();
 }
 
 function selectCategory(e, attribute) {

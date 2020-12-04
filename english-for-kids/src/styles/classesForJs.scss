@@ -7,7 +7,7 @@
 }
 
 .displayNone {
-    display: none;
+    display: none !important;
 }
 
 .marginLeftZero {
@@ -29,4 +29,21 @@
 .active-link {
     color: black !important;
     font-weight: 900;
+}
+
+.animation-card {
+    transform: perspective(300px) rotateY(180deg) !important;
+}
+
+.z-index {
+    z-index: 10;
+}
+
+.word-reverse {
+    transform: rotateY(180deg);
+    display: flex;
+}
+
+.reverse {
+    transform: rotateY(180deg);
 }
