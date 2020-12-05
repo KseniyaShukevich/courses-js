@@ -3,6 +3,10 @@
     width: 300px;
     height: 300px;
     margin-bottom: 30px;
+    transition: 0.2s;
+    &:hover {
+        margin-top: -5px;
+    }
     @media screen and (max-width: 767px) {
             margin: 0 auto;
             margin-bottom: 30px;
