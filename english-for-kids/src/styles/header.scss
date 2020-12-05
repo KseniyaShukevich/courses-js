@@ -8,7 +8,7 @@
 
 .header-container {
     @include flex();
-    height: 100px;
+    height: 80px;
     @extend %container;
     .burger-menu-container {
         @include flex();
