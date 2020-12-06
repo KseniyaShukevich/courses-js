@@ -1,9 +1,9 @@
 .end-of-game {
     display: none;
-    position: absolute;
+    position: fixed;
     z-index: 500;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: white;
     justify-content: center;
     align-items: center;
@@ -11,9 +11,21 @@
         .text-end-game {
             font-size: 60px;
             text-align: center;
+            @media screen and (max-width: 1279px) {
+                font-size: 30px;
+            }
+            @media screen and (max-width: 767px) {
+                font-size: 20px;
+            }
         }
         .image-end-game {
             width: 500px;
+            @media screen and (max-width: 1279px) {
+                width: 300px;
+            }
+            @media screen and (max-width: 767px) {
+                width: 150px;
+            }
         }
     }
 }
