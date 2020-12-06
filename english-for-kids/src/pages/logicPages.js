@@ -1,6 +1,7 @@
 import createCardWord from '../cards/createCardWord';
-import getIsStatusTrain from '../status/status';
+import getIsStatusTrain, { getButtonStartGame } from '../status/status';
 import { getArrayCategories } from './createObjectCategory';
+import addAnimation from '../cards/animationCardWord';
 
 const wrapper = document.querySelector('.wrapper');
 let words = [];
@@ -18,12 +19,16 @@ export default function removeCards() {
 function changeStylesForCards() {
   const wordsHtml = document.querySelectorAll('.container-name-word');
   const wordsImages = document.querySelectorAll('.card-word-image');
+  const translation = document.querySelectorAll('.container-translation');
+  translation.forEach((word) => word.classList.toggle('play-status-word'));
   wordsHtml.forEach((word) => word.classList.toggle('play-status-word'));
   wordsImages.forEach((image) => image.classList.toggle('play-status-word-image'));
+  getButtonStartGame();
 }
 
 function getSound(e) {
-  if (getIsStatusTrain()) {
+  const rotate = e.currentTarget.querySelector('.word-rotate');
+  if (getIsStatusTrain() && e.target !== rotate) {
     const nameWord = e.currentTarget.getAttribute('data-word');
     const objWord = words.find((el) => el.word === nameWord);
     objWord.getAudio();
@@ -33,6 +38,7 @@ function getSound(e) {
 function addEventsForCards() {
   const cardsWords = document.querySelectorAll('.card-word');
   cardsWords.forEach((card) => card.addEventListener('pointerup', getSound));
+  addAnimation();
 }
 
 function selectCategory(e, attribute) {

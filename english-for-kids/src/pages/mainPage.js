@@ -20,16 +20,30 @@ function addEventForCards() {
   cardsCategories.forEach((card) => card.addEventListener('pointerup', createCardsOfWords));
 }
 
+function removeButtonStartGame() {
+  const containerButton = document.querySelector('.button-start-game');
+  const containerStars = document.querySelector('.container-stars');
+  if (containerButton.classList.contains('height-button')) {
+    containerStars.classList.remove('height-stars');
+    containerButton.classList.remove('height-button');
+  }
+}
+
+export default function getMain(link) {
+  removeCards();
+  fillCardsCategories();
+  changeStatusLinks(link);
+  addEventForCards();
+  removeButtonStartGame();
+  if (!getIsStatusTrain()) {
+    changeStylesCardsBackground();
+  }
+}
+
 function getMainPage(e) {
   const link = e.currentTarget.getAttribute('data-link');
   if (link === 'Main page') {
-    removeCards();
-    fillCardsCategories();
-    changeStatusLinks(link);
-    addEventForCards();
-    if (!getIsStatusTrain()) {
-      changeStylesCardsBackground();
-    }
+    getMain(link);
   }
 }
 

@@ -1,7 +1,8 @@
 export default class Word {
-  constructor(word, translation, image, audio) {
+  constructor(word, translation, image, audio, category) {
     this.word = word;
     this.translation = translation;
+    this.category = category;
     this.image = image;
     this.audio = audio;
     this.elementAudio = 0;

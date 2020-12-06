@@ -3,11 +3,19 @@
 }
 
 .displayBlock {
-    display: block;
+    display: block !important;
+}
+
+.posRelative {
+    position: relative;
+}
+
+.displayFlex {
+    display: flex !important;
 }
 
 .displayNone {
-    display: none;
+    display: none !important;
 }
 
 .marginLeftZero {
@@ -29,4 +37,34 @@
 .active-link {
     color: black !important;
     font-weight: 900;
+}
+
+.animation-card {
+    transform: perspective(300px) rotateY(180deg) !important;
+}
+
+.z-index {
+    z-index: 10;
+}
+
+.word-reverse {
+    transform: rotateY(180deg);
+    display: flex;
+}
+
+.reverse {
+    transform: rotateY(180deg);
+}
+
+.height-stars {
+    height: 30px;
+}
+
+.height-button {
+    height: 60px !important;
+    font-size: 30px !important;
+}
+
+.button-repeat {
+    width: 280px !important;
 }

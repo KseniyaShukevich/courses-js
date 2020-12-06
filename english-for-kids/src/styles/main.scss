@@ -2,6 +2,14 @@
     padding: 0 0;
     margin: 0 0;
     box-sizing: border-box;
+    -ms-user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+*:focus {
+    outline: none;
 }
 
 .main {
@@ -12,5 +20,47 @@
         padding-bottom: 20px;
         flex-wrap: wrap;
         @extend %container;
+    }
+}
+
+.container-stars {
+    display: flex;
+    justify-content: flex-end;
+    overflow: hidden;
+    height: 0px;
+    width: 100%;
+    margin-top: -50px;
+    margin-bottom: 20px;
+    transition: 0.2s;
+    .star {
+        width: 30px;
+    }
+}
+
+.container-button {
+    @include flex($jContent: center);
+    background: $main-color;
+    padding-bottom: 30px;
+    margin-top: -20px;
+    transition: 0.3s;
+    .button-start-game {
+        background: $play-color-gradient;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,.3);
+        border-radius: 10px;
+        height: 0px;
+        width: 630px;
+        color: white;
+        font-size: 0px;
+        transition: 0.2s;
+        border: none;
+        &:hover {
+            box-shadow: 0 7px 18px 0 rgba(0,0,0,.6);
+            margin-top: -3px;
+            margin-bottom: 3px;
+            cursor: pointer;
+        }
+        @media screen and (max-width: 767px) {
+            width: 280px;
+        }
     }
 }

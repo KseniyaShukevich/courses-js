@@ -5,9 +5,10 @@ function createCardImage(image) {
   return cardImage;
 }
 
-function createSvg() {
+function createSvg(word) {
   const svg = document.createElement('img');
   svg.classList.add('word-rotate');
+  svg.setAttribute('data-word', word);
   svg.src = './img/rotate.svg';
   svg.alt = 'rotate';
   return svg;
@@ -17,15 +18,39 @@ function createWord(word) {
   const cardWord = document.createElement('div');
   cardWord.classList.add('container-name-word');
   cardWord.textContent = word;
-  cardWord.append(createSvg());
+  cardWord.append(createSvg(word));
   return cardWord;
+}
+
+function createTranslationWord(word) {
+  const translation = document.createElement('div');
+  translation.classList.add('container-translation');
+  translation.textContent = word;
+  return translation;
+}
+
+function creatContainer(objWord) {
+  const container = document.createElement('div');
+  container.classList.add('container-card');
+  container.setAttribute('data-word', objWord.word);
+  container.append(createCardImage(objWord.image));
+  container.append(createWord(objWord.word));
+  container.append(createTranslationWord(objWord.translation));
+  return container;
+}
+
+function createLightLayer() {
+  const layer = document.createElement('div');
+  layer.classList.add('layer');
+  return layer;
 }
 
 export default function createCardWord(objWord) {
   const card = document.createElement('div');
   card.classList.add('card-word');
   card.setAttribute('data-word', objWord.word);
-  card.append(createCardImage(objWord.image));
-  card.append(createWord(objWord.word));
+  card.setAttribute('data-category', objWord.category);
+  card.append(createLightLayer());
+  card.append(creatContainer(objWord));
   return card;
 }
