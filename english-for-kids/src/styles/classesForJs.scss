@@ -3,7 +3,15 @@
 }
 
 .displayBlock {
-    display: block;
+    display: block !important;
+}
+
+.posRelative {
+    position: relative;
+}
+
+.displayFlex {
+    display: flex !important;
 }
 
 .displayNone {
@@ -46,4 +54,17 @@
 
 .reverse {
     transform: rotateY(180deg);
+}
+
+.height-stars {
+    height: 30px;
+}
+
+.height-button {
+    height: 60px !important;
+    font-size: 30px !important;
+}
+
+.button-repeat {
+    width: 280px !important;
 }

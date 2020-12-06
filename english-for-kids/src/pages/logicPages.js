@@ -1,5 +1,5 @@
 import createCardWord from '../cards/createCardWord';
-import getIsStatusTrain from '../status/status';
+import getIsStatusTrain, { getButtonStartGame } from '../status/status';
 import { getArrayCategories } from './createObjectCategory';
 import addAnimation from '../cards/animationCardWord';
 
@@ -19,8 +19,11 @@ export default function removeCards() {
 function changeStylesForCards() {
   const wordsHtml = document.querySelectorAll('.container-name-word');
   const wordsImages = document.querySelectorAll('.card-word-image');
+  const translation = document.querySelectorAll('.container-translation');
+  translation.forEach((word) => word.classList.toggle('play-status-word'));
   wordsHtml.forEach((word) => word.classList.toggle('play-status-word'));
   wordsImages.forEach((image) => image.classList.toggle('play-status-word-image'));
+  getButtonStartGame();
 }
 
 function getSound(e) {

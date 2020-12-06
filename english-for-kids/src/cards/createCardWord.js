@@ -39,10 +39,18 @@ function creatContainer(objWord) {
   return container;
 }
 
+function createLightLayer() {
+  const layer = document.createElement('div');
+  layer.classList.add('layer');
+  return layer;
+}
+
 export default function createCardWord(objWord) {
   const card = document.createElement('div');
   card.classList.add('card-word');
   card.setAttribute('data-word', objWord.word);
+  card.setAttribute('data-category', objWord.category);
+  card.append(createLightLayer());
   card.append(creatContainer(objWord));
   return card;
 }
