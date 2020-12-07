@@ -63,12 +63,16 @@ export function getSortString(index) {
   return arrWords;
 }
 
-function getSortNumber(index) {
+export function getSortNumber(index) {
   arrWords.sort((a, b) => {
     const el1 = a.split(':');
     const el2 = b.split(':');
     return +el1[index] - +el2[index];
   });
+}
+
+export function getArrOfWords() {
+  return arrWords;
 }
 
 function actionSort(e) {

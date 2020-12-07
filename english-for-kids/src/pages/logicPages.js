@@ -52,8 +52,11 @@ function selectCategory(e, attribute) {
   return category.words;
 }
 
-export function fillCards() {
-  words.forEach((el) => wrapper.append(createCardWord(el)));
+export function fillCards(w = words, category = {}) {
+  if (Object.keys(category).length) {
+    words = category.words;
+  }
+  w.forEach((el) => wrapper.append(createCardWord(el)));
   addEventsForCards();
   addEventsStatisticsClicks();
   if (!getIsStatusTrain()) {
