@@ -2,13 +2,14 @@ import removeCards from './logicPages';
 import changeStatusLinks from '../menu/statusLinks';
 import createRow, { changePadding } from '../statistics/createRow';
 import getArrayStatistics, { checkStatistics, clearStatistics } from '../statistics/localStorage';
+import { getSort } from '../statistics/sortStatistics';
 
 const menuLinks = document.querySelectorAll('.menu-link');
 const btnClearStatistics = document.querySelector('.btn-reset');
+const buttonsTable = document.querySelectorAll('.heading-table');
 
-function getStatistics() {
+function getStatistics(arrStatistics = getArrayStatistics()) {
   const table = document.querySelector('.table-statistics');
-  const arrStatistics = getArrayStatistics();
   for (let i = 0; i < arrStatistics.length; i += 1) {
     table.append(createRow(arrStatistics[i].split(':')));
   }
@@ -39,7 +40,14 @@ function getClearStatistics() {
   getStatistics();
 }
 
+function doSort(e) {
+  const result = getSort(e);
+  removeRows();
+  getStatistics(result);
+}
+
 menuLinks.forEach((link) => link.addEventListener('pointerup', getStatisticsPage));
 document.addEventListener('resize', changePadding);
 btnClearStatistics.addEventListener('pointerup', getClearStatistics);
+buttonsTable.forEach((btn) => btn.addEventListener('pointerup', doSort));
 checkStatistics();

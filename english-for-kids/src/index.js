@@ -5,3 +5,4 @@ import './pages/mainPage';
 import './pages/pageCategory';
 import './pages/statisticPage';
 import './game/startGame';
+import './statistics/sortStatistics';

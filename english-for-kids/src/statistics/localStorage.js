@@ -1,5 +1,6 @@
 import { getArrayCategories } from '../pages/createObjectCategory';
 import getIsStatusTrain from '../status/status';
+import { addSortIconInit, getSortString } from './sortStatistics';
 
 const hash = 'so8u4fdk';
 let words = [];
@@ -73,9 +74,11 @@ export function checkStatistics() {
 
 export default function getArrayStatistics() {
   checkStatistics();
-  const result = [];
+  let result = [];
   for (let i = 0; i < words.length; i += 1) {
     result.push(localStorage.getItem(`${hash}${words[i].word}`));
   }
+  addSortIconInit(result);
+  result = getSortString(0);
   return result;
 }
