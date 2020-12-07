@@ -21,7 +21,7 @@ export default function changeStatusLinks(name) {
 }
 
 export function activeMainPageLink() {
-  const linkMainPage = Array.from(menuLinks).find((link) => link.getAttribute('data-link') === 'Main page');
-  linkMainPage.setAttribute('data-isActive', 'true');
-  linkMainPage.classList.add('active-link');
+  const link = Array.from(menuLinks).find((el) => el.getAttribute('data-link') === 'Main page');
+  link.setAttribute('data-isActive', 'true');
+  link.classList.add('active-link');
 }
