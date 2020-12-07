@@ -6,3 +6,4 @@ import './pages/pageCategory';
 import './pages/statisticPage';
 import './game/startGame';
 import './statistics/sortStatistics';
+import './game/difficultWords';

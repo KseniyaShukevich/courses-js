@@ -14,12 +14,25 @@
 
 .main {
     background: $main-color;
+    min-height: 90vh;
     .wrapper {
         @include flex();
         padding-top: 150px;
         padding-bottom: 20px;
         flex-wrap: wrap;
         @extend %container;
+    }
+}
+
+.wrapper-message {
+    text-align: center;
+    width: 100%;
+    padding-top: 10%;
+    display: none;
+    color: rgb(189, 162, 9);
+    font-size: 80px;
+    @media screen and (max-width: 767px) {
+        font-size: 40px;
     }
 }
 

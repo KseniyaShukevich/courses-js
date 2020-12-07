@@ -3,6 +3,7 @@ import { getArrayCategories } from '../pages/createObjectCategory';
 import getObjGame from './classGame';
 import getMain from '../pages/mainPage';
 import { addCorrClick, addErrClicks } from '../statistics/localStorage';
+import getDifficultCategory, { clearCategory } from './difficultWords';
 
 const buttonGame = document.querySelector('.button-start-game');
 const menuLinks = document.querySelectorAll('.menu-link');
@@ -21,15 +22,15 @@ function getCategoryObject() {
 }
 
 function getRandomIndex() {
-  const wordCount = 8;
-  const rand = Math.random() * wordCount;
+  const cards = document.querySelectorAll('.card-word');
+  const rand = Math.random() * cards.length;
   return Math.floor(rand);
 }
 
 function getArrayWords(category) {
-  const wordCount = 8;
+  const cards = document.querySelectorAll('.card-word');
   const arrayIndex = [];
-  for (let i = 0; i < wordCount; i += 1) {
+  for (let i = 0; i < cards.length; i += 1) {
     const index = getRandomIndex();
     if (arrayIndex.includes(index)) {
       i -= 1;
@@ -107,10 +108,10 @@ function getEndGame() {
 }
 
 function isEndGame() {
-  const wordCount = 8;
-  if (correctWordCount === wordCount) {
+  if (correctWordCount === arrayWords.length) {
     getEndGame();
     clearGame();
+    clearCategory();
     return true;
   }
   return false;
@@ -119,14 +120,13 @@ function isEndGame() {
 function checkCard(e) {
   const word = e.currentTarget.getAttribute('data-word');
   const containerStars = document.querySelector('.container-stars');
-  const wordCount = 8;
   if (arrayWords[correctWordCount].word === word) {
     addCorrClick(word);
     game.getAudioCorr();
     containerStars.append(game.getImgCorrStar());
     getLayer(e);
     correctWordCount += 1;
-    if (correctWordCount < wordCount) {
+    if (correctWordCount < arrayWords.length) {
       getAudioWord();
     }
   } else {
@@ -162,7 +162,13 @@ function addEventForCards() {
 function getGame() {
   if (!arrayWords.length) {
     getButtonRepeat();
-    const category = getCategoryObject();
+    let category = {};
+    const difCategory = getDifficultCategory();
+    if (Object.keys(difCategory).length) {
+      category = difCategory;
+    } else {
+      category = getCategoryObject();
+    }
     getArrayWords(category);
     addEventForCards();
   }
@@ -183,4 +189,7 @@ buttonGame.addEventListener('pointerup', getGame);
 buttonStatus.addEventListener('pointerup', resetGame);
 menuLinks.forEach((element) => {
   element.addEventListener('pointerup', resetGame);
+});
+menuLinks.forEach((element) => {
+  element.addEventListener('pointerup', clearCategory);
 });
