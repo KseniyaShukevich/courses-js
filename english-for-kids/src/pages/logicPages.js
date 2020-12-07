@@ -2,6 +2,7 @@ import createCardWord from '../cards/createCardWord';
 import getIsStatusTrain, { getButtonStartGame } from '../status/status';
 import { getArrayCategories } from './createObjectCategory';
 import addAnimation from '../cards/animationCardWord';
+import { addEventsStatisticsClicks } from '../statistics/localStorage';
 
 const wrapper = document.querySelector('.wrapper');
 let words = [];
@@ -9,10 +10,13 @@ let words = [];
 export default function removeCards() {
   const cardsCategory = document.querySelectorAll('.card');
   const cardsWord = document.querySelectorAll('.card-word');
+  const wrapperStatistics = document.querySelector('.wrapper-statistics');
   if (cardsCategory.length) {
     cardsCategory.forEach((el) => el.remove());
-  } else {
+  } else if (cardsWord.length) {
     cardsWord.forEach((el) => el.remove());
+  } else {
+    wrapperStatistics.classList.remove('displayBlock');
   }
 }
 
@@ -51,6 +55,7 @@ function selectCategory(e, attribute) {
 export function fillCards() {
   words.forEach((el) => wrapper.append(createCardWord(el)));
   addEventsForCards();
+  addEventsStatisticsClicks();
   if (!getIsStatusTrain()) {
     changeStylesForCards();
   }

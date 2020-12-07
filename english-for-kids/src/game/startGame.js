@@ -2,6 +2,7 @@ import getButtonStartGame, { changeButtonStartGame, getButtonRepeat } from './ch
 import { getArrayCategories } from '../pages/createObjectCategory';
 import getObjGame from './classGame';
 import getMain from '../pages/mainPage';
+import { addCorrClick, addErrClicks } from '../statistics/localStorage';
 
 const buttonGame = document.querySelector('.button-start-game');
 const menuLinks = document.querySelectorAll('.menu-link');
@@ -120,6 +121,7 @@ function checkCard(e) {
   const containerStars = document.querySelector('.container-stars');
   const wordCount = 8;
   if (arrayWords[correctWordCount].word === word) {
+    addCorrClick(word);
     game.getAudioCorr();
     containerStars.append(game.getImgCorrStar());
     getLayer(e);
@@ -128,6 +130,7 @@ function checkCard(e) {
       getAudioWord();
     }
   } else {
+    addErrClicks(word);
     game.getAudioError();
     containerStars.append(game.getImgErrStar());
     errors += 1;
