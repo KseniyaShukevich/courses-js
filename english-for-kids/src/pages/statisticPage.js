@@ -7,6 +7,7 @@ import { getSort } from '../statistics/sortStatistics';
 const menuLinks = document.querySelectorAll('.menu-link');
 const btnClearStatistics = document.querySelector('.btn-reset');
 const buttonsTable = document.querySelectorAll('.heading-table');
+const buttonStatus = document.querySelector('.button-header');
 
 function getStatistics(arrStatistics = getArrayStatistics()) {
   const table = document.querySelector('.table-statistics');
@@ -16,7 +17,22 @@ function getStatistics(arrStatistics = getArrayStatistics()) {
   changePadding();
 }
 
+function removeButton() {
+  const btn = document.querySelector('.button-start-game');
+  if (btn.classList.contains('height-button')) {
+    btn.classList.remove('height-button');
+  }
+}
+
+function removeStartGame() {
+  const wrapStatistics = document.querySelector('.wrapper-statistics');
+  if (wrapStatistics.classList.contains('displayBlock')) {
+    removeButton();
+  }
+}
+
 function getStatisticsPage(e) {
+  removeButton();
   const link = e.currentTarget.getAttribute('data-link');
   if (link === 'Statistics') {
     const wrapperStatistics = document.querySelector('.wrapper-statistics');
@@ -50,4 +66,5 @@ menuLinks.forEach((link) => link.addEventListener('pointerup', getStatisticsPage
 document.addEventListener('resize', changePadding);
 btnClearStatistics.addEventListener('pointerup', getClearStatistics);
 buttonsTable.forEach((btn) => btn.addEventListener('pointerup', doSort));
+buttonStatus.addEventListener('pointerup', removeStartGame);
 checkStatistics();
