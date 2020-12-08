@@ -71,11 +71,11 @@ function doSort(e) {
   getStatistics(result);
 }
 
-menuLinks.forEach((link) => link.addEventListener('pointerup', getStatisticsPage));
-menuLinks.forEach((link) => link.addEventListener('pointerup', setIsStatistics));
+menuLinks.forEach((link) => link.addEventListener('click', getStatisticsPage));
+menuLinks.forEach((link) => link.addEventListener('click', setIsStatistics));
 document.addEventListener('resize', changePadding);
-btnClearStatistics.addEventListener('pointerup', getClearStatistics);
-buttonsTable.forEach((btn) => btn.addEventListener('pointerup', doSort));
-buttonStatus.addEventListener('pointerup', removeButton);
-btnDifficultWords.addEventListener('pointerup', setStatusStatistics);
+btnClearStatistics.addEventListener('click', getClearStatistics);
+buttonsTable.forEach((btn) => btn.addEventListener('click', doSort));
+buttonStatus.addEventListener('click', removeButton);
+btnDifficultWords.addEventListener('click', setStatusStatistics);
 checkStatistics();
