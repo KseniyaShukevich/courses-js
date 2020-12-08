@@ -35,7 +35,7 @@ const cards = [
       audioSrc: 'audio/draw.mp3',
     },
     {
-      word: 'fish',
+      word: 'fish (verb)',
       translation: 'ловить рыбу',
       image: 'img/fish.jpg',
       audioSrc: 'audio/fish.mp3',
