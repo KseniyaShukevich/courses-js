@@ -1,4 +1,5 @@
 let timeoutId = 0;
+let isAnimation = false;
 
 function findCard(e) {
   const cards = document.querySelectorAll('.card-word');
@@ -23,6 +24,7 @@ function delateSetTimeout() {
 }
 
 function getMainOfCard(e) {
+  isAnimation = false;
   const card = e.currentTarget;
   const container = card.querySelector('.container-card');
   container.classList.remove('animation-card');
@@ -46,6 +48,7 @@ function addClasses(card) {
 }
 
 function getAnimation(e) {
+  isAnimation = true;
   const card = findCard(e);
   const container = card.querySelector('.container-card');
   card.classList.add('z-index');
@@ -59,4 +62,8 @@ function getAnimation(e) {
 export default function addAnimation() {
   const rotates = document.querySelectorAll('.word-rotate');
   rotates.forEach((el) => el.addEventListener('pointerup', getAnimation));
+}
+
+export function getIsAnimation() {
+  return isAnimation;
 }
