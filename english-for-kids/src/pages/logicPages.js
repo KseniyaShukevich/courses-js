@@ -1,7 +1,7 @@
 import createCardWord from '../cards/createCardWord';
 import getIsStatusTrain, { getButtonStartGame } from '../status/status';
 import { getArrayCategories } from './createObjectCategory';
-import addAnimation from '../cards/animationCardWord';
+import addAnimation, { getIsAnimation } from '../cards/animationCardWord';
 import { addEventsStatisticsClicks } from '../statistics/localStorage';
 
 const wrapper = document.querySelector('.wrapper');
@@ -31,11 +31,13 @@ function changeStylesForCards() {
 }
 
 function getSound(e) {
-  const rotate = e.currentTarget.querySelector('.word-rotate');
-  if (getIsStatusTrain() && e.target !== rotate) {
-    const nameWord = e.currentTarget.getAttribute('data-word');
-    const objWord = words.find((el) => el.word === nameWord);
-    objWord.getAudio();
+  if (!getIsAnimation()) {
+    const rotate = e.currentTarget.querySelector('.word-rotate');
+    if (getIsStatusTrain() && e.target !== rotate) {
+      const nameWord = e.currentTarget.getAttribute('data-word');
+      const objWord = words.find((el) => el.word === nameWord);
+      objWord.getAudio();
+    }
   }
 }
 
