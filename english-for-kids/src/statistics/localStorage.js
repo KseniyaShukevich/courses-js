@@ -45,7 +45,7 @@ function addTrainClick(e) {
 
 export function addEventsStatisticsClicks() {
   const cards = document.querySelectorAll('.card-word');
-  cards.forEach((card) => card.addEventListener('pointerup', addTrainClick));
+  cards.forEach((card) => card.addEventListener('click', addTrainClick));
 }
 
 function getArrWords() {

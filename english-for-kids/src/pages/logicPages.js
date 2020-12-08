@@ -43,7 +43,7 @@ function getSound(e) {
 
 function addEventsForCards() {
   const cardsWords = document.querySelectorAll('.card-word');
-  cardsWords.forEach((card) => card.addEventListener('pointerup', getSound));
+  cardsWords.forEach((card) => card.addEventListener('click', getSound));
   addAnimation();
 }
 

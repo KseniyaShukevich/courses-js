@@ -17,7 +17,7 @@ function fillCardsCategories() {
 
 function addEventForCards() {
   const cardsCategories = document.querySelectorAll('.card');
-  cardsCategories.forEach((card) => card.addEventListener('pointerup', createCardsOfWords));
+  cardsCategories.forEach((card) => card.addEventListener('click', createCardsOfWords));
 }
 
 function removeButtonStartGame() {
@@ -47,6 +47,6 @@ function getMainPage(e) {
   }
 }
 
-menuLinks.forEach((link) => link.addEventListener('pointerup', getMainPage));
+menuLinks.forEach((link) => link.addEventListener('click', getMainPage));
 createCategoriesClasses();
 fillCardsCategories();

@@ -76,4 +76,4 @@ export default function getIsStatusTrain() {
   return isStatusTrain;
 }
 
-buttonStatus.addEventListener('pointerup', changeStatusStyles);
+buttonStatus.addEventListener('click', changeStatusStyles);

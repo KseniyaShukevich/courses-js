@@ -75,10 +75,10 @@ function hideMenuForDarkLayer(e) {
 }
 
 menuLinks.forEach((link) => {
-  link.addEventListener('pointerup', hideMenu);
+  link.addEventListener('click', hideMenu);
 });
 
-burgerMenuContainer.addEventListener('pointerup', changeStatusMenu);
-darkLayer.addEventListener('pointerup', hideMenuForDarkLayer);
+burgerMenuContainer.addEventListener('click', changeStatusMenu);
+darkLayer.addEventListener('click', hideMenuForDarkLayer);
 activeMainPageLink();
 activeMainPageLink();

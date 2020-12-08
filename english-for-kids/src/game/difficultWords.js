@@ -79,4 +79,4 @@ export default function getDifficultCategory() {
   return diffCategory;
 }
 
-btnDifficultWords.addEventListener('pointerup', getDifficultPage);
+btnDifficultWords.addEventListener('click', getDifficultPage);

@@ -35,7 +35,7 @@ function getMainOfCard(e) {
   setTimeout(() => {
     card.classList.remove('z-index');
   }, 600);
-  card.removeEventListener('pointerleave', getMainOfCard);
+  card.removeEventListener('mouseleave', getMainOfCard);
 }
 
 function addClasses(card) {
@@ -56,12 +56,12 @@ function getAnimation(e) {
   timeoutId = setTimeout(() => {
     addClasses(card);
   }, 200);
-  card.addEventListener('pointerleave', getMainOfCard);
+  card.addEventListener('mouseleave', getMainOfCard);
 }
 
 export default function addAnimation() {
   const rotates = document.querySelectorAll('.word-rotate');
-  rotates.forEach((el) => el.addEventListener('pointerup', getAnimation));
+  rotates.forEach((el) => el.addEventListener('click', getAnimation));
 }
 
 export function getIsAnimation() {

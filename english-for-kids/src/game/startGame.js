@@ -144,19 +144,19 @@ function check(e) {
     if (isEndGame()) {
       getButtonStartGame();
       const cards = document.querySelectorAll('.card-word');
-      cards.forEach((card) => card.removeEventListener('pointerup', check));
+      cards.forEach((card) => card.removeEventListener('click', check));
     }
   }
 }
 
 function removeEventsForCards() {
   const cards = document.querySelectorAll('.card-word');
-  cards.forEach((card) => card.removeEventListener('pointerup', check));
+  cards.forEach((card) => card.removeEventListener('click', check));
 }
 
 function addEventForCards() {
   const cards = document.querySelectorAll('.card-word');
-  cards.forEach((card) => card.addEventListener('pointerup', check));
+  cards.forEach((card) => card.addEventListener('click', check));
 }
 
 function getGame() {
@@ -185,11 +185,11 @@ function resetGame(e) {
   removeEventsForCards();
 }
 
-buttonGame.addEventListener('pointerup', getGame);
-buttonStatus.addEventListener('pointerup', resetGame);
+buttonGame.addEventListener('click', getGame);
+buttonStatus.addEventListener('click', resetGame);
 menuLinks.forEach((element) => {
-  element.addEventListener('pointerup', resetGame);
+  element.addEventListener('click', resetGame);
 });
 menuLinks.forEach((element) => {
-  element.addEventListener('pointerup', clearCategory);
+  element.addEventListener('click', clearCategory);
 });

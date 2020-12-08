@@ -17,5 +17,5 @@ function getPageCategory(e) {
   }
 }
 
-cards.forEach((card) => card.addEventListener('pointerup', createCardsOfWords));
-menuLinks.forEach((link) => link.addEventListener('pointerup', getPageCategory));
+cards.forEach((card) => card.addEventListener('click', createCardsOfWords));
+menuLinks.forEach((link) => link.addEventListener('click', getPageCategory));
