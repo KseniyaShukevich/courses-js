@@ -8,6 +8,8 @@ const menuLinks = document.querySelectorAll('.menu-link');
 const btnClearStatistics = document.querySelector('.btn-reset');
 const buttonsTable = document.querySelectorAll('.heading-table');
 const buttonStatus = document.querySelector('.button-header');
+const btnDifficultWords = document.querySelector('.btn-difficult-words');
+let isStatisticsPage = false;
 
 function getStatistics(arrStatistics = getArrayStatistics()) {
   const table = document.querySelector('.table-statistics');
@@ -18,20 +20,27 @@ function getStatistics(arrStatistics = getArrayStatistics()) {
 }
 
 function removeButton() {
-  const btn = document.querySelector('.button-start-game');
-  if (btn.classList.contains('height-button')) {
-    btn.classList.remove('height-button');
-  }
+  setTimeout(() => {
+    const btn = document.querySelector('.button-start-game');
+    if (isStatisticsPage && btn.classList.contains('height-button')) {
+      btn.classList.remove('height-button');
+    }
+  }, 300);
 }
 
-function removeStartGame() {
-  const wrapStatistics = document.querySelector('.wrapper-statistics');
-  if (wrapStatistics.classList.contains('displayBlock')) {
-    removeButton();
+function setStatusStatistics() {
+  isStatisticsPage = false;
+}
+
+function setIsStatistics(e) {
+  const link = e.currentTarget.getAttribute('data-link');
+  if (link !== 'Statistics') {
+    isStatisticsPage = false;
   }
 }
 
 function getStatisticsPage(e) {
+  isStatisticsPage = true;
   removeButton();
   const link = e.currentTarget.getAttribute('data-link');
   if (link === 'Statistics') {
@@ -63,8 +72,10 @@ function doSort(e) {
 }
 
 menuLinks.forEach((link) => link.addEventListener('pointerup', getStatisticsPage));
+menuLinks.forEach((link) => link.addEventListener('pointerup', setIsStatistics));
 document.addEventListener('resize', changePadding);
 btnClearStatistics.addEventListener('pointerup', getClearStatistics);
 buttonsTable.forEach((btn) => btn.addEventListener('pointerup', doSort));
-buttonStatus.addEventListener('pointerup', removeStartGame);
+buttonStatus.addEventListener('pointerup', removeButton);
+btnDifficultWords.addEventListener('pointerup', setStatusStatistics);
 checkStatistics();
