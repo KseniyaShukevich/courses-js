@@ -39,8 +39,16 @@ function setIsStatistics(e) {
   }
 }
 
+function removeRows() {
+  const rows = document.querySelectorAll('.row-statistics');
+  if (rows) {
+    rows.forEach((row) => row.remove());
+  }
+}
+
 function getStatisticsPage(e) {
   isStatisticsPage = true;
+  removeRows();
   removeButton();
   const link = e.currentTarget.getAttribute('data-link');
   if (link === 'Statistics') {
@@ -52,11 +60,6 @@ function getStatisticsPage(e) {
       getStatistics();
     }
   }
-}
-
-function removeRows() {
-  const rows = document.querySelectorAll('.row-statistics');
-  rows.forEach((row) => row.remove());
 }
 
 function getClearStatistics() {
